@@ -26,55 +26,53 @@
         width: 100%;
     }
 
-    .row.full-width > [class*='col-'] {
-        padding: 0;
-    }
+        .row.full-width > [class*='col-'] {
+            padding: 0;
+        }
 
     .card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255,255,255,0.9);
         border: none;
-        border-radius: 0px;
-        margin: 3px auto;
-        padding: 20px;
+        height: 550px;
+        border-radius: 0;
+        margin-top: 10px;
     }
 
     .carousel-inner img {
-        width: 100%;
-        height: auto; 
+        height: 550px;
         object-fit: cover;
-        border-radius: 0px;
     }
 
     main, .wrapper, .content {
         min-height: calc(100vh - 60px);
-    } 
-    @@media (max-width: 768px) {
-        .carousel-inner img {
-            height: 250px; 
-        }
-        .card {
-            margin-top: 20px;
-        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    ul li{
+        padding-left:15px;
+        font-family: Cascadia Mono;
     }
 </style>
-
 <div class="row mt-2">
-    <div class="col-12" style="min-height:50px; background-color:orangered; font-size:14px; padding:10px; text-align:center; color:#fff">
-        <b>Raadha Capital awarded Brand of the Year 2025</b>  
-        <span>Your faith empowers us to deliver unmatched excellence</span>
+    <div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
+        <span><b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence</span>
     </div>
 </div>
+<div class="row full-width no-gutters">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div class="row full-width no-gutters mt-3">
-    <!-- Carousel Section -->
-    <div class="col-lg-8 col-md-7 col-sm-12">
+    <div class="col-md-8 mt-4">
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="padding:0;">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="@Url.Content("~/Images/bond.jpg")" alt="First slide">
                 </div>
@@ -86,16 +84,17 @@
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
             </a>
         </div>
     </div>
 
-    <!-- Form Section -->
-    <div class="col-lg-4 col-md-5 col-sm-12 ">
+    <div class="col-md-4 mt-2 p-1">
         <div class="card">
             <div class="card-body">
                 <p><b>Start building your financial future with RaadhaCapital</b></p>
@@ -111,109 +110,69 @@
                         </select>
                         <span asp-validation-for="Product" class="text-danger"></span>
                     </div>
-
                     <div class="form-group mb-3">
                         <label>Name</label>
-                        <input type="text" class="form-control" asp-for="Name" placeholder="Enter your full name">
+                        <input type="text" class="form-control" asp-for="Name" placeholder="Please enter your full name">
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-
                     <div class="form-group mb-3">
                         <label>Email Address (optional)</label>
                         <input type="email" class="form-control" asp-for="Email" placeholder="Your email id">
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-
                     <div class="form-group mb-3">
                         <label>Mobile Number</label>
-                        <input type="tel" class="form-control" asp-for="Mobile" placeholder="Enter your mobile number">
+                        <input type="tel" class="form-control" asp-for="Mobile" placeholder="Enter Your mobile number">
                         <span asp-validation-for="Mobile" class="text-danger"></span>
                     </div>
-
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" asp-for="Consent">
                         <label class="form-check-label">
-                            By continuing, you agree to our <a href="#" target="_blank">Terms & Conditions</a>
+                            By continuing, you provide consent and agree to our
+                            <a href="#" target="_blank">Terms & Conditions</a>
                         </label>
                         <span asp-validation-for="Consent" class="text-danger"></span>
                     </div>
-
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block w-100">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
- 
+<div class="container-fluid mt-4 px-0">
+    <div class="row justify-content-center" style="background-color:white">
+        <!-- पहला बॉक्स -->
+        <div class="col-12 col-md-5 mb-3 px-3">
+            <div style="border:2px solid black; border-radius:20px; height:380px;margin-top:10px">
+                <h4 style="color:#A10B0C; padding-left:10px;">I want to...</h4>
+                <ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
+                    <li><a asp-controller="Insurance" asp-action="Life">Life Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Health">Health Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Motor">Motor Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Travel">Travel Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Home">Home Insurance</a></li>
+                </ul>
 
-<div class="cards">
-    <div class="row g-4">
-
-        <div class="col-lg-3 col-md-6 col-6">
-            <a href="https://www.bajajcapitalinsurance.com/general-insurance/pet/input/customer-details" target="_blank">
-                <div class="card h-100">
-                    <label class="badge bg-danger position-absolute m-2">Newly Launched</label>
-                    <img src="~/images/pet_insurance.png" alt="product-img" class="card-img-top product-img">
-                    <div class="card-body text-center">
-                        <h5 class="heading orange">Pet Insurance</h5>
-                        <p class="text">Your best friend deserves the best healthcare</p>
-                        <span class="link bg_orange">Buy Now</span>
-                    </div>
-                </div>
-            </a>
+            </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 col-6">
-            <a href="https://www.bajajcapitalinsurance.com/general-insurance/bike/lead-page" target="_blank">
-                <div class="card h-100">
-                    <img src="~/images/bike.png" alt="product-img" class="card-img-top product-img">
-                    <div class="card-body text-center">
-                        <h5 class="heading yellow">2 Wheeler Insurance</h5>
-                        <p class="text">Cover your bike against damage or theft</p>
-                        <span class="link bg_yellow text-white">Buy Now</span>
-                    </div>
-                </div>
-            </a>
+        <!-- दूसरा बॉक्स -->
+        <div class="col-12 col-md-5 mb-3 px-3">
+            <div style="border:2px solid black; border-radius:20px; height:380px; margin-top:10px">
+                <h4 style="color:#A10B0C; padding-left:10px">I'm searching for..</h4>
+                <ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
+                    <li><a asp-controller="Insurance" asp-action="Fire">
+                            <img src="https://image.bajajcapitalone.com/bajajcapital/retirement-planning_1.jpg" height="15" width="15" />
+                        Fire Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Marine">
+                            <img alt="" src="https://image.bajajcapitalone.com/bajajcapital/insurance_0.jpg" height="20" width="20">
+                        Marine Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Property">Property Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Liability">Liability Insurance</a></li>
+                    <li><a asp-controller="Insurance" asp-action="Crop">Crop Insurance</a></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 col-6">
-            <a href="https://www.bajajcapitalinsurance.com/general-insurance/car/lead-page" target="_blank">
-                <div class="card h-100">
-                    <img src="~/images/car.png" alt="product-img" class="card-img-top product-img">
-                    <div class="card-body text-center">
-                        <h5 class="heading grey">Car Insurance</h5>
-                        <p class="text">Buy Car Insurance policy online instantly</p>
-                        <span class="link bg_grey text-white">Buy Now</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-6">
-            <a href="https://www.bajajcapitalinsurance.com/general-insurance/health/input/basic-details" target="_blank">
-                <div class="card h-100 active">
-                    <img src="~/images/health.png" alt="product-img" class="card-img-top product-img">
-                    <div class="card-body text-center">
-                        <h5 class="heading green">Health Insurance</h5>
-                        <p class="text">Comprehensive and hassle-free medical cover</p>
-                        <span class="link bg_green text-white">Buy Now</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-6">
-            <a href="#">
-                <div class="card h-100">
-                    <img src="~/images/term.png" alt="product-img" class="card-img-top product-img">
-                    <div class="card-body text-center">
-                        <h5 class="heading pink">Term Life Insurance</h5>
-                        <p class="text">Protect your family, even when you are not around</p>
-                        <span class="link bg_pink text-white">Register here</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
     </div>
 </div>
+
+
