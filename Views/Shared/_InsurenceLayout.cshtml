@@ -1,12 +1,107 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RadhaCapitalFinance</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RadhaCapitalFinance.styles.css" asp-append-version="true" />
+    <link href="~/css/layoustyle.css" rel="stylesheet" />
 </head>
-<body>
-    <div>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-uppercase" asp-area="" asp-controller="Home" asp-action="Index">Radha Capital</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a class="btn btn-login" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
         @RenderBody()
     </div>
+    <footer class="footer-container-wrapper footer text-muted">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md footer-logo footer-link">
+                    <p>Raadha Capital is India’s premier investment services group engaged inter-alia in the distribution of mutual funds, insurance, fixed deposits, bonds, loans et al.</p>
+                </div>
+                <div class="col-12 col-md footer-nav">
+                    <h4>Offering</h4>
+                    <ul>
+                        <li class="footer-link"><a href="#" target="_blank">Mutual Funds</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Insurance</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">National Pension System</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Health Insurance</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Car Insurance</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Two-Wheeler Insurance</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Pet Insurance</a></li>
+                        <li class="footer-link"><a href="/bonds">Bonds</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Fixed Deposits</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Exclusively for Women</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">AMC for Investments</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Partner With Us</a></li>
+                    </ul>
+                </div>
+                <!-- Calculators -->
+                <div class="col-12 col-md footer-nav">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li class="footer-link"><a href="#" target="_blank">Systematic Investment Planner</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Lumpsum Investment</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Systematic Withdrawal Planner</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Pension</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Child's Marriage Planner</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Maturity Amount</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Human Life Value</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Gratuity</a></li>
+                        <li class="footer-link"><a href="#">Tax Saving</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Retirement Planning</a></li>
+                        <li class="footer-link"><a href="#" target="_blank">Crorepati Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md updated">
+                    <h4>Contact</h4>
+                    <a class="footer-link" href="tel:1800-313-123123"><span class="material-icons-outlined">phone</span><span>1800-313-123123</span></a>
+                    <p clas="footer-link">Mon - Sat (10 AM - 6 PM)</p>
+                    <p clas="footer-link">In case of any queries, feel free to call or write to us. We will be very happy to assist you.</p>
+
+
+                    <ul class="social-links list-inline">
+                        <li class="footer-link"><a href="#" target="_blank"></a></li>
+                        <li class="footer-link"><a href="#" target="_blank"></a></li>
+                        <li class="footer-link"><a href="#" target="_blank"> </a></li>
+                        <li class="footer-link"><a href="#" target="_blank"> </a></li>
+                        <li class="footer-link"><a href="#" target="_blank"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
