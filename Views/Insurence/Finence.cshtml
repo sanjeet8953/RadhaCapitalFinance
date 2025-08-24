@@ -1,8 +1,8 @@
 ﻿@model RadhaCapitalFinance.Models.InsurenceModel
 @{
     ViewData["Title"] = "Finence";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
-
 <style>
     html, body {
         margin: 0;
@@ -62,13 +62,13 @@
             </ol>
             <div class="carousel-inner" style="padding:0;">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="@Url.Content("~/images/bond.jpg")" alt="First slide">
+                    <img class="d-block w-100" src="@Url.Content("~/Images/bond.jpg")" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="@Url.Content("~/images/insu.jpg")" alt="Second slide">
+                    <img class="d-block w-100" src="@Url.Content("~/Images/insu.jpg")" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="@Url.Content("~/images/helth.jpg")" alt="Third slide">
+                    <img class="d-block w-100" src="@Url.Content("~/Images/helth.jpg")" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
