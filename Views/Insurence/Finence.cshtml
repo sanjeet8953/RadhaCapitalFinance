@@ -26,41 +26,55 @@
         width: 100%;
     }
 
-        .row.full-width > [class*='col-'] {
-            padding: 0; 
-        }
+    .row.full-width > [class*='col-'] {
+        padding: 0;
+    }
 
     .card {
-        background: rgba(255,255,255,0.9);
+        background: rgba(255, 255, 255, 0.95);
         border: none;
-        height: 550px; 
-        border-radius: 0; 
-        margin-left:20px;
+        border-radius: 0px;
+        margin: 3px auto;
+        padding: 20px;
     }
 
     .carousel-inner img {
-        height: 550px; 
+        width: 100%;
+        height: auto; 
         object-fit: cover;
+        border-radius: 0px;
     }
 
     main, .wrapper, .content {
-        min-height: calc(100vh - 60px); 
+        min-height: calc(100vh - 60px);
+    } 
+    @@media (max-width: 768px) {
+        .carousel-inner img {
+            height: 250px; 
+        }
+        .card {
+            margin-top: 20px;
+        }
     }
 </style>
+
 <div class="row mt-2">
-    <div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
-        <span><b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence</span>
+    <div class="col-12" style="min-height:50px; background-color:orangered; font-size:14px; padding:10px; text-align:center; color:#fff">
+        <b>Raadha Capital awarded Brand of the Year 2025</b>  
+        <span>Your faith empowers us to deliver unmatched excellence</span>
     </div>
 </div>
+
 <div class="row full-width no-gutters mt-3">
-    <div class="col-md-8">
+    <!-- Carousel Section -->
+    <div class="col-lg-8 col-md-7 col-sm-12">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner" style="padding:0;">
+            <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="@Url.Content("~/Images/bond.jpg")" alt="First slide">
                 </div>
@@ -72,17 +86,16 @@
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                
+                <span class="carousel-control-prev-icon"></span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                
+                <span class="carousel-control-next-icon"></span>
             </a>
         </div>
     </div>
 
-    <div class="col-md-4">
+    <!-- Form Section -->
+    <div class="col-lg-4 col-md-5 col-sm-12 ">
         <div class="card">
             <div class="card-body">
                 <p><b>Start building your financial future with RaadhaCapital</b></p>
@@ -98,30 +111,34 @@
                         </select>
                         <span asp-validation-for="Product" class="text-danger"></span>
                     </div>
+
                     <div class="form-group mb-3">
                         <label>Name</label>
-                        <input type="text" class="form-control" asp-for="Name" placeholder="Please enter your full name">
+                        <input type="text" class="form-control" asp-for="Name" placeholder="Enter your full name">
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
+
                     <div class="form-group mb-3">
                         <label>Email Address (optional)</label>
                         <input type="email" class="form-control" asp-for="Email" placeholder="Your email id">
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
+
                     <div class="form-group mb-3">
                         <label>Mobile Number</label>
-                        <input type="tel" class="form-control" asp-for="Mobile" placeholder="Enter Your mobile number">
+                        <input type="tel" class="form-control" asp-for="Mobile" placeholder="Enter your mobile number">
                         <span asp-validation-for="Mobile" class="text-danger"></span>
                     </div>
+
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" asp-for="Consent">
                         <label class="form-check-label">
-                            By continuing, you provide consent and agree to our
-                            <a href="#" target="_blank">Terms & Conditions</a>
+                            By continuing, you agree to our <a href="#" target="_blank">Terms & Conditions</a>
                         </label>
                         <span asp-validation-for="Consent" class="text-danger"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block w-100">Submit</button>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>
             </div>
         </div>
