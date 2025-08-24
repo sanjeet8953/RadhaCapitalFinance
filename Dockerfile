@@ -1,20 +1,22 @@
-# Stage 1: Build the app
+# Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy csproj and restore dependencies
-COPY ["Funds/RadhaCapitalFinance.csproj", "Funds/"]
-RUN dotnet restore "Funds/RadhaCapitalFinance.csproj"
+COPY ["RadhaCapitalFinance.csproj", "./"]
+RUN dotnet restore "./RadhaCapitalFinance.csproj"
 
-# Copy the rest of the source
+# Copy everything else and build
 COPY . .
+WORKDIR "/src"
+RUN dotnet build "RadhaCapitalFinance.csproj" -c Release -o /app/build
 
-# Build and publish
-WORKDIR "/src/Funds"
+# Publish the app
+FROM build AS publish
 RUN dotnet publish "RadhaCapitalFinance.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# Stage 2: Final runtime image
+# Final runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "RadhaCapitalFinance.dll"]
