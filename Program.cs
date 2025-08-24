@@ -28,7 +28,7 @@ namespace RadhaCapitalFinance
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Insurence}/{action=Finence}/{id?}");
 
             app.Run();
         }
