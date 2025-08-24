@@ -1,6 +1,10 @@
 ﻿.nav-link:hover {
     color: red !important;
 }
+#navbarSupportedContent a{
+    color:black
+
+}
 
 .footer-link {
     font-size: 13px;
@@ -30,14 +34,13 @@
     font-weight: bold;
 }
 
-
-
 /*start Footer part */
 .footer-container-wrapper {
     background-color: #f8f9fa;
     padding: 5px 0;
     font-size: 14px;
     color: black;
+    padding-left:10px;
 }
 
 .footer-nav h4, .updated h4 {
@@ -108,9 +111,10 @@
     transition: 0.3s;
 }
 
-.social-links i:hover {
-    color: #f0c040; /* Hover color */
-}
+    .social-links i:hover {
+        color: #f0c040; /* Hover color */
+    }
+
 .footer-link {
     display: inline-flex;
     align-items: center;
@@ -118,17 +122,17 @@
     cursor: pointer;
 }
 
-.footer-link a,
-ul a {
-    color: black; 
-    text-decoration: none; 
-}
-
-    .footer-link a:hover,
-    ul a:hover {
-        color: blue; 
-        text-decoration: underline; 
+    .footer-link a,
+    ul a {
+        color: black;
+        text-decoration: none;
     }
+
+        .footer-link a:hover,
+        ul a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
 
 .footer-link {
     display: block;
@@ -158,5 +162,3 @@ ul a {
             display: block !important;
         }
 }
-
-

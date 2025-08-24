@@ -1,85 +1,149 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RadhaCapitalFinance</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/RadhaCapitalFinance.styles.css" asp-append-version="true" />
-    <link href="~/css/layoustyle.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - RadhaCapitalFinance</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/RadhaCapitalFinance.styles.css" asp-append-version="true" />
+	<link href="~/css/layoustyle.css" rel="stylesheet" />
 </head>
 <body class="bg-light">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand text-uppercase" asp-area="" asp-controller="Home" asp-action="Index">Radha Capital</a>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container">
+				<a class="navbar-brand text-uppercase fw-bold" asp-area="" asp-controller="Insurence" asp-action="Finence">RAADHACAPITAL</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                        <a class="btn btn-login" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        @RenderBody()
-    </div>    
-    <footer class="footer-container-wrapper footer text-muted mt-4">
-        
-        <div class="row mt-4">
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <h4 style="color:red; font-size:20px;">RAADHACAPITAL</h4>
-                <p style="color:black; font-size:15px;">Raadha Capital is one of India’s leading
-                    investment service firms, specializing in the distribution of
-                    mutual funds, insurance, fixed deposits, bonds, loans, and more.</p>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <h4 style="color:red; font-size:20px">vision</h4>
-                <p style="color:black; font-size:15px;">To empower every individual and family in India with smart financial solutions, ensuring long-term prosperity and financial security.</p>
-                <p style="color:black; font-size:15px;">To be India’s most trusted and innovative financial partner, helping clients achieve their dreams through tailored investment solutions</p>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Start Your SIP</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Helth Insurence</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Retirement Planing</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Travel Insurance</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Life Insurance</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Term Insurence</a>
+						</li>
+					</ul>
+					<div class="d-flex">
+						<a class="btn btn-login btn-success" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container-fluid">
+		@RenderBody()
+	</div>
 
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <h4 style="color:red;font-size:20px; padding-left:20px;">Extending</h4>
-                <ul style="color:black">
-                    <li class ="footer-link"><a href="#" target="_blank">Mutual Funds</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Insurance</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Health Insurance</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Car Insurance</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Two-Wheeler Insurance</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Systematic Investment Plan</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Lumpsum Investment</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Systematic Withdrawal Planner</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Retirement Planning</a></li>
-                    <li class="footer-link"><a href="#">Bonds</a></li>
-                    <li class="footer-link"><a href="#" target="_blank">Fixed Deposits</a></li>
-                </ul>
-            </div>             
-            <div class="col-md-3"></div>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	<footer class="footer-container-wrapper footer text-muted mt-4">
+
+		<div class="row mt-4">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<h4 style="color:red; font-size:20px;">RAADHACAPITAL</h4>
+				<p style="color:black; font-size:15px;">
+					Raadha Capital is one of India’s leading
+					investment service firms, specializing in the distribution of
+					mutual funds, insurance, fixed deposits, bonds, loans, and more.
+				</p>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<h4 style="color:red; font-size:20px">vision</h4>
+				<p style="color:black; font-size:15px;">To empower every individual and family in India with smart financial solutions, ensuring long-term prosperity and financial security.</p>
+				<p style="color:black; font-size:15px;">To be India’s most trusted and innovative financial partner, helping clients achieve their dreams through tailored investment solutions</p>
+
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<h4 style="color:red;font-size:20px; padding-left:20px;">Extending</h4>
+				<ul style="color:black;padding-left:0px">
+					<li class="footer-link"><a href="#" target="_blank">Mutual Funds</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Insurance</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Health Insurance</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Car Insurance</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Two-Wheeler Insurance</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Systematic Investment Plan</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Lumpsum Investment</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Systematic Withdrawal Planner</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Retirement Planning</a></li>
+					<li class="footer-link"><a href="#">Bonds</a></li>
+					<li class="footer-link"><a href="#" target="_blank">Fixed Deposits</a></li>
+				</ul>
+			</div>
+
+
+			<div class="col-md-3">
+				<h4>Contect</h4>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+
+				<a class="footer-link" href="tel:8953846683">
+					<span class="material-icons-outlined">phone</span>
+					<span>1800-313-123123</span>
+				</a>
+				<p class="footer-link">Mon - Sat (10 AM - 6 PM)</p>
+				<p class="footer-link">
+					In case of any queries, feel free
+					to call or write to us. We will be very happy to assist you.
+				</p>
+
+				<!-- Social Media Links with Icons -->
+				<ul class="social-links list-inline">
+					<li class="footer-link list-inline-item">
+						<a href="https://www.youtube.com/" target="_blank">
+							<i class="fab fa-youtube"></i>
+						</a>
+					</li>
+					<li class="footer-link list-inline-item">
+						<a href="https://www.linkedin.com/" target="_blank">
+							<i class="fab fa-linkedin"></i>
+						</a>
+					</li>
+					<li class="footer-link list-inline-item">
+						<a href="https://www.facebook.com/" target="_blank">
+							<i class="fab fa-facebook"></i>
+						</a>
+					</li>
+					<li class="footer-link list-inline-item">
+						<a href="https://www.instagram.com/" target="_blank">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</li>
+					<li class="footer-link list-inline-item">
+						<a href="https://www.twitter.com/" target="_blank">
+							<i class="fab fa-twitter"></i>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
