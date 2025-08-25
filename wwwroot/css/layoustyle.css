@@ -1,15 +1,14 @@
 ﻿.nav-link:hover {
     color: red !important;
 }
-#navbarSupportedContent a{
-    color:black
 
+#navbarSupportedContent a {
+    color: black;
+    font-size: 10px;
 }
 
-.footer-link {
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 4px;
+body {
+    background-color: white;
 }
 
 .btn-login {
@@ -34,13 +33,12 @@
     font-weight: bold;
 }
 
-/*start Footer part */
+/* Footer */
 .footer-container-wrapper {
     background-color: #f8f9fa;
-    padding: 5px 0;
+    padding: 5px 10px;
     font-size: 14px;
     color: black;
-    padding-left:10px;
 }
 
 .footer-nav h4, .updated h4 {
@@ -56,15 +54,20 @@
 }
 
     .footer-nav ul li a,
-    .bottom-pane-links li a {
+    .bottom-pane-links li a,
+    .footer-link a,
+    ul a {
         color: #333;
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
         .footer-nav ul li a:hover,
-        .bottom-pane-links li a:hover {
-            color: #d2691e; /* Sandybrown */
+        .bottom-pane-links li a:hover,
+        .footer-link a:hover,
+        ul a:hover {
+            color: blue;
+            text-decoration: underline;
         }
 
 .updated a {
@@ -74,6 +77,12 @@
     color: #000;
 }
 
+.footer-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Social links */
 .social-links img {
     width: 24px;
     height: 24px;
@@ -85,80 +94,66 @@
         transform: scale(1.1);
     }
 
-.footer-bottom-pane {
-    background-color: #e9ecef;
-    padding: 2px 0;
-    font-size: 13px;
-}
-
-    .footer-bottom-pane a {
-        color: #333;
-        margin-right: 15px;
-    }
-
-.footer-logo img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-
-
 .social-links i {
     font-size: 20px;
-    color: #730218; /* Change color as per your footer background */
+    color: #730218;
     padding: 8px;
     transition: 0.3s;
 }
 
     .social-links i:hover {
-        color: #f0c040; /* Hover color */
+        color: #f0c040;
     }
 
+.social-links.list-inline {
+    display: flex !important;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* mobile पर wrap हो सके */
+}
+
+    .social-links.list-inline li {
+        display: inline-block !important;
+        margin: 0 5px;
+    }
+
+/* Footer link cleanup */
 .footer-link {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 4px;
+    margin: 5px 0;
 }
 
-    .footer-link a,
-    ul a {
-        color: black;
-        text-decoration: none;
-    }
-
-        .footer-link a:hover,
-        ul a:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-.footer-link {
-    display: block;
-    margin: 5px 0; /* optional, spacing के लिए */
-}
-
-    /* li के अंदर anchor को भी block बना सकते हैं */
-    .footer-link a {
-        display: block;
-        color: black;
-        text-decoration: none;
-    }
-
-        .footer-link a:hover {
-            color: red; /* hover पर stylish effect */
-            text-decoration: underline; /* optional */
-        }
-
-/* अगर ul पर कोई flex या inline styling हो तो reset करें */
+/* Mobile responsive reset */
 @media (max-width: 767px) {
     .col-md-2 ul {
         display: block !important;
-        padding-left: 20px; /* left padding (optional) */
+        padding-left: 20px;
     }
 
         .col-md-2 ul li {
             display: block !important;
         }
 }
+/* Footer Social Icons Always in Row */
+footer .social-links,
+footer .social-links.list-inline {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    justify-content: center; /* center में रखना हो तो */
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    footer .social-links li {
+        display: inline-block !important;
+        margin: 0 5px !important;
+    }

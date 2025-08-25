@@ -12,5 +12,9 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult SIP()
+        {
+            return View();
+        }
     }
 }
