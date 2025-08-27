@@ -16,5 +16,13 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult Health()
+        {
+            return View();
+        }
+        public IActionResult Retairement()
+        {
+            return View();
+        }
     }
 }
