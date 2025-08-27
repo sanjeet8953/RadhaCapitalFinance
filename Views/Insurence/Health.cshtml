@@ -1,0 +1,119 @@
+﻿@model HealthModel
+@{
+	ViewData["Title"] = "Health";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+
+<style>
+
+	.card-title {
+		width: 400px;
+		color: #05A2A8;
+		border: 2px solid black;
+		border-radius: 20px;
+		padding-left: 8px;
+		display: flex;
+		justify-content: center;
+		margin-left: 15px;
+	}
+
+	.card-body {
+		background-color: #E8E8E8;
+		height:350px;
+	}
+
+	ul li {
+		font-family: Arial Unicode MS;
+		font-size: 15px;
+	}
+
+	.card-subtitle {
+		margin-left: 15px;
+	}
+	
+</style>
+
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<div class="card" style="width: 500px;">
+			<div class="card-body">
+				<h3 class="card-title">Health Insurance</h3>
+				<h4 class="card-subtitle mb-2 mt-3 ">Ensure your health today<br />with a plan in just a few<br /> simple clicks</h4>
+				<ul>
+					<li>Cashless Hospital Network Across India</li>
+					<li>Affordable Premiums with Maximum Coverage</li>
+					<li>24×7 Expert Support for All Queries</li>
+					<li>Customizable Plans as per Your Needs</li>
+					<li>No Hidden Charges, 100% Transparency</li>
+					<li>Quick Renewal & Hassle-Free Portability</li>
+					<li>Pre & Post Hospitalization Expenses Covered</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-body">
+						<h3>Tell us about yourself</h3>
+						<div class="row">
+							<div class="col-sm-6">
+								@Html.LabelFor(m => m.FullName)
+								@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter your Name" })
+							</div>
+							<div class="col-sm-6">
+								@Html.LabelFor(m => m.Mobile)
+								@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Enter your Mobail" })
+							</div>
+							<div col-sm-12>
+								@Html.LabelFor(m => m.Email)
+								@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your Email" })
+							</div>
+							<div class="col-sm-4">
+								@Html.LabelFor(m => m.Gender)
+								@Html.DropDownListFor(m => m.Gender,
+								new SelectList(new[] {
+																new { Value = "", Text = "Select Gender" },
+																new { Value = "Male", Text = "Male" },
+																new { Value = "Female", Text = "Female" },
+																new { Value = "Other", Text = "Other" }
+																}, "Value", "Text"),
+																new { @class = "form-control" })
+							</div>
+							<div class="col-sm-3 d-flex align-items-end">
+								<button type="submit" class="btn btn-primary w-100">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-6 mt-4">
+		<h3>Health Insurance</h3>
+		<p>Health Insurance ensures that you and your family are financially protected 
+			against rising medical costs. It covers hospitalization, treatments, and other 
+			healthcare expenses, giving you peace of mind during emergencies.</p>
+		<p style="font-size:20px; background-color:red; color:#5DE2E7; padding-left:45px;"><i>Secure Your Family’s Future – Get a Health Plan Today!</i></p>
+		<h4>Key Features</h4>
+		<p><b>Financial Protection:</b> Covers hospital bills, medicines, and treatment costs, reducing your financial burden.</p>
+		<p><b>Cashless Treatment: </b>Get admitted and treated in network hospitals without paying upfront.</p>
+		<p><b>Pre & Post Hospitalization Cover:</b>Includes expenses before and after hospitalization for a specified period.</p>
+		<p><b>Tax Benefits:</b> Save tax under Section 80D on premiums paid.</p>
+		<p><b>No Claim Bonus:</b> Receive increased coverage for every claim-free year.</p>
+		<p><b>Wide Network Hospitals:</b> Access thousands of hospitals across India and abroad.</p>
+		<p><b>Affordable Premiums:</b>Plans available to suit all budgets and family sizes.</p>
+		<p><b>Critical Illness Cover:</b> Protection against major illnesses like cancer, heart disease, etc.</p>
+		<p><b>24×7 Claim Support:</b> Hassle-free and quick claim settlement assistance.</p>
+		<p><b>Customizable Plans:</b> Choose coverage options as per your needs (individual or family).</p>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
