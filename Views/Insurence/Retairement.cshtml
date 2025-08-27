@@ -1,0 +1,99 @@
+﻿@model RadhaCapitalFinance.Models.RetirementModel
+@{
+	ViewData["Title"] = "Retairement";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+	img {
+		height: 400px;
+		width: 400px;
+		border-radius:10px;
+	}
+
+	card-body {
+		width: 350px;
+		height: 350px;
+	}
+
+	
+</style>
+<div class="row mx-3">
+	<div class="col-md-3">
+		<h3>Redefining retirement planning for a generation living well into 100.</h3>
+	</div>
+	
+
+	<div class="col-md-4">
+		<img src="/images/old.jpg" class="img-fluid" />
+	</div>
+
+	<div class="col-md-4">
+		<div class="card mx-4">
+			<div class="card-body">
+				@using (Html.BeginForm("Index", "Retirement", FormMethod.Post))
+				{
+					<div class="row">
+						<p><b>Get Your Personalized Retirement Plan Designed by Experts – Absolutely Free</b></p>
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.FullName, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter Full Name" })
+							@Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.Mobile, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Enter Mobile No." })
+							@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
+							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.Pincode, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", placeholder = "Enter Pincode" })
+							@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.Current_Age, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.Current_Age, new { @class = "form-control", placeholder = "Enter Current Age" })
+							@Html.ValidationMessageFor(m => m.Current_Age, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12 mb-3">
+							@Html.LabelFor(m => m.YearofRetirement, new { @class = "form-label fw-bold" })
+							@Html.TextBoxFor(m => m.YearofRetirement, new { @class = "form-control", placeholder = "Enter Year of Retirement" })
+							@Html.ValidationMessageFor(m => m.YearofRetirement, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-primary w-100">Submit</button>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-8">
+		<p class="mt-4"><b>Features of a Smart Retirement Plan</b></p>
+		<p><b>Customized Financial Planning:</b>Tailored strategies based on your current income, lifestyle goals, and expected retirement age.</p>
+		<p><b>Guaranteed Regular Income:</b>Provides a steady post-retirement income to maintain your lifestyle.</p>
+		<p><b>Inflation Protection:</b>Plans that grow your wealth to match the rising cost of living.</p>
+		<p><b>Comprehensive Coverage:</b>Some plans also offer life insurance and medical benefits.</p>
+		<p><b>Early Retirement Support:</b>Helps you achieve financial independence before the usual retirement age</p>
+		<p><b>Legacy Planning:</b>Ensure financial security for your family and leave behind a lasting legacy.</p>
+		<p><b>Expert Advisory & Free Consultation:</b>Access to professional financial advisors for better decision-making.</p>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+
+
+
