@@ -24,5 +24,9 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult Travel()
+        {
+            return View();
+        }
     }
 }
