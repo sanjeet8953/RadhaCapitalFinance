@@ -1,0 +1,143 @@
+﻿@{
+	ViewData["Title"] = "Travel";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+	img {
+		height: 300px;
+		width: 300px;
+		margin: 0;
+		border-radius: 20px;
+	}
+
+	.logo {
+		font-size: 35px;
+		margin-top: 80px;
+		
+	}
+
+	#text {
+		font-size: 20px;
+		margin-left: 40px;
+	}
+
+	.image {
+		height: 20px;
+		width: 20px;
+	}
+
+	.text_box {
+		border: 1px solid black;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5px 10px;
+		width: 200px;
+		gap: 5px;
+		font-size: 12px;
+	}
+
+	.boxes-container {
+		display: flex;
+		gap: 10px;
+	}
+
+	.slide img {
+		width: 100%;
+		height: auto;
+	}
+
+	.box2 {
+		min-height: 50px;
+		width: 100%;
+		background-color: darkcyan;
+		font-family: 'Times New Roman', Times, serif;
+	}
+
+	.img3 img {
+		width: 100%;
+		height: auto;
+	}
+
+	.img3 p {
+		font-size: 13px;
+	}
+</style>
+<div class="row mt-3">
+	<div class="col-12 box2">
+		<center class="fs-3 text-white">
+			<marquee behavior="alternate" direction="left" scrollamount="15" style="width:80%; color: white;">
+				✈️ Travel Insurance
+			</marquee>
+		</center>
+		
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 circle-container">
+		<img src="\Images\travel3.jpg" class="rotating-image" />
+	</div>
+	<div class="col-md-3 logo">
+		<span><b>Your perfect trip companion</b></span>
+	</div>
+	<div class="col-md-6 slide">
+		<img src="\images\tripsecure-brochure_v12 (1)_page-0005.jpg" />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-7">
+		<p id="text"><b>There’s a cover for every journey !</b></p>
+		<!-- Flex container for all boxes -->
+		<div class="boxes-container mt-2">
+			<div class="text_box">
+				<img src="\Images\icons8-blog-logo-32.png" class="image" />
+				<span>Pre-existing conditions</span>
+			</div>
+			<div class="text_box">
+				<img src="\Images\icons8-jira-50.png" class="image" />
+				<span>Adventure sports</span>
+			</div>
+			<div class="text_box">
+				<img src="\Images\icons8-car-50.png" class="image" />
+				<span>Car Cruise coverage</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row mt-3">
+	<div class="col-12 box2">
+		<center class="fs-3 text-white">
+			Travel Insurance
+		</center>
+		<center class="fs-6 text-white mb-2">
+			Travel insurance is a type of coverage designed to protect you from unexpected losses and emergencies while traveling. It can cover things like trip cancellations, medical emergencies, lost luggage, and other unforeseen events.
+		</center>
+	</div>
+</div>
+<div class="row mt-3 img3">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h3>What is TripSecure+?</h3>
+		<p>
+			TripSecure+ is a comprehensive travel insurance plan that protects travelers against unexpected
+			events such as medical emergencies, trip cancellations, lost baggage, and other travel-related
+			risks, ensuring a safe and worry-free journey.
+		</p>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+<div class="row img3 mt-3">
+	<div class="col-md-"></div>
+	<div class="col-md-5">
+		<img src="\images\tripsecure-brochure_v12 (1)_page-0002.jpg" />
+	</div>
+	<div class="col-md-5">
+		<p><b>Medical coverage abroad:</b>Covers hospital or medical expenses if you fall ill or meet with an accident while traveling.</p>
+		<p><b>Trip cancellation/interruption cover:</b>Reimburses expenses if your trip is canceled or cut short due to covered reasons.</p>
+		<p><b>Lost baggage & passport cover:</b>Compensation if your luggage or passport gets lost.</p>
+		<p><b>Flight delay cover:</b>Reimburses extra costs caused by flight delays.</p>
+		<p><b>Adventure sports & pre-existing conditions cover:</b>Some plans also include coverage for adventure sports and pre-existing illnesses.</p>
+		<p><b>Car rental and cruise coverage:</b>Travelling abroad and renting a car? This policy has you covered with protection for car rentals, ensuring you're safeguarded from potential issues.</p>
+	</div>
+</div>
