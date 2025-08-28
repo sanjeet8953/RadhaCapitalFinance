@@ -41,6 +41,7 @@
     .carousel-inner img {
         height: 550px;
         object-fit: cover;
+        border-radius:10px
     }
 
     main, .wrapper, .content {
@@ -182,17 +183,23 @@
         font-family: 'Times New Roman'
     }
     /* end card part */
+    .flip-face h5{
+        color:black;
+    }
 
 </style>
 <div class="row mt-2">
     <div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
-        <span><b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence</span>
+        <marquee behavior="alternate" direction="left" scrollamount="10" style="width:100%; color: white;">
+            <b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence
+        </marquee>
     </div>
+    
 </div>
 <div class="row full-width no-gutters">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <div class="col-md-8 mt-4">
+    <div class="col-md-8 mt-2">
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
@@ -220,47 +227,38 @@
             </a>
         </div>
     </div>
-    <div class="col-md-4 mt-2 p-1">
-        <div class="card">
-            <div class="card-body">
-                <p><b>Start building your financial future with RaadhaCapital</b></p>
-                <form asp-action="Index" asp-controller="Wealth" method="post">
-                    <div class="form-group mb-3">
-                        <label>Select a product</label>
-                        <select class="form-control" asp-for="Product">
-                            <option value="">-- Select a Product --</option>
-                            <option value="insurance">Insurance</option>
-                            <option value="sip">SIP (Systematic Investment Plan)</option>
-                            <option value="bonds">Bonds</option>
-                            <option value="loan">Loan</option>
-                        </select>
-                        <span asp-validation-for="Product" class="text-danger"></span>
+    <div class="col-md-4 px-2 ">
+        <div class="card mt-2 ">
+            <div class="card-body pt-2 ">
+                <p>Start building your financial future with RaadhaCapital</p>
+                @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+                {
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.Product, new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.Product, (IEnumerable<SelectListItem>)ViewBag.Products, "--Select Product--", new { @class = "form-control" })
+
                     </div>
-                    <div class="form-group mb-3">
-                        <label>Name</label>
-                        <input type="text" class="form-control" asp-for="Name" placeholder="Please enter your full name">
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", type = "Email", placeholder = "Enter your Name" })
                     </div>
-                    <div class="form-group mb-3">
-                        <label>Email Address (optional)</label>
-                        <input type="email" class="form-control" asp-for="Email" placeholder="Your email id">
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "Email", placeholder = "Enter your email"  })
                     </div>
-                    <div class="form-group mb-3">
-                        <label>Mobile Number</label>
-                        <input type="tel" class="form-control" asp-for="Mobile" placeholder="Enter Your mobile number">
-                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Mobile, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", type = "Email", placeholder = "Enter your email" })
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" asp-for="Consent">
-                        <label class="form-check-label">
+                    <div class="form-group">
+                         @Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input ms-1" })
+                        <label class="form-check-label ms-4">
                             By continuing, you provide consent and agree to our
                             <a href="#" target="_blank">Terms & Conditions</a>
                         </label>
-                        <span asp-validation-for="Consent" class="text-danger"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block w-100">Submit</button>
-                </form>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                }
             </div>
         </div>
     </div>
@@ -280,12 +278,12 @@
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-dark">
-                        <h5 class="m-0">Travel Insurance</h5>
+                        <h5 class="m-0 bg-dark">Travel Insurance</h5>
                         <p class="mb-2 card-bg-color">
                             Travel Insurance ensures that your trips remain worry-free.
                             It covers unexpected medical expenses, trip cancellations,
                             lost baggage. </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -302,9 +300,9 @@
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-success">
-                        <h5 class="m-0">Car Insurance</h5>
+                        <h5 class="m-0 ">Car Insurance</h5>
                         <p class="mb-2 card-bg-color">Car Insurance safeguards your vehicle against accidents, theft, natural calamities, and third-party liabilities</p>
-                        <a class="btn btn-light" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-light" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -317,7 +315,7 @@
                         <img src="~/Images/fire.jpg" alt="Fire Insurance" />
                         <div class="cardcontent">
                             <h5 class="heading orange">Fire Insurance</h5>
-                            <p class="small-text card-bg-color">Protect Your Property with Fire Insurance.</p>
+                            <p class="small-text">Protect Your Property with Fire Insurance.</p>
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-info">
@@ -326,7 +324,7 @@
                             Fire Insurance provides financial protection against damages
                             caused by fire, natural disasters, explosions, or other accidental hazards.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -349,7 +347,7 @@
                             arising from property damage,
                             fire, theft, unforeseen events.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -364,7 +362,7 @@
                         <img src="~/Images/images.jpeg" alt="Health Insurance" />
                         <div class="cardcontent">
                             <h5 class="heading orange">Health Insurance</h5>
-                            <p class="small-text card-bg-color">Comprehensive Health Coverage for You and Your Family</p>
+                            <p class="small-text">Comprehensive Health Coverage for You and Your Family</p>
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-secondary">
@@ -373,7 +371,7 @@
                             Health Insurance provides financial protection against
                             medical emergencies, hospitalization, surgeries, and critical illnesses.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -392,7 +390,7 @@
                     <div class="flip-face flip-back bg-danger">
                         <h5 class="m-0">Home/Property Insurance</h5>
                         <p class="mb-2 card-bg-color">Home / Property Insurance safeguards your home, personal belongings, and valuables against fire, theft, natural disasters, or accidental damages.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -411,7 +409,7 @@
                     <div class="flip-face flip-back bg-dark">
                         <h5 class="m-0">Term Life Insurance</h5>
                         <p class="mb-2 card-bg-color">Term Life Insurance provides financial security to your family in case of unforeseen events. It offers high coverage at affordable premiums,.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -430,7 +428,7 @@
                     <div class="flip-face flip-back bg-warning">
                         <h5 class="m-0">Money Back Policy</h5>
                         <p class="mb-2 card-bg-color">Money Back Policy is a life insurance plan that not only provides financial protection to your family but also gives you periodic payouts during the policy term.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Buy Now</a>
+                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
                     </div>
                 </div>
             </div>
