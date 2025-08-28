@@ -27,50 +27,50 @@
 		<img src="/Images/old.jpg" class="img-fluid" />
 	</div>
 
-	<div class="col-md-4">
-		<div class="card mx-4">
+	<div class="col-md-5">
+		<div class="card ">
 			<div class="card-body">
 				@using (Html.BeginForm("Index", "Retirement", FormMethod.Post))
 				{
 					<div class="row">
 						<p><b>Get Your Personalized Retirement Plan Designed by Experts – Absolutely Free</b></p>
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.FullName, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.FullName, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter Full Name" })
 							@Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.Mobile, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.Mobile, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Enter Mobile No." })
 							@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.Email, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
 							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.Pincode, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.Pincode, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", placeholder = "Enter Pincode" })
 							@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.Current_Age, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.Current_Age, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Current_Age, new { @class = "form-control", placeholder = "Enter Current Age" })
 							@Html.ValidationMessageFor(m => m.Current_Age, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12 mb-3">
-							@Html.LabelFor(m => m.YearofRetirement, new { @class = "form-label fw-bold" })
+						<div class="col-md-6 mb-3">
+							@Html.LabelFor(m => m.YearofRetirement, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.YearofRetirement, new { @class = "form-control", placeholder = "Enter Year of Retirement" })
 							@Html.ValidationMessageFor(m => m.YearofRetirement, "", new { @class = "text-danger" })
 						</div>
 
-						<div class="col-md-12">
+						<div class="col-md-12 d-flex justify-content-center">
 							<button type="submit" class="btn btn-primary w-100">Submit</button>
 						</div>
 					</div>

@@ -13,16 +13,22 @@
 			font-size: 20px;
 			color: black;
 		}
+
 		p {
 			color: black;
 		}
+
 		.footer-container-wrapper {
-			background-color:cadetblue;
-			opacity:0.9;
+			background-color: cadetblue;
+			opacity: 0.9;
+		}
+
+		.header-link {
+			font-size:11px;
 		}
 	</style>
 </head>
-<body class="bg-light">
+<body>
 	<header>
 		<nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
 			<div class="container">
@@ -35,27 +41,27 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
+						<li class="nav-item header-link">
 							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="SIP">Start Your SIP</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item header-link">
 							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="Health">Helth Insurence</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item header-link">
 							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="Retairement">Retirement Planing</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="Privacy">Travel Insurance</a>
+						<li class="nav-item header-link">
+							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="travel">Travel Insurance</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item header-link">
 							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="Index">Life Insurance</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item header-link">
 							<a class="nav-link" asp-area="" asp-controller="Insurence" asp-action="Privacy">Term Insurence</a>
 						</li>
 					</ul>
 					<div class="d-flex">
-						<a class="btn btn-login btn-success" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+						<a class="btn btn-login btn-danger text-white" asp-area="" asp-controller="Account" asp-action="Login"><b>Login</b></a>
 					</div>
 				</div>
 			</div>

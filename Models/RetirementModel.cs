@@ -17,8 +17,10 @@ namespace RadhaCapitalFinance.Models
         [Required(ErrorMessage = "PinCode is required.")]
         public string? Pincode { get; set; }
         [Required(ErrorMessage = "CurrentAge is required.")]
+        [Display(Name = "Current Age")]
         public string? Current_Age { get; set; }
         [Required(ErrorMessage = "YearofRetirement is required.")]
+        [Display(Name = "Year of Retirement")]
         public string? YearofRetirement { get; set; }
     }
 }
