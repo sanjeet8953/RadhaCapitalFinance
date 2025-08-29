@@ -7,7 +7,7 @@
 	img {
 		height: 400px;
 		width: 400px;
-		border-radius:10px;
+		border-radius: 10px;
 	}
 
 	card-body {
@@ -15,18 +15,14 @@
 		height: 350px;
 	}
 
-	
 </style>
 <div class="row mx-3">
 	<div class="col-md-3">
 		<h3>Redefining retirement planning for a generation living well into 100.</h3>
 	</div>
-	
-
 	<div class="col-md-4">
 		<img src="/Images/old.jpg" class="img-fluid" />
 	</div>
-
 	<div class="col-md-5">
 		<div class="card ">
 			<div class="card-body">
@@ -39,37 +35,31 @@
 							@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter Full Name" })
 							@Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-6 mb-3">
 							@Html.LabelFor(m => m.Mobile, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Enter Mobile No." })
 							@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-6 mb-3">
 							@Html.LabelFor(m => m.Email, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email" })
 							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-6 mb-3">
 							@Html.LabelFor(m => m.Pincode, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", placeholder = "Enter Pincode" })
 							@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-6 mb-3">
 							@Html.LabelFor(m => m.Current_Age, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.Current_Age, new { @class = "form-control", placeholder = "Enter Current Age" })
 							@Html.ValidationMessageFor(m => m.Current_Age, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-6 mb-3">
 							@Html.LabelFor(m => m.YearofRetirement, new { @class = "form-label" })
 							@Html.TextBoxFor(m => m.YearofRetirement, new { @class = "form-control", placeholder = "Enter Year of Retirement" })
 							@Html.ValidationMessageFor(m => m.YearofRetirement, "", new { @class = "text-danger" })
 						</div>
-
 						<div class="col-md-12 d-flex justify-content-center">
 							<button type="submit" class="btn btn-primary w-100">Submit</button>
 						</div>

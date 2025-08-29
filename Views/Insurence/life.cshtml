@@ -1,117 +1,111 @@
 ﻿@{
-    ViewData["Title"] = "Life";
-    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+	ViewData["Title"] = "Life";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-    }
+	body {
+		margin: 0;
+		padding: 0;
+	}
 
-    .box {
-        width: 100%;
-        height: 100px;
-        background-color: #34649F;
-        text-align: center;
-        color: white;
-        font-size: 30px;
-        padding-top: 25px;
-    }
+	.box {
+		width: 100%;
+		height: 100px;
+		background-color: #34649F;
+		text-align: center;
+		color: white;
+		font-size: 30px;
+		padding-top: 25px;
+	}
 
-    .container-fluid {
-        padding: 0;
-        margin: 0;
-    }
+	.container-fluid {
+		padding: 0;
+		margin: 0;
+	}
 
-    .box img {
-        border-radius: 50px;
-    }
+	.box img {
+		border-radius: 50px;
+	}
 
-    .insu {
-        background-color: #2C2A68;
-        text-align: center;
-        padding: 8px;
-        border-radius: 5px;
-        margin: 8px 0;
-    }
+	.insu {
+		background-color: #2C2A68;
+		text-align: center;
+		padding: 8px;
+		border-radius: 5px;
+		margin: 8px 0;
+	}
 
-    .term {
-        background-color: #2C2A68;
-        color: white;
-        text-align: center;
-        padding: 8px;
-        border-radius: 5px;
-    }
+	.term {
+		background-color: #2C2A68;
+		color: white;
+		text-align: center;
+		padding: 8px;
+		border-radius: 5px;
+	}
 </style>
-
 <div class="container-fluid fw-bold">
-    <div class="box">
-        <marquee behavior="alternate" direction="left" scrollamount="5" style="width:100%; color: white;">
-            <img src="~/Images/lifelogo.jpg" height="40" width="40" /> LIFE INSURANCE
-            <img src="~/Images/lifelogo.jpg" height="40" width="40" />
-        </marquee>
-    </div>
+	<div class="box">
+		<marquee behavior="alternate" direction="left" scrollamount="5" style="width:100%; color: white;">
+			<img src="~/Images/lifelogo.jpg" height="40" width="40" /> LIFE INSURANCE
+			<img src="~/Images/lifelogo.jpg" height="40" width="40" />
+		</marquee>
+	</div>
 </div>
-
 <!-- Responsive Image + Content Section -->
 <div class="container my-4">
-    <div class="row align-items-center">
-        <!-- Left Side Image -->
-        <div class="col-12 col-md-5 mb-3">
-            <img src="~/images/life.jpg"
-                 class="img-fluid rounded shadow"
-                 alt="Life Insurance" />
-        </div>
-
-        <!-- Right Side Content -->
-        <div class="col-12 col-md-7">
-            <h2 class="fw-bold text-primary">Life Insurance</h2>
-            <p>
-                The primary purpose of <strong>Life Insurance</strong> is to provide financial
-                security and peace of mind to your loved ones in the event of your absence.
-                It acts as a safety net, ensuring that your dependents can maintain their
-                standard of living, manage expenses, and achieve their future goals
-                without financial stress.
-            </p>
-
-            <p class="insu text-white fw-bold">Term Life Insurance</p>
-            <p class="insu text-white fw-bold">Whole Life Insurance</p>
-        </div>
-    </div>
+	<div class="row align-items-center">
+		<!-- Left Side Image -->
+		<div class="col-12 col-md-5 mb-3">
+			<img src="~/Images/life.jpg"
+				 class="img-fluid rounded shadow"
+				 alt="Life Insurance" />
+		</div>
+		<!-- Right Side Content -->
+		<div class="col-12 col-md-7">
+			<h2 class="fw-bold text-primary">Life Insurance</h2>
+			<p>
+				The primary purpose of <strong>Life Insurance</strong> is to provide financial
+				security and peace of mind to your loved ones in the event of your absence.
+				It acts as a safety net, ensuring that your dependents can maintain their
+				standard of living, manage expenses, and achieve their future goals
+				without financial stress.
+			</p>
+			<p class="insu text-white fw-bold">Term Life Insurance</p>
+			<p class="insu text-white fw-bold">Whole Life Insurance</p>
+		</div>
+	</div>
 </div>
-
 <!-- Term & Whole Life Details -->
 <div class="container my-4">
-    <div class="row">
-        <div class="col-12">
-            <h5 class="term">Term Life Insurance</h5>
-            <p>
-                Term Life Insurance is a simple and affordable form of life insurance
-                that provides financial protection for a specific period (called the "term").
-                If the insured person passes away during this time, the policy pays a
-                lump-sum benefit (death benefit) to the beneficiaries.
-            </p>
-            <ul>
-                <li><b>Fixed Term Coverage:</b> 10, 20, 30 years, etc.</li>
-                <li><b>Affordable Premiums:</b> Lowest cost compared to other insurance types.</li>
-                <li><b>High Coverage Amount:</b> Large protection at minimal cost.</li>
-                <li><b>Flexible Policy Terms:</b> Choose coverage duration as per need.</li>
-                <li><b>Rider Options:</b> Add-ons like critical illness, accidental death, disability.</li>
-            </ul>
-
-            <h5 class="term mt-4">Whole Life Insurance</h5>
-            <p>
-                Whole Life Insurance is a permanent life insurance plan that provides
-                lifelong coverage with a guaranteed payout. Unlike term insurance,
-                it does not expire as long as premiums are paid. It also builds
-                <em>cash value</em> over time, which can be borrowed or withdrawn.
-            </p>
-            <ul>
-                <li><b>Lifetime Protection:</b> Coverage for the entire life.</li>
-                <li><b>Fixed Premiums:</b> Same premium throughout the policy.</li>
-                <li><b>Cash Value Component:</b> Builds savings over time.</li>
-                <li><b>Guaranteed Death Benefit:</b> Assured payout to beneficiaries.</li>
-            </ul>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-12">
+			<h5 class="term">Term Life Insurance</h5>
+			<p>
+				Term Life Insurance is a simple and affordable form of life insurance
+				that provides financial protection for a specific period (called the "term").
+				If the insured person passes away during this time, the policy pays a
+				lump-sum benefit (death benefit) to the beneficiaries.
+			</p>
+			<ul>
+				<li><b>Fixed Term Coverage:</b> 10, 20, 30 years, etc.</li>
+				<li><b>Affordable Premiums:</b> Lowest cost compared to other insurance types.</li>
+				<li><b>High Coverage Amount:</b> Large protection at minimal cost.</li>
+				<li><b>Flexible Policy Terms:</b> Choose coverage duration as per need.</li>
+				<li><b>Rider Options:</b> Add-ons like critical illness, accidental death, disability.</li>
+			</ul>
+			<h5 class="term mt-4">Whole Life Insurance</h5>
+			<p>
+				Whole Life Insurance is a permanent life insurance plan that provides
+				lifelong coverage with a guaranteed payout. Unlike term insurance,
+				it does not expire as long as premiums are paid. It also builds
+				<em>cash value</em> over time, which can be borrowed or withdrawn.
+			</p>
+			<ul>
+				<li><b>Lifetime Protection:</b> Coverage for the entire life.</li>
+				<li><b>Fixed Premiums:</b> Same premium throughout the policy.</li>
+				<li><b>Cash Value Component:</b> Builds savings over time.</li>
+				<li><b>Guaranteed Death Benefit:</b> Assured payout to beneficiaries.</li>
+			</ul>
+		</div>
+	</div>
 </div>
