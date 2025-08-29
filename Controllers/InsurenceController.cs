@@ -19,8 +19,6 @@ namespace RadhaCapitalFinance.Controllers
             new SelectListItem { Text = "Travel Insurance", Value = "Travel Insurance" }
         };
             return View();
-
-
         }
         public IActionResult SIP()
         {
