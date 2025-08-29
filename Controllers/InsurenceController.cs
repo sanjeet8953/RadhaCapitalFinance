@@ -38,5 +38,17 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult life()
+        {
+            return View();
+        }
+        public IActionResult Car()
+        {
+            return View();
+        }
+        public IActionResult Fire()
+        {
+            return View();
+        }
     }
 }
