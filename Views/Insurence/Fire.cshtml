@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Fire";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+	body {
+		background-image: url('@Url.Content("~/Images/fireback.jpg")');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+	}
+
+	.box{
+		min-height:40px;
+		min-width: 170px;
+		width: fit-content;
+		background-color: #EFC3CA;
+		border-radius:10px;
+		text-align:center;
+        align-items: center;
+	}
+	p{
+		font-size:12px;
+	}
+</style>
+<div col-12>
+	<h2 >Fire Insurance</h2>
+	<p class="text-white">Shield your business!</p>
+</div>
+<div class="row">
+    <div class="col-12 col-md-7">
+        <div class="row">
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/contentslogo.png" />Easy claim process</p>
+            </div>
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/flightlogo.png" />Instant policy generation</p>
+            </div>
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/buildinglogo.png" />Covers burglary</p>
+            </div>
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/hospitallogo.png" />Covers for loss in stock</p>
+            </div>
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/insurancefire.png" />Covers up to 50 crores</p>
+            </div>
+            <div class="col-12 col-md-4">
+				<p class="box"><img src="~/images/carlogo.png" />Covers natural and man-made calamities</p>
+            </div>
+        </div>
+    </div>
+</div>
+

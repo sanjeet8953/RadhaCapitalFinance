@@ -1,0 +1,228 @@
+﻿@{
+	ViewData["Title"] = "Car";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+	body {
+		background-image: url('@Url.Content("~/Images/backcar.jpg")');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+	}
+
+	.box {
+		background-color: #DAD5E3;
+		font-size: 14px;
+	}
+
+	.car-img {
+		max-width: 500px; /* Laptop pe image ki max width */
+		width: 100%; /* Mobile pe responsive */
+		height: auto; /* Aspect ratio maintain rahe */
+	}
+
+	.accordion-body {
+		font-size: 12px;
+	}
+
+	p {
+		font-size: 12px;
+	}
+
+	.col-12 h3 {
+		background-color: #121049;
+		text-align: center;
+		color: white;
+		font-size: 20px;
+	}
+
+	.col-md-4 img {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+</style>
+
+<div class="container-fluid">
+	<div class="col-12 box p-4 rounded shadow-sm">
+		<h2 class="fw-bold text-dark">Car Insurance</h2>
+		<p class="text-secondary">
+			Your car is more than just a vehicle it is an essential
+			part of your daily life. While third-party insurance is mandatory,
+			an online comprehensive car insurance plan offers broader protection against accidents
+			, theft, natural disasters, and even personal injury. ICICI Lombard’s online car insurance
+			policies start at just ₹2,094 per year, covering own damage and personal accident claims. With a
+			network of over 6,600 cashless garages and an easy claims process via the IL TakeCare app, getting back
+			on the road after an incident is hassle-free. Drive with confidence, knowing that your car—and your peace
+			of mind are well taken care of.
+		</p>
+	</div>
+	<div class="row mt-4">
+		<div class="col-12 text-center">
+			<img src="~/images/Car.jpg"
+				 class="img-fluid rounded shadow car-img"
+				 alt="Car Insurance" />
+		</div>
+	</div>
+</div>
+<div class="col-12">
+	<h3>Different types of car insurance policies </h3>
+</div>
+<div class="row mt-3">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="accordion" id="carInsuranceAccordion">
+
+			<!-- Accordion Item -->
+			<div class="accordion-item">
+				<h4 class="accordion-header" id="headingOne">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseOne"
+							aria-expanded="false"
+							aria-controls="collapseOne">
+						Third-Party Car Insurance
+					</button>
+				</h4>
+				<div id="collapseOne" class="accordion-collapse collapse"
+					 aria-labelledby="headingOne">
+					<div class="accordion-body">
+						This is the most basic and mandatory car insurance policy under the Motor Vehicles Act, 1988.
+						It protects you against financial liabilities arising due to injury, death, or property damage
+						caused to a third-party in an accident involving your car.
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="row mt-2">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="accordion" id="carInsuranceAccordion">
+			<div class="accordion-item">
+				<h4 class="accordion-header" id="headingtwo">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapsetwo"
+							aria-expanded="false"
+							aria-controls="collapsetwo">
+						Comprehensive Car Insurence
+					</button>
+				</h4>
+				<div id="collapsetwo" class="accordion-collapse collapse"
+					 aria-labelledby="headingtwo">
+					<div class="accordion-body">
+						A complete protection plan that covers both third-party liabilities and own
+						vehicle damages due to accidents, theft, fire, or natural calamities.
+						It ensures maximum safety and peace of mind while driving.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row mt-2">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="accordion" id="carInsuranceAccordion">
+
+			<!-- Accordion Item -->
+			<div class="accordion-item">
+				<h4 class="accordion-header" id="headingthree">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapsethree"
+							aria-expanded="false"
+							aria-controls="collapseOne">
+						Standalone Own Damage insurence
+					</button>
+				</h4>
+				<div id="collapsethree" class="accordion-collapse collapse"
+					 aria-labelledby="headingthree">
+					<div class="accordion-body">
+						Standalone Own Damage Insurance is the ideal plan if you already have a
+						mandatory Third-Party Insurance but want extra protection for your own car.
+						It ensures that you don’t have to bear heavy repair
+						costs due to accidents, theft, or unforeseen disasters. With customizable
+						add-ons, you can make the policy more powerful according to your needs.
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="row mt-4">
+	<div class=" col-12 col-md-1"></div>
+	<div class=" col-12 col-md-7">
+		<h4 style="color:#994848">Car insurance for EVs</h4>
+		<p>
+			Car insurance for electric vehicles (EVs) helps cover
+			the cost of repairs if your EV is damaged by natural
+			events like floods or storms, or by man-made incidents
+			like accidents or vandalism. Just like regular car
+			insurance, it also covers third-party liabilities as
+			per the policy terms. If you own an EV, this cover
+			can protect you from high repair costs and keep your
+			vehicle on the road. As electric cars become more
+			popular, knowing about EV-specific cover can help
+			you choose the right protection for your vehicle.
+		</p>
+	</div>
+	<div class=" col-12 col-md-4">
+		<img src="\images\electriccar.jpg" />
+	</div>
+</div>
+<div class="row mt-4">
+	<div class="col-12 col-md-4">
+		<img src="\images\elc.jpg" />
+	</div>
+	<div class="col-12 col-md-7">
+		<h4 style="color:#994848">
+			What factors impact Insured’s
+			Declared Value (IDV)?
+		</h4>
+		<p>IDV in car insurance plays a key role in determining your car insurance price</p>
+		<p>
+			In a car insurance policy, the Insured’s Declared Value (IDV)
+			is the fixed value at which we insure your vehicle. We calculate
+			the policy sum insured based on the manufacturer's listed selling
+			price of the vehicle + the listed cost of any accessories.
+			We derive the amount after deducting the depreciation for every
+			year as per the Indian Motor Tariff.
+		</p>
+		<p>
+			Suppose you have installed any electronic item in the car,
+			which is not included in the manufacturer's listed selling
+			price. In that case, we add the actual value (after depreciation)
+			of the item to the policy sum insured over and above the IDV.
+		</p>
+	</div>
+</div>
+<div class="row mt-4 px-4">
+	<div class="col-md-7">
+		<h4 style="color:#994848">
+			How can you save on your
+			car insurance premium +
+		</h4>
+		<p>No matter what type of car you drive, certain discounts can bring down your car insurance price -</p>
+		<p><b>No Claim Bonus in Car Insurance</b></p>
+		<p>If you made no claims in the past years, you get up to 50% NCB.</p>
+		<p><b>Security measures</b></p>
+		<p>If you’ve taken special measures to keep your car from getting stolen, you are eligible
+			for a discount on your car insurance premium. Typically, you would receive a 2.5% 
+			discount for fitting an anti-theft device (approved by ARAI) on your car.</p>
+		<p>It is unwise to reduce IDV to save on premium. In case of an accident, you would 
+			find yourself at a disadvantage. Instead, ride safe and take security measures 
+			to get discounts on car insurance.</p>
+	</div>
+	<div class="col-md-4">
+		
+	</div>
+</div>
+
+
+

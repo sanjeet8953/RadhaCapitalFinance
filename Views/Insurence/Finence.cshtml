@@ -190,7 +190,7 @@
 </style>
 <div class="row mt-2">
     <div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
-        <marquee behavior="alternate" direction="left" scrollamount="10" style="width:100%; color: white;">
+        <marquee behavior="alternate" direction="left" scrollamount="5" style="width:100%; color: white;">
             <b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence
         </marquee>
     </div>
@@ -228,7 +228,7 @@
         </div>
     </div>
     <div class="col-md-4 px-2 ">
-        <div class="card mt-2 ">
+        <div class="card mt-2">
             <div class="card-body pt-2 ">
                 <p>Start building your financial future with RaadhaCapital</p>
                 @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
@@ -257,7 +257,10 @@
                             <a href="#" target="_blank">Terms & Conditions</a>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                   
                 }
             </div>
         </div>
@@ -283,7 +286,7 @@
                             Travel Insurance ensures that your trips remain worry-free.
                             It covers unexpected medical expenses, trip cancellations,
                             lost baggage. </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Travel", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -302,7 +305,7 @@
                     <div class="flip-face flip-back bg-success">
                         <h5 class="m-0 ">Car Insurance</h5>
                         <p class="mb-2 card-bg-color">Car Insurance safeguards your vehicle against accidents, theft, natural calamities, and third-party liabilities</p>
-                        <a class="btn btn-light" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-danger" href="@Url.Action("Car", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -324,7 +327,8 @@
                             Fire Insurance provides financial protection against damages
                             caused by fire, natural disasters, explosions, or other accidental hazards.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Fire", "Insurence")">Register Now</a>
+
                     </div>
                 </div>
             </div>
@@ -347,7 +351,7 @@
                             arising from property damage,
                             fire, theft, unforeseen events.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Commercial", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -371,7 +375,7 @@
                             Health Insurance provides financial protection against
                             medical emergencies, hospitalization, surgeries, and critical illnesses.
                         </p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Health", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -383,14 +387,14 @@
                         <span class="corner-badge">Newly Launched</span>
                         <img src="~/Images/home.jpg" alt="Pet Insurance" />
                         <div class="cardcontent">
-                            <h5 class="heading orange">Home/Property Insurance</h5>
+                            <h5 class="heading orange">Property Insurance</h5>
                             <p class="small-text">Comprehensive Coverage for Your Property</p>
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-danger">
-                        <h5 class="m-0">Home/Property Insurance</h5>
+                        <h5 class="m-0">Property Insurance</h5>
                         <p class="mb-2 card-bg-color">Home / Property Insurance safeguards your home, personal belongings, and valuables against fire, theft, natural disasters, or accidental damages.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -402,14 +406,14 @@
                         <span class="corner-badge">Newly Launched</span>
                         <img src="~/Images/term.jpg" alt=">Pet Insurance" />
                         <div class="cardcontent">
-                            <h5 class="heading orange">Term Life Insurance</h5>
+                            <h5 class="heading orange">Life Insurance</h5>
                             <p class="small-text">Financial Protection for the Life You Care About</p>
                         </div>
                     </div>
                     <div class="flip-face flip-back bg-dark">
-                        <h5 class="m-0">Term Life Insurance</h5>
+                        <h5 class="m-0">Life Insurance</h5>
                         <p class="mb-2 card-bg-color">Term Life Insurance provides financial security to your family in case of unforeseen events. It offers high coverage at affordable premiums,.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("life", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -428,7 +432,7 @@
                     <div class="flip-face flip-back bg-warning">
                         <h5 class="m-0">Money Back Policy</h5>
                         <p class="mb-2 card-bg-color">Money Back Policy is a life insurance plan that not only provides financial protection to your family but also gives you periodic payouts during the policy term.</p>
-                        <a class="btn btn-success" target="_blank" href="https://www.example.com">Register Now</a>
+                        <a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -445,27 +449,27 @@
                 <h4 style="color:#A10B0C; padding-left:10px;">I want to...</h4>
                 <ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
                     <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Life">
+                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="life">
                             <i class="fa-brands fa-slack"></i> Life Insurance
                         </a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Health">
+                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Health">
                             <i class="fa-solid fa-notes-medical"></i> Health Insurance
                         </a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Motor">
-                            <i class="fa-solid fa-car-burst"></i> Motor Insurance
+                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Car">
+                            <i class="fa-solid fa-car-burst"></i> Car Insurance
                         </a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Travel">
+                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Travel">
                             <i class="fa-brands fa-algolia"></i> Travel Insurance
                         </a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Home">
+                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Home">
                             <i class="fa-solid fa-house"></i> Home Insurance
                         </a>
                     </li>
