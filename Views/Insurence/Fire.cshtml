@@ -1,56 +1,197 @@
-﻿
-@{
-    ViewData["Title"] = "Fire";
-    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+﻿@{
+	ViewData["Title"] = "Fire";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
 <style>
 	body {
-		background-image: url('@Url.Content("~/Images/fireback.jpg")');
+		background-image: url('@Url.Content("~/Images/backcar.jpg")');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-position: center;
 	}
 
-	.box{
-		min-height:40px;
-		min-width: 170px;
-		width: fit-content;
+	.box {
+		height: 60px;
+		min-width: 100px;
 		background-color: #EFC3CA;
-		border-radius:10px;
-		text-align:center;
-        align-items: center;
+		border-radius: 10px;
+		align-items: center;
+		justify-content: center;
+		display: flex;
 	}
-	p{
-		font-size:12px;
+
+	p {
+		font-size: 17px;
+		padding-left: 10px;
+	}
+	.box img {
+		height: 40px;
+		width: 40px;
+		padding-left: 2px !important;
+	}
+	.box1 {
+		height: 200px;
+		width: 600px;
+		background-color: aliceblue;
+		margin: 20px;
+		border-radius: 20px;
+	}
+	.box2 {
+		height: 200px;
+		width: 600px;
+		background-color: aliceblue;
+		margin: 20px;
+		border-radius: 20px;
+	}
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+		overflow-x: hidden;
 	}
 </style>
-<div col-12>
-	<h2 >Fire Insurance</h2>
-	<p class="text-white">Shield your business!</p>
+<div class="container-fluid">
+	<div col-12>
+		<h2>Fire Insurance</h2>
+		<p class="text-white">Shield your business!</p>
+	</div>
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/contentslogo.png" />Easy claim process</p>
+				</div>
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/flightlogo.png" />Instant policy generation</p>
+				</div>
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/buildinglogo.png" />Covers burglary</p>
+				</div>
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/hospitallogo.png" />Covers for loss in stock</p>
+				</div>
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/insurancefire.png" />Covers up to 50 crores</p>
+				</div>
+				<div class="col-12 col-md-4">
+					<p class="box"><img src="~/Images/carlogo.png" />Complete disaster protection</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-4 bg-white ">
+		<div class="col-12 col-md-1 "></div>
+		<div class="col-12 col-md-7 ">
+			<h3>Fire insurance for MSMEs</h3>
+			<p>
+				Our Fire Insurance plan offers all-round protection against loss,
+				damage, or destruction of insured assets caused by covered risks.
+				It safeguards your property not only from fire but also from perils
+				such as explosions, implosions, and lightning. Coverage further extends
+				to land subsidence, landslides, rockslides, and forest, bush, or jungle fires.
+			</p>
+			<p>
+				The policy also protects against impact damage from vehicles, falling trees,
+				aircraft, or walls, including losses due to missile testing activities. It
+				covers incidents like bursting or leakage of water tanks, pipelines, or sprinkler
+				systems. Additionally, theft occurring within seven days as a direct result of these
+				insured events is included, ensuring complete security for your valuable property.
+			</p>
+		</div>
+		<div class="col-12 col-md-4"><img src="~/Images/firehome.jpg" width="100%" height="auto" /></div>
+	</div>
+	<div class="row bg-white mt-4">
+		<div class="col-12 col-md-4">
+			<img src="~/Images/fire32.jpg" width="100%" height="auto" />
+		</div>
+		<div class="col-12 col-md-7">
+			<h3>Why is fire insurance important for your business?</h3>
+			<p>
+				This Fire Insurance policy provides dependable protection
+				for properties with total asset values of up to ₹50
+				crore at the start of the policy. It covers financial
+				losses caused by unforeseen incidents leading to physical
+				damage, loss, or destruction of buildings, plants and
+				machinery, stock, and other business assets. To strengthen
+				coverage, the policy includes a waiver of underinsurance of up to 25%.
+			</p>
+			<p>
+				It also comes with built-in benefits such as coverage for additions,
+				alterations, or extensions; temporary movement of stock;
+				startup costs; and expenses for debris clearance. Further
+				protection is available for stock on a floater basis, specified
+				contents, professional fees, and costs required under municipal
+				laws. Tailored for micro, small, and medium enterprises—including
+				offices, hotels, restaurants, and more—this fire insurance policy
+				ensures your business stays secure against unexpected risks.
+			</p>
+		</div>
+		<div class="col-12 col-md-1"></div>
+	</div>
+	<div class="row mt-4">
+		<h2 style="text-align:center; background-color:#060270; color:white">Key features of fire insurance</h2>
+		<div class="col-md-1"></div>
+		<div class="col-md-4 box1 mt-4 pt-4">
+			<h4>Coverage</h4>
+			<p>
+				Our fire insurance plan offers extensive protection
+				for your business, safeguarding against risks like damage
+				or loss to buildings, machinery, stock, and other assets.
+				It minimizes your financial burden by covering repair or
+				replacement expenses in case of a fire.
+			</p>
+		</div>
+		<div class="col-md-4 box2  mt-4 pt-4">
+			<h4>Quick fire insurance claim settlement</h4>
+			<p>
+				Experience a quick and stress-free
+				claims process with our policy.
+				Our dedicated 24/7 claims team provides
+				fast financial assistance whenever you need it most.
+			</p>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-1  mt-4 pt-4"></div>
+		<div class="col-md-4 box1">
+			<h4>Industry expertise</h4>
+			<p>
+				With years of expertise in the industry,
+				we recognize the specific risks businesses
+				encounter. We evaluate potential threats and
+				provide customized solutions to safeguard your
+				business effectively, giving you complete peace of
+				mind.
+			</p>
+		</div>
+		<div class="col-md-4 box2  mt-4 pt-4">
+			<h4>Instant policy issuance</h4>
+			<p>
+				secure your fire insurance policy in
+				minutes using our advanced technology.
+				Our streamlined process eliminates unnecessary
+				paperwork, enabling you to safeguard your business
+				quickly and efficiently with just a few clicks.
+			</p>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
 </div>
-<div class="row">
-    <div class="col-12 col-md-7">
-        <div class="row">
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/contentslogo.png" />Easy claim process</p>
-            </div>
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/flightlogo.png" />Instant policy generation</p>
-            </div>
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/buildinglogo.png" />Covers burglary</p>
-            </div>
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/hospitallogo.png" />Covers for loss in stock</p>
-            </div>
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/insurancefire.png" />Covers up to 50 crores</p>
-            </div>
-            <div class="col-12 col-md-4">
-				<p class="box"><img src="~/Images/carlogo.png" />Covers natural and man-made calamities</p>
-            </div>
-        </div>
-    </div>
+<div class="row" style="background-color:#F3EBC8;">
+	<div class="col-md-2" ></div>
+	<div class="col-md-8">
+		<h3>Benefits of fire insurance</h3>
+		<p>
+			Businesses frequently face risks such as fire outbreaks,
+			making fire insurance a vital layer of protection. This
+			policy delivers broad coverage against damages caused by
+			fire, explosions, and related hazards. Beyond fire-specific
+			risks, it also includes protection against losses from natural
+			disasters, bursting water tanks, theft, and more—ensuring strong
+			security for your property.
+		</p>
+	</div>
+	<div class="col-md-2"></div>
+	
 </div>
-
