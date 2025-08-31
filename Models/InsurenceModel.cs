@@ -2,7 +2,7 @@
 
 namespace RadhaCapitalFinance.Models
 {
-    public class InsurenceModel
+    public class FinanceModel
     {
         [Required(ErrorMessage = "Select a product")]
         public string? Product { get; set; }
@@ -11,6 +11,7 @@ namespace RadhaCapitalFinance.Models
         public string? Name { get; set; }
 
         [EmailAddress(ErrorMessage = "Enter a valid email")]
+        [Required]
         public string? Email { get; set; }
 
         [Required(ErrorMessage = "Enter your mobile number")]

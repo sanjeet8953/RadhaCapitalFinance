@@ -1,528 +1,530 @@
-﻿@model RadhaCapitalFinance.Models.InsurenceModel
+﻿@model RadhaCapitalFinance.Models.FinanceModel
 @{
-    ViewData["Title"] = "Finence";
-    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+	ViewData["Title"] = "Finence";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
+<link href="~/css/customstyle.css" rel="stylesheet" />
 <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-    }
+	html, body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+	}
 
-    body {
-        background-image: url('@Url.Content("~/Images/background.jpg")');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-    }
+	body {
+		background-image: url('@Url.Content("~/Images/background.jpg")');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+	}
 
-    .row.full-width {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
+	.row.full-width {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
 
-        .row.full-width > [class*='col-'] {
-            padding: 0;
-        }
+		.row.full-width > [class*='col-'] {
+			padding: 0;
+		}
 
-    .card {
-        background: rgba(255,255,255,0.9);
-        border: none;
-        height: 550px;
-        border-radius: 0;
-        margin-top: 10px;
-    }
+	.card {
+		background: rgba(255,255,255,0.9);
+		border: none;
+		height: 550px;
+		border-radius: 0;
+		margin-top: 10px;
+	}
 
-    .carousel-inner img {
-        height: 550px;
-        object-fit: cover;
-        border-radius:10px
-    }
+	.carousel-inner img {
+		height: 550px;
+		object-fit: cover;
+		border-radius: 10px
+	}
 
-    main, .wrapper, .content {
-        min-height: calc(100vh - 60px);
-    }
+	main, .wrapper, .content {
+		min-height: calc(100vh - 60px);
+	}
 
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-    }
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-    ul li {
-        padding-left: 15px;
-        font-family: Cascadia Mono;
-    }
+	ul li {
+		padding-left: 15px;
+		font-family: Cascadia Mono;
+	}
 
-    /* start card core */
-    :root {
-        --card-w: 100%;
-        --card-h: 360px;
-        --radius: 16px;
-    }
+	/* start card core */
+	:root {
+		--card-w: 100%;
+		--card-h: 360px;
+		--radius: 16px;
+	}
 
-    .flip-card {
-        perspective: 1100px;
-        height: var(--card-h);
-        cursor: pointer;
-    }
+	.flip-card {
+		perspective: 1100px;
+		height: var(--card-h);
+		cursor: pointer;
+	}
 
-    .flip-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: transform .7s cubic-bezier(.2,.8,.2,1);
-        border-radius: var(--radius);
-        box-shadow: 0 10px 25px rgba(0,0,0,.08);
-        background: #fff;
-    }
+	.flip-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transform-style: preserve-3d;
+		transition: transform .7s cubic-bezier(.2,.8,.2,1);
+		border-radius: var(--radius);
+		box-shadow: 0 10px 25px rgba(0,0,0,.08);
+		background: #fff;
+	}
 
-    .flip-card:hover .flip-inner {
-        transform: rotateY(180deg);
-    }
+	.flip-card:hover .flip-inner {
+		transform: rotateY(180deg);
+	}
 
-    /* Mobile click ke liye class */
-    .flip-card.flipped .flip-inner {
-        transform: rotateY(180deg);
-    }
+	/* Mobile click ke liye class */
+	.flip-card.flipped .flip-inner {
+		transform: rotateY(180deg);
+	}
 
-    .flip-face {
-        position: absolute;
-        inset: 0;
-        backface-visibility: hidden;
-        border-radius: var(--radius);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
+	.flip-face {
+		position: absolute;
+		inset: 0;
+		backface-visibility: hidden;
+		border-radius: var(--radius);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
 
-    .flip-front img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-    }
+	.flip-front img {
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+	}
 
-    .flip-front .cardcontent {
-        flex: 1;
-        padding: 16px;
-        text-align: center;
-        display: grid;
-        place-content: center;
-        gap: 6px;
-    }
+	.flip-front .cardcontent {
+		flex: 1;
+		padding: 16px;
+		text-align: center;
+		display: grid;
+		place-content: center;
+		gap: 6px;
+	}
 
-    .flip-back {
-        transform: rotateY(180deg);
-        /* background: linear-gradient(135deg, #111827, #1f2937); */
-        color: #fff;
-        padding: 18px;
-        display: grid;
-        place-content: center;
-        gap: 12px;
-        text-align: center;
-    }
+	.flip-back {
+		transform: rotateY(180deg);
+		/* background: linear-gradient(135deg, #111827, #1f2937); */
+		color: #fff;
+		padding: 18px;
+		display: grid;
+		place-content: center;
+		gap: 12px;
+		text-align: center;
+	}
 
-        .flip-back .btn {
-            border-radius: 999px;
-            padding: 10px 18px;
-        }
+		.flip-back .btn {
+			border-radius: 999px;
+			padding: 10px 18px;
+		}
 
-    .corner-badge {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 2;
-        background: #dc3545;
-        color: #fff;
-        font-size: .75rem;
-        padding: 6px 10px;
-        border-radius: 999px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    }
+	.corner-badge {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 2;
+		background: #dc3545;
+		color: #fff;
+		font-size: .75rem;
+		padding: 6px 10px;
+		border-radius: 999px;
+		box-shadow: 0 2px 8px rgba(0,0,0,.15);
+	}
 
-    .heading {
-        font-weight: 700;
-        margin: 0;
-    }
+	.heading {
+		font-weight: 700;
+		margin: 0;
+	}
 
-        .heading.orange {
-            color: #f97316;
-        }
+		.heading.orange {
+			color: #f97316;
+		}
 
-    .small-text {
-        color: #6b7280;
-        margin: 0;
-    }
+	.small-text {
+		color: #6b7280;
+		margin: 0;
+	}
 
-    .flip-card:focus-within .flip-inner {
-        outline: 2px solid #60a5fa;
-    }
+	.flip-card:focus-within .flip-inner {
+		outline: 2px solid #60a5fa;
+	}
 
-    @@media (max-width: 575.98px) {
-        :root {
-            --card-h: 340px;
-        }
+	@@media (max-width: 575.98px) {
+		:root {
+			--card-h: 340px;
+		}
 
-        .flip-front img {
-            height: 140px;
-        }
+		.flip-front img {
+			height: 140px;
+		}
 
-        .flip-card:hover .flip-inner {
-            transform: rotateY(180deg);
-        }
-    }
+		.flip-card:hover .flip-inner {
+			transform: rotateY(180deg);
+		}
+	}
 
-    .card-bg-color {
-        color: white;
-        font-size: 14px;
-        font-family: 'Times New Roman'
-    }
-    /* end card part */
-    .flip-face h5{
-        color:black;
-    }
+	.card-bg-color {
+		color: white;
+		font-size: 14px;
+		font-family: 'Times New Roman'
+	}
+	/* end card part */
+	.flip-face h5 {
+		color: black;
+	}
 
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="row mt-2">
-    <div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
-        <marquee behavior="alternate" direction="left" scrollamount="5" style="width:100%; color: white;">
-            <b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence
-        </marquee>
-    </div>
-    
+	<div class="col-md-12" style="min-height:50px; background-color:orangered; font-size:16px; padding-top:10px; text-align:center">
+		<marquee behavior="alternate" direction="left" scrollamount="5" style="width:100%; color: white;">
+			<b>Raadha Capital awarded Brand of the Year 2025</b> Your faith empowers us to deliver unmatched excellence
+		</marquee>
+	</div>
+
 </div>
 <div class="row full-width no-gutters">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<div class="col-md-8 mt-2">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" style="padding:0;">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="@Url.Content("~/Images/bond.jpg")" alt="First slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="@Url.Content("~/Images/insu.jpg")" alt="Second slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="@Url.Content("~/Images/helth.jpg")" alt="Third slide">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-    <div class="col-md-8 mt-2">
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" style="padding:0;">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="@Url.Content("~/Images/bond.jpg")" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="@Url.Content("~/Images/insu.jpg")" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="@Url.Content("~/Images/helth.jpg")" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4 px-2 ">
-        <div class="card mt-2">
-            <div class="card-body pt-2 ">
-                <p>Start building your financial future with RaadhaCapital</p>
-                @using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
-                {
-                    <div class="form-group ">
-                        @Html.LabelFor(m => m.Product, new { @class = "control-label" })
-                        @Html.DropDownListFor(m => m.Product, (IEnumerable<SelectListItem>)ViewBag.Products, "--Select Product--", new { @class = "form-control" })
-
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Name, new { @class = "control-label" })
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", type = "Email", placeholder = "Enter your Name" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "Email", placeholder = "Enter your email"  })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Mobile, new { @class = "control-label" })
-                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", type = "Email", placeholder = "Enter your email" })
-                    </div>
-                    <div class="form-group">
-                         @Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input ms-1" })
-                        <label class="form-check-label ms-4">
-                            By continuing, you provide consent and agree to our
-                            <a href="#" target="_blank">Terms & Conditions</a>
-                        </label>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                   
-                }
-            </div>
-        </div>
-    </div>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body">
+				<p>Start building your financial future with RaadhaCapital</p>
+				<form method="post">
+					<div class="row ps-3 pe-3">
+						@Html.LabelFor(m => m.Product, new { @class = "form-lebel" })
+						@Html.DropDownListFor(m => m.Product, (IEnumerable<SelectListItem>)ViewBag.Products, "--Select Product--", new { @class = "input-sm  ms-2" })
+						@Html.ValidationMessageFor(m => m.Product, "", new { @class = "text-danger" })
+					</div>
+					<div class="row ps-3 pe-3">
+						@Html.LabelFor(m => m.Name, new { @class = "form-lebel" })
+						@Html.TextBoxFor(m => m.Name, new { @class = "input-sm  ms-2", type = "Email", placeholder = "Enter your Name" })
+						@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+					</div>
+					<div class="row ps-3 pe-3">
+						@Html.LabelFor(m => m.Email, new { @class = "form-lebel" })
+						@Html.TextBoxFor(m => m.Email, new { @class = "input-sm  ms-2", type = "Email", placeholder = "Enter your email" })
+						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+					</div>
+					<div class="row ps-3 pe-3">
+						@Html.LabelFor(m => m.Mobile, new { @class = "form-lebel" })
+						@Html.TextBoxFor(m => m.Mobile, new { @class = "input-sm ms-2", type = "Email", placeholder = "Enter your email" })
+						@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+					</div>
+					<div class="row ps-3 pe-3">
+						@Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input ms-1" })
+						<label class="form-check-label ms-4">
+							By continuing, you provide consent and agree to our
+							<a href="#" target="_blank">Terms & Conditions</a>
+						</label>
+					</div>
+					<div class="col-3">
+						<button type="submit" class="btn btn-sm btn-success">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="container py-4">
-    <h2 class="mb-4 fw-bold">Explore Insurance</h2>
-    <div class="row g-4">
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/travel.jpg" alt="Pet Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Travel Insurance</h5>
-                            <p class="small-text">Secure Your Journey with Travel Insurance</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-dark">
-                        <h5 class="m-0 bg-dark">Travel Insurance</h5>
-                        <p class="mb-2 card-bg-color">
-                            Travel Insurance ensures that your trips remain worry-free.
-                            It covers unexpected medical expenses, trip cancellations,
-                            lost baggage. </p>
-                        <a class="btn btn-success" href="@Url.Action("Travel", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/car.jpeg" alt="Car Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Car Insurance</h5>
-                            <p class="small-text">Your Car Deserves the Best Protection</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-success">
-                        <h5 class="m-0 ">Car Insurance</h5>
-                        <p class="mb-2 card-bg-color">Car Insurance safeguards your vehicle against accidents, theft, natural calamities, and third-party liabilities</p>
-                        <a class="btn btn-danger" href="@Url.Action("Car", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/fire.jpg" alt="Fire Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Fire Insurance</h5>
-                            <p class="small-text">Protect Your Property with Fire Insurance.</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-info">
-                        <h5 class="m-0">Fire Insurance</h5>
-                        <p class="mb-2 card-bg-color">
-                            Fire Insurance provides financial protection against damages
-                            caused by fire, natural disasters, explosions, or other accidental hazards.
-                        </p>
-                        <a class="btn btn-success" href="@Url.Action("Fire", "Insurence")">Register Now</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/business.jpg" alt="Health Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Commercial Insurance</h5>
-                            <p class="small-text">Comprehensive Coverage for Every Business Need</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-primary">
-                        <h5 class="m-0">Commercial Insurance</h5>
-                        <p class="mb-2 card-bg-color">
-                            Commercial Insurance provides complete protection for your business against
-                            arising from property damage,
-                            fire, theft, unforeseen events.
-                        </p>
-                        <a class="btn btn-success" href="@Url.Action("Commercial", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row g-4 mt-2">
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/images.jpeg" alt="Health Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Health Insurance</h5>
-                            <p class="small-text">Comprehensive Health Coverage for You and Your Family</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-secondary">
-                        <h5 class="m-0">Health Insurance</h5>
-                        <p class="mb-2 card-bg-color">
-                            Health Insurance provides financial protection against
-                            medical emergencies, hospitalization, surgeries, and critical illnesses.
-                        </p>
-                        <a class="btn btn-success" href="@Url.Action("Health", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/home.jpg" alt="Pet Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Property Insurance</h5>
-                            <p class="small-text">Comprehensive Coverage for Your Property</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-danger">
-                        <h5 class="m-0">Property Insurance</h5>
-                        <p class="mb-2 card-bg-color">Home / Property Insurance safeguards your home, personal belongings, and valuables against fire, theft, natural disasters, or accidental damages.</p>
-                        <a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
-                        <span class="corner-badge">Newly Launched</span>
-                        <img src="~/Images/term.jpg" alt=">Pet Insurance" />
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Life Insurance</h5>
-                            <p class="small-text">Financial Protection for the Life You Care About</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-dark">
-                        <h5 class="m-0">Life Insurance</h5>
-                        <p class="mb-2 card-bg-color">Term Life Insurance provides financial security to your family in case of unforeseen events. It offers high coverage at affordable premiums,.</p>
-                        <a class="btn btn-success" href="@Url.Action("life", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-6">
-            <div class="flip-card" tabindex="0" data-link="">
-                <div class="flip-inner">
-                    <div class="flip-face flip-front">
+	<h2 class="mb-4 fw-bold">Explore Insurance</h2>
+	<div class="row g-4">
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
 						<span class="corner-badge">Newly Launched</span>
-                         <img src="~/Images/Moneyback.jpg" alt="Traveller Insurance" /> 
-                        <div class="cardcontent">
-                            <h5 class="heading orange">Money Back Policy</h5>
-                            <p class="small-text">Financial Security with Periodic Benefits</p>
-                        </div>
-                    </div>
-                    <div class="flip-face flip-back bg-warning">
-                        <h5 class="m-0">Money Back Policy</h5>
-                        <p class="mb-2 card-bg-color">Money Back Policy is a life insurance plan that not only provides financial protection to your family but also gives you periodic payouts during the policy term.</p>
-                        <a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						<img src="~/Images/travel.jpg" alt="Pet Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Travel Insurance</h5>
+							<p class="small-text">Secure Your Journey with Travel Insurance</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-dark">
+						<h5 class="m-0 bg-dark">Travel Insurance</h5>
+						<p class="mb-2 card-bg-color">
+							Travel Insurance ensures that your trips remain worry-free.
+						</p>
+						<a class="btn btn-success" href="@Url.Action("Travel", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/car.jpeg" alt="Car Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Car Insurance</h5>
+							<p class="small-text">Your Car Deserves the Best Protection</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-success">
+						<h5 class="m-0 ">Car Insurance</h5>
+						<p class="mb-2 card-bg-color">Car Insurance safeguards your vehicle against accidents, theft, natural calamities, and third-party liabilities</p>
+						<a class="btn btn-danger" href="@Url.Action("Car", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/fire.jpg" alt="Fire Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Fire Insurance</h5>
+							<p class="small-text">Protect Your Property with Fire Insurance.</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-info">
+						<h5 class="m-0">Fire Insurance</h5>
+						<p class="mb-2 card-bg-color">
+							Fire Insurance provides financial protection against damages
+							caused by fire, natural disasters, explosions.
+						</p>
+						<a class="btn btn-success" href="@Url.Action("Fire", "Insurence")">Register Now</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/business.jpg" alt="Health Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Commercial Insurance</h5>
+							<p class="small-text">Comprehensive Coverage for Every Business Need</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-primary">
+						<h5 class="m-0">Commercial Insurance</h5>
+						<p class="mb-2 card-bg-color">
+							Commercial Insurance provides complete protection for your business against
+							arising from property damage.
+						</p>
+						<a class="btn btn-success" href="@Url.Action("Commercial", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row g-4 mt-2">
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/images.jpeg" alt="Health Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Health Insurance</h5>
+							<p class="small-text">Comprehensive Health Coverage for You and Your Family</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-secondary">
+						<h5 class="m-0">Health Insurance</h5>
+						<p class="mb-2 card-bg-color">
+							Health Insurance provides financial protection against
+							medical emergencies, hospitalization, surgeries.
+						</p>
+						<a class="btn btn-success" href="@Url.Action("Health", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/home.jpg" alt="Pet Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Property Insurance</h5>
+							<p class="small-text">Comprehensive Coverage for Your Property</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-danger">
+						<h5 class="m-0">Property Insurance</h5>
+						<p class="mb-2 card-bg-color">Home / Property Insurance safeguards your home, personal belongings, and valuables against fire, theft, natural disasters.</p>
+						<a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/term.jpg" alt=">Pet Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Life Insurance</h5>
+							<p class="small-text">Financial Protection for the Life You Care About</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-dark">
+						<h5 class="m-0">Life Insurance</h5>
+						<p class="mb-2 card-bg-color"> Life Insurance provides financial security to your family in case of unforeseen events.</p>
+						<a class="btn btn-success" href="@Url.Action("life", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6 col-6">
+			<div class="flip-card" tabindex="0" data-link="">
+				<div class="flip-inner">
+					<div class="flip-face flip-front">
+						<span class="corner-badge">Newly Launched</span>
+						<img src="~/Images/Moneyback.jpg" alt="Traveller Insurance" />
+						<div class="cardcontent">
+							<h5 class="heading orange">Money Back Policy</h5>
+							<p class="small-text">Financial Security with Periodic Benefits</p>
+						</div>
+					</div>
+					<div class="flip-face flip-back bg-warning">
+						<h5 class="m-0">Money Back Policy</h5>
+						<p class="mb-2 card-bg-color">Money Back Policy is a life insurance plan that ensures family protection along with periodic payouts during the policy term.</p>
+						<a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="container-fluid mt-4 px-0 box">
-    <h2 class="mb-4 fw-bold">Explore Insurance</h2>
-    <div class="row justify-content-center" style="background-color:white">
-       
-        <div class="col-12 col-md-5 mb-3 px-3">
-            <div style="border:2px solid black; border-radius:20px; min-height:200px; margin-top:10px;">
-                <h4 style="color:#A10B0C; padding-left:10px;">I want to...</h4>
-                <ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="life">
-                            <i class="fa-brands fa-slack"></i> Life Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Health">
-                            <i class="fa-solid fa-notes-medical"></i> Health Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Car">
-                            <i class="fa-solid fa-car-burst"></i> Car Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Travel">
-                            <i class="fa-brands fa-algolia"></i> Travel Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurence" asp-action="Home">
-                            <i class="fa-solid fa-house"></i> Home Insurance
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+	<h2 class="mb-4 fw-bold">Explore Insurance</h2>
+	<div class="row justify-content-center" style="background-color:white">
 
-        <!-- दूसरा बॉक्स -->
-        <div class="col-12 col-md-5 mb-3 px-3">
-            <div style="border:2px solid black; border-radius:20px; min-height:200px; margin-top:10px;">
-                <h4 style="color:#A10B0C; padding-left:10px;">I'm searching for..</h4>
-                <ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Fire">
-                            <img src="https://image.bajajcapitalone.com/bajajcapital/retirement-planning_1.jpg" height="18" width="18" />
-                            Fire Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Marine">
-                            <img src="https://image.bajajcapitalone.com/bajajcapital/insurance_0.jpg" height="18" width="18" />
-                            Marine Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
-                            <i class="fa-solid fa-house-chimney-crack"></i> Property Insurance
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
-                            <i class="fa-solid fa-person-dress"></i> MWF (Married Women’s Fund)
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
-                            <i class="fa-solid fa-venus"></i> HUF (Hindu Undivided Family)
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>@* 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>
-    document.querySelectorAll('.flip-card').forEach(card => { 
-        let front = card.querySelector('.flip-front');
-        let back = card.querySelector('.flip-back');
-        let maxHeight = Math.max(front.scrollHeight, back.scrollHeight);
-        card.style.height = maxHeight + "px";
-    });
-</script> *@
+		<div class="col-12 col-md-5 mb-3 px-3">
+			<div style="border:2px solid black; border-radius:20px; min-height:200px; margin-top:10px;">
+				<h4 style="color:#A10B0C; padding-left:10px;">I want to...</h4>
+				<ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="life">
+							<i class="fa-brands fa-slack"></i> Life Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Health">
+							<i class="fa-solid fa-notes-medical"></i> Health Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Car">
+							<i class="fa-solid fa-car-burst"></i> Car Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Travel">
+							<i class="fa-brands fa-algolia"></i> Travel Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Home">
+							<i class="fa-solid fa-house"></i> Home Insurance
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- दूसरा बॉक्स -->
+		<div class="col-12 col-md-5 mb-3 px-3">
+			<div style="border:2px solid black; border-radius:20px; min-height:200px; margin-top:10px;">
+				<h4 style="color:#A10B0C; padding-left:10px;">I'm searching for..</h4>
+				<ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Fire">
+							<img src="https://image.bajajcapitalone.com/bajajcapital/retirement-planning_1.jpg" height="18" width="18" />
+							Fire Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Marine">
+							<img src="https://image.bajajcapitalone.com/bajajcapital/insurance_0.jpg" height="18" width="18" />
+							Marine Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+							<i class="fa-solid fa-house-chimney-crack"></i> Property Insurance
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+							<i class="fa-solid fa-person-dress"></i> MWF (Married Women’s Fund)
+						</a>
+					</li>
+					<li>
+						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+							<i class="fa-solid fa-venus"></i> HUF (Hindu Undivided Family)
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script>
+		// document.querySelectorAll('.flip-card').forEach(card => {
+		// 	let front = card.querySelector('.flip-front');
+		// 	let back = card.querySelector('.flip-back');
+		// 	let maxHeight = Math.max(front.scrollHeight, back.scrollHeight);
+		// 	card.style.height = maxHeight + "px";
+		// });
+	</script>
+}
 
 
 
