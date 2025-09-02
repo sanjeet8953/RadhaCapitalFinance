@@ -231,7 +231,7 @@
 			<div class="card-body">
 				<p>Start building your financial future with RaadhaCapital</p>
 				<form method="post">
-					<div class="row ps-3 pe-3">
+					<div class="row px-3">
 						@Html.LabelFor(m => m.Product, new { @class = "form-lebel" })
 						@Html.DropDownListFor(m => m.Product, (IEnumerable<SelectListItem>)ViewBag.Products, "--Select Product--", new { @class = "input-sm  ms-2" })
 						@Html.ValidationMessageFor(m => m.Product, "", new { @class = "text-danger" })
@@ -339,7 +339,7 @@
 						<span class="corner-badge">Newly Launched</span>
 						<img src="~/Images/business.jpg" alt="Health Insurance" />
 						<div class="cardcontent">
-							<h5 class="heading orange">Commercial Insurance</h5>
+							<h5 class="heading orange">Commercial Insurence</h5>
 							<p class="small-text">Comprehensive Coverage for Every Business Need</p>
 						</div>
 					</div>
@@ -392,7 +392,7 @@
 					<div class="flip-face flip-back bg-danger">
 						<h5 class="m-0">Property Insurance</h5>
 						<p class="mb-2 card-bg-color">Home / Property Insurance safeguards your home, personal belongings, and valuables against fire, theft, natural disasters.</p>
-						<a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
+						<a class="btn btn-success" href="@Url.Action("Property", "Insurence")">Register Now</a>
 					</div>
 				</div>
 			</div>
@@ -467,8 +467,8 @@
 						</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Home">
-							<i class="fa-solid fa-house"></i> Home Insurance
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Commercial">
+							<i class="fa-solid fa-house"></i> Commercial Insurance
 						</a>
 					</li>
 				</ul>
@@ -493,7 +493,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Property">
 							<i class="fa-solid fa-house-chimney-crack"></i> Property Insurance
 						</a>
 					</li>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RadhaCapitalFinance.Models.SIPModel;
+@{
 	ViewData["Title"] = "Travel";
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
@@ -13,7 +14,6 @@
 	.logo {
 		font-size: 35px;
 		margin-top: 80px;
-		
 	}
 
 	#text {
@@ -63,6 +63,46 @@
 	.img3 p {
 		font-size: 13px;
 	}
+
+	.fg {
+		position: relative;
+		margin: 1.5rem 0;
+	}
+
+	.fg-input {
+		width: 100%;
+		padding: 14px 12px;
+		border: 1.8px solid #c8c8c8;
+		border-radius: 8px;
+		outline: none;
+		font-size: 16px;
+		background: #fff;
+	}
+
+	.fg-label {
+		position: absolute;
+		left: 12px;
+		top: 14px;
+		color: #777;
+		font-size: 16px;
+		background: #fff;
+		padding: 0 4px;
+		pointer-events: none;
+		transition: 0.2s ease all;
+	}
+
+	.fg-input:focus + .fg-label,
+	.fg-input:not(:placeholder-shown) + .fg-label {
+		top: -10px;
+		font-size: 12px;
+		color: #0d6efd;
+	}
+
+	.fg {
+		display: flex;
+		align-items: center;
+		margin: 1rem 0;
+	}
 </style>
 <div class="row mt-3">
 	<div class="col-12 box2">
@@ -71,7 +111,7 @@
 				✈️ Travel Insurance
 			</marquee>
 		</center>
-		
+
 	</div>
 </div>
 <div class="row">
@@ -138,5 +178,151 @@
 		<p><b>Flight delay cover:</b>Reimburses extra costs caused by flight delays.</p>
 		<p><b>Adventure sports & pre-existing conditions cover:</b>Some plans also include coverage for adventure sports and pre-existing illnesses.</p>
 		<p><b>Car rental and cruise coverage:</b>Travelling abroad and renting a car? This policy has you covered with protection for car rentals, ensuring you're safeguarded from potential issues.</p>
+	</div>
+</div>
+<div class="row mt-4">
+	<div class="col-12 col-md-6 offset-1 ">
+		<h3>Benefits of Single Trip Holiday Insurance</h3>
+		<p>This one-time travel insurance plan provides a variety of advantages, including:</p>
+		<div class="accordion mt-2" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="TypeOne">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseOne"
+							aria-expanded="false"
+							aria-controls="collapseOne">
+						A Wide Range of Covers
+					</button>
+				</h3>
+				<div id="collapseOne" class="accordion-collapse collapse"
+					 aria-labelledby="headingOne">
+					<div class="accordion-body">
+						This one-time insurance policy offers an extensive
+						selection of 50 coverage options, enabling you to
+						customize your plan according to your individual
+						requirements. Whether your trip is for business or
+						pleasure, you have the flexibility to select from
+						multiple coverage choices.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="accordion mt-2" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="TypeTwo">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseTwo"
+							aria-expanded="false"
+							aria-controls="collapsetwo">
+						Emergency Assistance
+					</button>
+				</h3>
+				<div id="collapseTwo" class="accordion-collapse collapse"
+					 aria-labelledby="headingTwo">
+					<div class="accordion-body">
+						The one-time travel insurance plan provides
+						extensive protection to address financial
+						emergencies during your trip. It guarantees 
+						access to emergency funds if unforeseen circumstances 
+						occur, helping you handle unexpected costs with ease 
+						and peace of mind.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="accordion mt-2" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="TypeThree">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseThree"
+							aria-expanded="false"
+							aria-controls="collapseThree">
+						Offers Adventure Sports Insurance Coverage
+					</button>
+				</h3>
+				<div id="collapseThree" class="accordion-collapse collapse"
+					 aria-labelledby="headingThree">
+					<div class="accordion-body">
+						Whether you’re gliding down mountains or exploring
+						underwater worlds, this single-trip holiday insurance
+						plan guarantees coverage for unforeseen incidents.
+						Enjoy your favorite activities worry-free, confident
+						that this one-time travel insurance plan safeguards 
+						you around the clock.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="accordion mt-2" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="TypeFore">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseFore"
+							aria-expanded="false"
+							aria-controls="collapseFore">
+						Daily Hospital Allowances
+					</button>
+				</h3>
+				<div id="collapseFore" class="accordion-collapse collapse"
+					 aria-labelledby="headingFore">
+					<div class="accordion-body">
+						This one trip travel insurance policy provides daily 
+						hospital allowances, covering your medical needs in 
+						case of illness or injury during the trip, so you 
+						can focus on recovery rather than finances.
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-12 col-md-5 px-3">
+		<div class="content-container">
+			<div class="card">
+				<div class="card-body">
+					<form method="post">
+						<h3>Systematic Investment Plan</h3>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Name, new { @class = "fg-input", placeholder = " " })
+							@Html.LabelFor(m => m.Name, new { @class = "fg-label" })
+						</div>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", placeholder = " " })
+							@Html.LabelFor(m => m.MobailNo, new { @class = "fg-label" })
+						</div>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Email, new { @class = "fg-input", placeholder = " " })
+							@Html.LabelFor(m => m.Email, new { @class = "fg-label" })
+						</div>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Adderess, new { @class = "fg-input", placeholder = " " })
+							@Html.LabelFor(m => m.Adderess, new { @class = "fg-label" })
+						</div>
+						<div class="fg" style="display: inline-block; margin-right: 10px;">
+							<label>
+								@Html.RadioButtonFor(m => m.Gender, "Male", new { @class = "fg-input-radio" })
+								<span class="fg-label-radio">Male</span>
+							</label>
+						</div>
+
+						<div class="fg" style="display: inline-block;">
+							<label>
+								@Html.RadioButtonFor(m => m.Gender, "Female", new { @class = "fg-input-radio" })
+								<span class="fg-label-radio">Female</span>
+							</label>
+						</div>
+						<!-- Aap yahan aur inputs bhi add kar sakte hain isi tarah -->
+						<div class="row">
+						<button type="submit" class="btn btn-primary mt-3">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>

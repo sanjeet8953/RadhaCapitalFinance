@@ -62,6 +62,14 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult Property()
+        {
+            return View();
+        }
+        public IActionResult Commercial()
+        {
+            return View();
+        }
 
         private List<SelectListItem> InsurenceType()
         {

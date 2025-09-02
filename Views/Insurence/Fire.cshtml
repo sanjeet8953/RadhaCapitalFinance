@@ -12,31 +12,28 @@
 		
 	}
 
-	.box {
+	.box{
 		height: 60px;
 		min-width: 100px;
 		background-color: #EFC3CA;
 		border-radius: 10px;
-		align-items: center;
-		justify-content: center;
-		display: flex;
+		margin:10px;
+		overflow:hidden;
 	}
-
-	p {
-		font-size: 14px;
-		padding-left: 10px;
-	}
+	
 	.box img {
 		min-height: 40px;
 		min-width: 40px;
-		padding-left: 2px !important;
+		padding: 10px !important;
 	}
-	.box1,.box2 {
+	.box1, .box2 {
 		min-height: 200px;
-		margin:10px;
+		width: 100%; 
 		background-color: aliceblue;
-		
+		margin: 5px 0; 
 		border-radius: 20px;
+		padding: 20px;
+		box-sizing: border-box;
 	}
 	
 	.row {
@@ -48,7 +45,8 @@
 	.last{
 		background-color: #EBF1CB;
 		padding: 0;
-		margin: 0;
+		margin: 10px;
+		border-radius:10px;
 	}
 </style>
 <div class="container-fluid">
@@ -57,28 +55,47 @@
 		<p class="text-white">Shield your business!</p>
 	</div>
 	<div class="row">
-		<div class="col-12 col-md-7">
+		<div class="col-12 col-md-8">
 			<div class="row">
 				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/contentslogo.png" />Easy claim process</p>
+					<div class="box">
+					<img src="~/Images/contentslogo.png" />
+					<span>Easy claim process</span>
+					</div>
 				</div>
 				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/flightlogo.png" />Instant policy generation</p>
+					<div class="box">
+					<img src="~/Images/flightlogo.png" />
+					<span>Instant policy generation</span>
+					</div>
 				</div>
-				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/buildinglogo.png" />Covers burglary</p>
+				<div class="col-12 col-md-4 ">
+					<div class="box">
+					<img src="~/Images/buildinglogo.png" />
+					<span>Covers burglary</span>
+					</div>
 				</div>
-				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/hospitallogo.png" />Covers for loss in stock</p>
+				<div class="col-12 col-md-4 ">
+					<div class="box">
+					<img src="~/Images/hospitallogo.png " />
+					<span>Covers for loss in stock</span>
+					</div>
 				</div>
-				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/insurancefire.png" />Covers up to 50 crores</p>
+				<div class="col-12 col-md-4 " >
+					<div class="box">
+					<img src="~/Images/insurancefire.png" />
+					<span>Covers up to 50 crores</span>
+					</div>
 				</div>
-				<div class="col-12 col-md-4">
-					<p class="box"><img src="~/Images/carlogo.png" />Complete disaster protection</p>
+				<div class="col-12 col-md-4 ">
+					<div class="box">
+					<img src="~/Images/carlogo.png" />
+					<span>Complete disaster protection</span>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="col-md-4"></div>
 	</div>
 	<div class="row mt-4 bg-white ">
 		<div class="col-12 col-md-1 "></div>
@@ -106,7 +123,7 @@
 		<div class="col-12 col-md-4">
 			<img src="~/Images/fire32.jpg" width="100%" height="auto" />
 		</div>
-		<div class="col-12 col-md-7">
+		<div class="col-12 col-md-7 mt-2">
 			<h3>Why is fire insurance important for your business?</h3>
 			<p>
 				This Fire Insurance policy provides dependable protection
@@ -130,10 +147,10 @@
 		</div>
 		<div class="col-12 col-md-1"></div>
 	</div>
-	<div class="row mt-4">
+	<div class="row mt-2">
 		<h2 style="text-align:center; background-color:#060270; color:white">Key features of fire insurance</h2>
-		<div class="col-md-1"></div>
-		<div class="col-12 col-md-4 box1 mt-4 pt-4">
+		<div class="col-md-4 offset-lg-2  mt-2 pt-4">
+			<div class="box1">
 			<h4>Coverage</h4>
 			<p>
 				Our fire insurance plan offers extensive protection
@@ -143,7 +160,9 @@
 				replacement expenses in case of a fire.
 			</p>
 		</div>
-		<div class="col-12 col-md-4 box2  mt-4 pt-4">
+		</div>
+		<div class="col-md-4   mt-2 pt-4">
+		<div class="box2">
 			<h4>Quick fire insurance claim settlement</h4>
 			<p>
 				Experience a quick and stress-free
@@ -152,10 +171,11 @@
 				fast financial assistance whenever you need it most.
 			</p>
 		</div>
+		</div>
 	</div>
-	<div class="row mt-4">
-		<div class=" col-md-1"></div>
-		<div class="col-12 col-md-4 box1">
+	<div class="row mt-2">
+		<div class="col-md-4 offset-lg-2 mt-2 pt-4">
+			<div class="box1">
 			<h4>Industry expertise</h4>
 			<p>
 				With years of expertise in the industry,
@@ -165,8 +185,10 @@
 				business effectively, giving you complete peace of
 				mind.
 			</p>
+			</div>
 		</div>
-		<div class="col-12 col-md-4 box2  mt-2 pt-4">
+		<div class="col-md-4   mt-2 pt-4">
+			<div class="box2">
 			<h4>Instant policy issuance</h4>
 			<p>
 				secure your fire insurance policy in
@@ -175,6 +197,7 @@
 				paperwork, enabling you to safeguard your business
 				quickly and efficiently with just a few clicks.
 			</p>
+		</div>
 		</div>
 	</div>
 	<div class="row last">
