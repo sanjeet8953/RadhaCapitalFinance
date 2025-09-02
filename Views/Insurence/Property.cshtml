@@ -1,0 +1,234 @@
+﻿@model RadhaCapitalFinance.Models.PropertyModel
+
+@{
+	ViewData["Title"] = "Property";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+	.box {
+		height: 60px;
+		min-width: 60px;
+		background-color: #EFC3CA;
+		border-radius: 10px;
+		margin: 10px;
+		overflow: hidden;
+	}
+
+		.box img {
+			min-height: 40px;
+			min-width: 40px;
+			padding: 10px !important;
+		}
+
+	.image{
+		height:auto;
+		width:100%;
+	}
+
+	.card{
+		min-height:500px;
+	}
+</style>
+
+<h2><span class="text-danger">Property</span> Insurance</h2>
+<p>Keep your assets protected, always</p>
+<div class="row">
+	<div class="col-12 col-md-8">
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="box">
+					<img src="~/Images/contentslogo.png" />
+					<span>Easy claim process</span>
+				</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="box">
+					<img src="~/Images/flightlogo.png" />
+					<span>Instant policy generation</span>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 ">
+				<div class="box">
+					<img src="~/Images/buildinglogo.png" />
+					<span>Covers natural calamities</span>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 ">
+				<div class="box">
+					<img src="~/Images/hospitallogo.png " />
+					<span>Covers up to 50 crore</span>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 ">
+				<div class="box">
+					<img src="~/Images/insurancefire.png" />
+					<span>Coverage for contents & stock</span>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 ">
+				<div class="box">
+					<img src="~/Images/carlogo.png" />
+					<span>Covers burglary & theft</span>
+				</div>
+			</div>
+		</div>
+		<img src="\images\fire23.jpg" class="image"/>
+	</div>
+	<div class=" col-12 col-md-4 pt-5">
+		<div class="card">
+			<div class="card-body">
+				<form method="post">
+					<h3>Property Insurence</h3>
+					<div class="form-floating mt-4">
+						@Html.TextBoxFor(m => m.MobailNo, new { @class = "form-control", placeholder = "Enter Mobile No" })
+						@Html.LabelFor(m => m.MobailNo)
+					</div>
+					<div class="form-floating mt-4">
+						@Html.TextBoxFor(m => m.ShopName, new { @class = "form-control", placeholder = "Enter Shop Name" })
+						@Html.LabelFor(m => m.ShopName)
+					</div>
+
+					<div class="form-floating mt-4">
+						@Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", placeholder = "Enter Pincode", type = "number" })
+						@Html.LabelFor(m => m.Pincode)
+					</div>
+
+					<div class="form-floating mt-4">
+						@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email", type = "email" })
+						@Html.LabelFor(m => m.Email)
+					</div>
+					<div class="form-check ps-3 pe-3 mt-2">
+						@Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input", id = "Consent" })
+						<label class="form-check-label" for="Consent">
+							I agree to <a href="#" target="_blank">Terms & Conditions</a>
+						</label>
+					</div>
+					<div class="form-check ps-3 pe-3 mt-2">
+						@Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input", id = "Consent" })
+						<label class="form-check-label" for="Consent">
+							Receive update on Whatsapp
+						</label>
+					</div>
+
+					<button type="submit" class="btn btn-success mt-4">Register Now</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row mt-4">
+	
+	<div class="col-md-4 offset-lg-1">
+		<h2>What is Property Insurance?</h2>
+		<p>Property insurance safeguards your home or business premises from
+			losses caused by both natural and human-made incidents. It secures
+			physical assets such as buildings, equipment, and stock against risks
+			like theft, fire, or other unforeseen events. This coverage helps in meeting
+			the expenses of repair, replacement, or rebuilding of damaged property. The policy
+			ensures financial protection against sudden events that result in damage, destruction,
+			or loss of structures, machinery, inventory, and other business-related assets. Small and medium 
+		enterprises, including offices, hotels, restaurants, and similar establishments, are eligible to benefit from this coverage.</p>
+	</div>
+	<div class="col-md-4 offset-lg-1">
+		<img src="\images\prop1.jpg"class="image" /></div>
+</div>
+<div class="row mt-4">
+	<div class="col-md-8 offset-lg-2 mt-2">
+		<div class="accordion" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="TypeOne">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseOne"
+							aria-expanded="false"
+							aria-controls="collapseOne">
+						Residential home insurance
+					</button>
+					</h3>
+					<div id="collapseOne" class="accordion-collapse collapse"
+						 aria-labelledby="headingOne">
+						<div class="accordion-body">
+						Residential Home Insurance is a policy designed to protect 
+						your home from unexpected events like fire, theft, natural
+						disasters, or accidental damages. It covers the cost of repairing,
+						rebuilding, or replacing your house and its valuable contents, ensuring
+						peace of mind for you and your family.
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 offset-lg-2 mt-2">
+		<div class="accordion" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="Typetwo">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseTwo"
+							aria-expanded="false"
+							aria-controls="collapseOne">
+						Commercial building insurance
+					</button>
+				</h3>
+				<div id="collapseTwo" class="accordion-collapse collapse"
+					 aria-labelledby="headingtwo">
+					<div class="accordion-body">
+						Commercial Building Insurance provides financial
+						protection to business properties against losses
+						caused by natural disasters, fire, theft, or other
+						unforeseen risks. It covers the cost of repair, rebuilding,
+						or replacement of commercial structures, ensuring the continuity
+						of your business operations.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-8 offset-lg-2 mt-2">
+		<div class="accordion" id="PropertyInsurence">
+			<div class="accordion-item">
+				<h3 class="accordion-header" id="Typethree">
+					<button class="accordion-button collapsed fw-bold" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#collapseThree"
+							aria-expanded="false"
+							aria-controls="collapseThree">
+						Fire insurance
+					</button>
+				</h3>
+				<div id="collapseThree" class="accordion-collapse collapse"
+					 aria-labelledby="headingthree">
+					<div class="accordion-body">
+						Fire Insurance is a type of property insurance
+						that provides coverage against financial losses
+						caused by fire-related incidents. It helps cover
+						the cost of repairing, rebuilding, or replacing damaged 
+						property, including buildings, machinery, stock, and other assets.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div class="row g-4 mt-4">
+	<div class="col-12 col-md-4">
+		<img src="/images/prop2.jpg"class="image"/>
+	</div>
+	<div class="col-12 col-md-8 ps-5">
+		<h3>Who Needs Property Insurance?</h3>
+		<p>Any organization, business, institution, or individual wishing to
+			secure their property <br />and assets against unexpected risks should 
+			opt for property insurance. This coverage is suitable for:</p>
+			<ul>
+			<li>Shop owners, retailers, and warehouse/storage operators</li>
+			<li>Homeowners with valuable household items like furniture, electronics, and other assets</li>
+			<li>Banks, financial bodies, research centers, schools, and similar organizations</li>
+			<li>Both industrial (manufacturing) and service-based (non-manufacturing) companies</li>
+			</ul>
+	</div>
+</div>
+
+
+
