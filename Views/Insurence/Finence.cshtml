@@ -430,7 +430,7 @@
 					<div class="flip-face flip-back bg-warning">
 						<h5 class="m-0">Money Back Policy</h5>
 						<p class="mb-2 card-bg-color">Money Back Policy is a life insurance plan that ensures family protection along with periodic payouts during the policy term.</p>
-						<a class="btn btn-success" href="@Url.Action("Home", "Insurence")">Register Now</a>
+						<a class="btn btn-success" href="@Url.Action("MoneyBackPolicy", "Insurence")">Register Now</a>
 					</div>
 				</div>
 			</div>
@@ -482,12 +482,13 @@
 				<ul style="list-style-type:none; padding-left:0; font-size:16px; line-height:2;">
 					<li>
 						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Fire">
-							<img src="https://image.bajajcapitalone.com/bajajcapital/retirement-planning_1.jpg" height="18" width="18" />
+							@* <img src="https://image.bajajcapitalone.com/bajajcapital/retirement-planning_1.jpg" height="18" width="18" /> *@
+							<img src="~/images/disabilitylogo.png" height="20" width="20" />
 							Fire Insurance
 						</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Marine">
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="Marine">
 							<img src="https://image.bajajcapitalone.com/bajajcapital/insurance_0.jpg" height="18" width="18" />
 							Marine Insurance
 						</a>
@@ -498,12 +499,12 @@
 						</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="MWP">
 							<i class="fa-solid fa-person-dress"></i> MWF (Married Women’s Fund)
 						</a>
 					</li>
 					<li>
-						<a class="text-decoration-none" asp-controller="Insurance" asp-action="Property">
+						<a class="text-decoration-none" asp-controller="Insurence" asp-action="HUF">
 							<i class="fa-solid fa-venus"></i> HUF (Hindu Undivided Family)
 						</a>
 					</li>

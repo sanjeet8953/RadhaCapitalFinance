@@ -70,6 +70,22 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        public IActionResult MoneyBackPolicy()
+        {
+            return View();
+        }
+        public IActionResult Marine()
+        {
+            return View();
+        }
+        public IActionResult HUF()
+        {
+            return View();
+        }
+        public IActionResult MWP()
+        {
+            return View();
+        }
 
         private List<SelectListItem> InsurenceType()
         {
