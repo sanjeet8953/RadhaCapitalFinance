@@ -188,6 +188,40 @@
 		color: black;
 	}
 
+	.fg {
+		position: relative;
+		margin: 0.6rem 0;
+	}
+
+	.fg-input {
+		width: 100%;
+		padding: 10px 12px;
+		border: 1.8px solid #c8c8c8;
+		border-radius: 8px;
+		outline: none;
+		font-size: 16px;
+		background: #fff;
+	}
+
+	.fg-label {
+		position: absolute;
+		left: 12px;
+		top: 14px;
+		color: #777;
+		font-size: 16px;
+		background: #fff;
+		padding: 0 4px;
+		pointer-events: none;
+		transition: 0.2s ease all;
+	}
+
+	.fg-input:focus + .fg-label,
+	.fg-input:not(:placeholder-shown) + .fg-label {
+		top: -10px;
+		font-size: 12px;
+		color: #0d6efd;
+	}
+
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="row mt-2">
@@ -227,44 +261,53 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<div class="card">
-			<div class="card-body">
-				<p>Start building your financial future with RaadhaCapital</p>
-				<form method="post">
-					<div class="row px-3">
-						@Html.LabelFor(m => m.Product, new { @class = "form-lebel" })
-						@Html.DropDownListFor(m => m.Product, (IEnumerable<SelectListItem>)ViewBag.Products, "--Select Product--", new { @class = "input-sm  ms-2" })
-						@Html.ValidationMessageFor(m => m.Product, "", new { @class = "text-danger" })
-					</div>
-					<div class="row ps-3 pe-3">
-						@Html.LabelFor(m => m.Name, new { @class = "form-lebel" })
-						@Html.TextBoxFor(m => m.Name, new { @class = "input-sm  ms-2", type = "Email", placeholder = "Enter your Name" })
-						@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-					</div>
-					<div class="row ps-3 pe-3">
-						@Html.LabelFor(m => m.Email, new { @class = "form-lebel" })
-						@Html.TextBoxFor(m => m.Email, new { @class = "input-sm  ms-2", type = "Email", placeholder = "Enter your email" })
-						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-					</div>
-					<div class="row ps-3 pe-3">
-						@Html.LabelFor(m => m.Mobile, new { @class = "form-lebel" })
-						@Html.TextBoxFor(m => m.Mobile, new { @class = "input-sm ms-2", type = "Email", placeholder = "Enter your email" })
-						@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
-					</div>
-					<div class="row ps-3 pe-3">
-						@Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input ms-1" })
-						<label class="form-check-label ms-4">
-							By continuing, you provide consent and agree to our
-							<a href="#" target="_blank">Terms & Conditions</a>
-						</label>
-					</div>
-					<div class="col-3">
-						<button type="submit" class="btn btn-sm btn-success">Submit</button>
-					</div>
-				</form>
+		<div class="content-container">
+			<div class="card h-100 d-flex flex-column">
+				<div class="card-body">
+					<p>Start building your financial future with RaadhaCapital</p>
+
+					<form method="post" class="d-flex flex-column h-100">
+						<div class="fg">
+							@Html.LabelFor(m => m.Product, new { @class = "form-label" })
+							@Html.DropDownListFor(m => m.Product,(IEnumerable<SelectListItem>)ViewBag.Products,"--Select Product--",  new { @class = "fg-input" })
+							@Html.ValidationMessageFor(m => m.Product, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Name, new { @class = "fg-input", type = "text", placeholder = " " })
+							@Html.LabelFor(m => m.Name, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Email, new { @class = "fg-input", type = "email", placeholder = " " })
+							@Html.LabelFor(m => m.Email, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="fg">
+							@Html.TextBoxFor(m => m.Mobile, new { @class = "fg-input", type = "number", placeholder = " " })
+							@Html.LabelFor(m => m.Mobile, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+						</div>
+
+						<div class="fg form-check mt-1">
+							@Html.CheckBoxFor(m => m.Consent, new { @class = "form-check-input" })
+							<label class="form-check-label ms-2">
+								By continuing, you provide consent and agree to our
+								<a href="#" target="_blank">Terms & Conditions</a>
+							</label>
+						</div>
+						<div class="card-footer bg-white border-0 ">
+							<button type="submit" class="btn btn-success">Submit</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
 </div>
 <div class="container py-4">
 	<h2 class="mb-4 fw-bold">Explore Insurance</h2>
@@ -274,7 +317,7 @@
 				<div class="flip-inner">
 					<div class="flip-face flip-front">
 						<span class="corner-badge">Newly Launched</span>
-						<img src="~/Images/travel.jpg" alt="Pet Insurance" />
+						<img src="~/Images/travelles.jpg" alt="Pet Insurance" />
 						<div class="cardcontent">
 							<h5 class="heading orange">Travel Insurance</h5>
 							<p class="small-text">Secure Your Journey with Travel Insurance</p>
@@ -383,7 +426,7 @@
 				<div class="flip-inner">
 					<div class="flip-face flip-front">
 						<span class="corner-badge">Newly Launched</span>
-						<img src="~/Images/home.jpg" alt="Pet Insurance" />
+						<img src="~/Images/homep.jpg" alt="Pet Insurance" />
 						<div class="cardcontent">
 							<h5 class="heading orange">Property Insurance</h5>
 							<p class="small-text">Comprehensive Coverage for Your Property</p>
@@ -517,14 +560,7 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
-	<script>
-		// document.querySelectorAll('.flip-card').forEach(card => {
-		// 	let front = card.querySelector('.flip-front');
-		// 	let back = card.querySelector('.flip-back');
-		// 	let maxHeight = Math.max(front.scrollHeight, back.scrollHeight);
-		// 	card.style.height = maxHeight + "px";
-		// });
-	</script>
+
 }
 
 

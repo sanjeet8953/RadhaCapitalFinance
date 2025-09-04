@@ -4,6 +4,10 @@
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
 <style>
+	body{
+		margin:0;
+		padding:0;
+	}
 	.Image{
 		width:100%;
 		height:auto;
@@ -16,15 +20,23 @@
 		display:flex;
 		align-items:center;
 		height:40px;
+		
 	}
 
 	.box{
 		height:50px;
 		width:100%;
-		background-color: #5DE2E7
+		background-color: #5DE2E7;
+		color: #F31013;
+		justify-content: center;
+		display: flex;
+		align-items: center;
+		height: 40px;
+		font-size:20PX;
+
 	}
 
-	.col-12 b {
+	.col-12 H5 {
 		background-color: #6F1314;
 		color: #fff;
 		height: 50px;
@@ -33,7 +45,9 @@
 		align-items: center;
 	}
 </style>
-<div class="row">
+<div class="box"><b>HUF(Hindu Undivided Family)</b></div>
+<div class="row mt-4">
+	
 	<div class="col-12 col-md-5 offset-lg-1 ">
 		<h4 >What is HUF?</h4>
 		<p>
@@ -48,12 +62,11 @@
 			its functioning, and its advantages in taxation.</p>
 	</div>
 	<div class="col-12 col-md-5 ">
-		<img src="~/Images/huf1.jpg" class="Image" />
-		@* <img src="~/images/hindu.jpg" class="Image"/> *@
+		<img src="~/Images/hudu.jpg" class="Image" />
 	</div>
 </div>
 <div class="row mt-4">
-	<div class="box">HUF(Hindu Undivided Family)</div>
+	
 	<div class="col-12 col-md-8 mx-md-auto">
 		<h4 style="margin-top:40px;">Understanding what is HUF?</h4>
 		<p>HUF (Hindu Undivided Family) is a family structure that helps
@@ -104,7 +117,7 @@
 	</div>
 </div>
 <div class="col-12 col-md-12 mx-md-auto">
-	<b>Contact Our Team For More Information</b>
+	<h5>Contact Our Team For More Information</h5>
 </div>
 
 
