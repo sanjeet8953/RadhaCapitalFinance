@@ -5,6 +5,9 @@ namespace RadhaCapitalFinance.Models
 {
     public class FinanceModel
     {
+        [Key]
+        public int Id{ get; set; }
+
         [Column(TypeName= "varchar(100)")]
         [Required(ErrorMessage = "Select a product")]
         public string? Product { get; set; }

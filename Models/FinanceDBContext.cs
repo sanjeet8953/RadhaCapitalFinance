@@ -8,7 +8,7 @@ namespace RadhaCapitalFinance.Models
         {
                
         }
-        public DbSet<Finance> Insurance { get; set; }
+        public DbSet<FinanceModel> Insurance { get; set; }
 
     }
 }

@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using RadhaCapitalFinance.Models;
+
 namespace RadhaCapitalFinance
 {
     public class Program
@@ -8,7 +12,8 @@ namespace RadhaCapitalFinance
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<FinanceDBContext>(options =>
+               options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
