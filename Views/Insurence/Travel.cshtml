@@ -1,4 +1,4 @@
-﻿@model RadhaCapitalFinance.Models.SIPModel;
+﻿@model RadhaCapitalFinance.Models.TravelModel;
 @{
 	ViewData["Title"] = "Travel";
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
@@ -285,22 +285,35 @@
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
-						<h3>Systematic Investment Plan</h3>
+						<h3>Travel Insurance</h3>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.Name, new { @class = "fg-input", placeholder = " " })
 							@Html.LabelFor(m => m.Name, new { @class = "fg-label" })
 						</div>
 						<div class="fg">
-							@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", placeholder = " " })
+							@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", @type = "number", placeholder = " " })
 							@Html.LabelFor(m => m.MobailNo, new { @class = "fg-label" })
 						</div>
 						<div class="fg">
-							@Html.TextBoxFor(m => m.Email, new { @class = "fg-input", placeholder = " " })
+							@Html.TextBoxFor(m => m.Email, new { @class = "fg-input", @type = "email", placeholder = " " })
 							@Html.LabelFor(m => m.Email, new { @class = "fg-label" })
 						</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.Adderess, new { @class = "fg-input", placeholder = " " })
 							@Html.LabelFor(m => m.Adderess, new { @class = "fg-label" })
+						</div>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.TotalMembers, new { @class = "fg-input", @type = "number", placeholder = " " })
+							@Html.LabelFor(m => m.TotalMembers, new { @class = "fg-label" })
+						</div>
+
+						<div class="fg">
+							@Html.TextBoxFor(m => m.DateofDeparture, new { @class = "fg-input", @type = "date", placeholder = " " })
+							@Html.LabelFor(m => m.DateofDeparture, new { @class = "fg-label" })
+						</div>
+						<div class="fg">
+							@Html.TextBoxFor(m => m.DateofArrival, new { @class = "fg-input", @type = "date",placeholder = " " })
+							@Html.LabelFor(m => m.DateofArrival, new { @class = "fg-label" })
 						</div>
 						<div class="fg" style="display: inline-block; margin-right: 10px;">
 							<label>

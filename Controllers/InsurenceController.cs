@@ -1,11 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using RadhaCapitalFinance.Models;
 
 namespace RadhaCapitalFinance.Controllers
 {
     public class InsurenceController : Controller
     {
+        private readonly FinanceDBContext financeDB;
+
+        public InsurenceController(FinanceDBContext financeDB)
+        {
+            this.financeDB = financeDB;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -17,16 +25,18 @@ namespace RadhaCapitalFinance.Controllers
             return View(obj);
         }
         [HttpPost]
-        public IActionResult Finence(FinanceModel obj)
+        public async Task <IActionResult> Finence(FinanceModel obj)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-
+                    await financeDB.Insurance.AddAsync(obj);
+                  await financeDB.SaveChangesAsync();
+                    return RedirectToAction("List", "Insurence");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -34,6 +44,11 @@ namespace RadhaCapitalFinance.Controllers
             return View(obj);
         }
 
+        public async Task <IActionResult> List()
+        {
+            var CustData = await financeDB.Insurance.ToListAsync();
+            return View(CustData);
+        }
         public IActionResult SIP()
         {
             return View();
@@ -86,7 +101,7 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
-                                                                                                                 
+
         private List<SelectListItem> InsurenceType()
         {
             var insurencelist = new List<SelectListItem>
