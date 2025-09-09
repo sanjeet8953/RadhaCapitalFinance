@@ -84,11 +84,6 @@
 		color: #0d6efd;
 	}
 
-	/* .fg {
-				display: flex;
-				align-items: center;
-				margin: 1rem 0;
-			} */
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -117,7 +112,6 @@
 							<h3>Life Insurance</h3>
 							<div class="row">
 								<div class="col-sm-6">
-
 									<div class="fg">
 										@Html.TextBoxFor(m => m.PolicyHolderName, new { @class = "fg-input", placeholder = " " })
 										@Html.LabelFor(m => m.PolicyHolderName, new { @class = "fg-label" })
@@ -126,17 +120,16 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.DateOfBirth, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.DateOfBirth, new { @class = "fg-input", Type = "date", placeholder = " " })
 										@Html.LabelFor(m => m.DateOfBirth, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
 									</div>
-									
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", Type = "number", placeholder = " " })
 										@Html.LabelFor(m => m.MobailNo, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.MobailNo, "", new { @class = "text-danger" })
 									</div>
@@ -169,7 +162,7 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.Pincode, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.Pincode, new { @class = "fg-input", Type = "number", placeholder = " " })
 										@Html.LabelFor(m => m.Pincode, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
 									</div>
@@ -194,14 +187,14 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input", Type = "date", placeholder = " " })
 										@Html.LabelFor(m => m.PolicyStartDate, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.PolicyStartDate, "", new { @class = "text-danger" })
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.SumAssured, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.SumAssured, new { @class = "fg-input", Type = "number", placeholder = " " })
 										@Html.LabelFor(m => m.SumAssured, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.SumAssured, "", new { @class = "text-danger" })
 									</div>
@@ -210,15 +203,14 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input",Type="number", placeholder = " " })
 										@Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.Premium, "", new { @class = "text-danger" })
 									</div>
-								</div>
+								</div> 
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.DropDownListFor(m => m.PremiumMode,
-										new List<SelectListItem>
+										@Html.DropDownListFor(m => m.PremiumMode,new List<SelectListItem>
 																				{
 																				new SelectListItem { Text = "Select Premium Mode", Value = "" },
 																				new SelectListItem { Text = "Monthly", Value = "Monthly" },

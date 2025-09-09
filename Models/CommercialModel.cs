@@ -16,12 +16,15 @@ namespace RadhaCapitalFinance.Models
 
         [Required(ErrorMessage = "Enter Business Type")]
         [StringLength(100)]
-        [Display(Name = "Businame Name")]
+        [Display(Name = "Businame Type")]
         public string? BusinessType { get; set; }   
 
         [Required(ErrorMessage = "Enter Address")]
         [StringLength(250)]
         public string? Address { get; set; } 
+        [Required(ErrorMessage = "Enter Pincode")]
+        [StringLength(250)]
+        public string? Pincode { get; set; } 
        
         [Required(ErrorMessage = "Enter Mobile Number")]
         [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Enter valid 10 digit mobile number")]

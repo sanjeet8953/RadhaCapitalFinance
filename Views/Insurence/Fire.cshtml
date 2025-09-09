@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RadhaCapitalFinance.Models.FireModel;
+@{
 	ViewData["Title"] = "Fire";
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
@@ -9,93 +10,207 @@
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-position: center;
-		
 	}
 
-	.box{
+	.box {
 		height: 60px;
 		min-width: 100px;
 		background-color: #EFC3CA;
 		border-radius: 10px;
-		margin:10px;
-		overflow:hidden;
+		margin: 10px;
+		overflow: hidden;
 	}
-	
-	.box img {
-		min-height: 40px;
-		min-width: 40px;
-		padding: 10px !important;
-	}
+
+		.box img {
+			min-height: 40px;
+			min-width: 40px;
+			padding: 10px !important;
+		}
+
 	.box1, .box2 {
 		min-height: 200px;
-		width: 100%; 
+		width: 100%;
 		background-color: aliceblue;
-		margin: 5px 0; 
+		margin: 5px 0;
 		border-radius: 20px;
 		padding: 20px;
 		box-sizing: border-box;
 	}
-	
+
 	.row {
 		margin-left: 0;
 		margin-right: 0;
 		overflow-x: hidden;
 	}
 
-	.last{
+	.last {
 		background-color: #EBF1CB;
 		padding: 0;
 		margin: 10px;
-		border-radius:10px;
+		border-radius: 10px;
 	}
+
+	.fg {
+		position: relative;
+		margin: 0.7rem 0;
+	}
+
+	.fg-input {
+		width: 100%;
+		padding: 10px 12px;
+		border: 1.8px solid #c8c8c8;
+		border-radius: 8px;
+		outline: none;
+		font-size: 16px;
+		background: #fff;
+	}
+
+	.fg-label {
+		position: absolute;
+		left: 12px;
+		top: 10px;
+		color: #777;
+		font-size: 16px;
+		background: #fff;
+		padding: 0 4px;
+		pointer-events: none;
+		transition: 0.2s ease all;
+	}
+
+	.fg-input:focus + .fg-label,
+	.fg-input:not(:placeholder-shown) + .fg-label {
+		top: -10px;
+		font-size: 12px;
+		color: #0d6efd;
+	}
+
+	.col-sm-6 button{
+		margin-top:15px;
+	}
+
 </style>
 <div class="container-fluid">
 	<div col-12>
 		<h2>Fire Insurance</h2>
-		<p class="text-white">Shield your business!</p>
+		<p>Shield your business!</p>
 	</div>
 	<div class="row">
-		<div class="col-12 col-md-8">
+		<div class="col-12 col-md-5 mx-md-auto">
 			<div class="row">
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-6">
 					<div class="box">
-					<img src="~/Images/contentslogo.png" />
-					<span>Easy claim process</span>
+						<img src="~/Images/contentslogo.png" />
+						<span>Easy claim process</span>
 					</div>
 				</div>
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-6">
 					<div class="box">
-					<img src="~/Images/flightlogo.png" />
-					<span>Instant policy generation</span>
+						<img src="~/Images/flightlogo.png" />
+						<span>Instant policy generation</span>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 ">
+				<div class="col-12 col-md-6 ">
 					<div class="box">
-					<img src="~/Images/buildinglogo.png" />
-					<span>Covers burglary</span>
+						<img src="~/Images/buildinglogo.png" />
+						<span>Covers burglary</span>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 ">
+				<div class="col-12 col-md-6 ">
 					<div class="box">
-					<img src="~/Images/hospitallogo.png " />
-					<span>Covers for loss in stock</span>
+						<img src="~/Images/hospitallogo.png" />
+						<span>Covers for loss in stock</span>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 " >
+				<div class="col-12 col-md-6">
 					<div class="box">
-					<img src="~/Images/insurancefire.png" />
-					<span>Covers up to 50 crores</span>
+						<img src="~/Images/insurancefire.png" />
+						<span>Covers up to 50 crores</span>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 ">
+				<div class="col-12 col-md-6 ">
 					<div class="box">
-					<img src="~/Images/carlogo.png" />
-					<span>Complete disaster protection</span>
+						<img src="~/Images/carlogo.png" />
+						<span>Complete disaster protection</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4"></div>
+		<div class="col-12 col-md-6 mx-md-auto">
+
+			<div class="content-container">
+				<div class="card">
+					<div class="card-body">
+						<form method="post">
+							<h2>Fire Insurence</h2>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.InsuredName, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.InsuredName, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.InsuredName, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.PropertyType, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.PropertyType, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.PropertyType, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.PolicyStartDate, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.PolicyStartDate, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.SumInsured, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.SumInsured, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.SumInsured, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.Premium, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.PropertyAdderess, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.PropertyAdderess, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.PropertyAdderess, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.Pincode, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.Pincode, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<button type="submit" class="btn btn-success w-100">Submit</button>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="row mt-4 bg-white ">
 		<div class="col-12 col-md-1 "></div>
@@ -116,7 +231,7 @@
 				insured events is included, ensuring complete security for your valuable property.
 			</p>
 		</div>
-		
+
 		<div class="col-12 col-md-4"><img src="~/Images/firehome.jpg" width="100%" height="auto" /></div>
 	</div>
 	<div class="row bg-white mt-4">
@@ -151,53 +266,53 @@
 		<h2 style="text-align:center; background-color:#060270; color:white">Key features of fire insurance</h2>
 		<div class="col-md-4 offset-lg-2  mt-2 pt-4">
 			<div class="box1">
-			<h4>Coverage</h4>
-			<p>
-				Our fire insurance plan offers extensive protection
-				for your business, safeguarding against risks like damage
-				or loss to buildings, machinery, stock, and other assets.
-				It minimizes your financial burden by covering repair or
-				replacement expenses in case of a fire.
-			</p>
-		</div>
+				<h4>Coverage</h4>
+				<p>
+					Our fire insurance plan offers extensive protection
+					for your business, safeguarding against risks like damage
+					or loss to buildings, machinery, stock, and other assets.
+					It minimizes your financial burden by covering repair or
+					replacement expenses in case of a fire.
+				</p>
+			</div>
 		</div>
 		<div class="col-md-4   mt-2 pt-4">
-		<div class="box2">
-			<h4>Quick fire insurance claim settlement</h4>
-			<p>
-				Experience a quick and stress-free
-				claims process with our policy.
-				Our dedicated 24/7 claims team provides
-				fast financial assistance whenever you need it most.
-			</p>
-		</div>
+			<div class="box2">
+				<h4>Quick fire insurance claim settlement</h4>
+				<p>
+					Experience a quick and stress-free
+					claims process with our policy.
+					Our dedicated 24/7 claims team provides
+					fast financial assistance whenever you need it most.
+				</p>
+			</div>
 		</div>
 	</div>
 	<div class="row mt-2">
 		<div class="col-md-4 offset-lg-2 mt-2 pt-4">
 			<div class="box1">
-			<h4>Industry expertise</h4>
-			<p>
-				With years of expertise in the industry,
-				we recognize the specific risks businesses
-				encounter. We evaluate potential threats and
-				provide customized solutions to safeguard your
-				business effectively, giving you complete peace of
-				mind.
-			</p>
+				<h4>Industry expertise</h4>
+				<p>
+					With years of expertise in the industry,
+					we recognize the specific risks businesses
+					encounter. We evaluate potential threats and
+					provide customized solutions to safeguard your
+					business effectively, giving you complete peace of
+					mind.
+				</p>
 			</div>
 		</div>
 		<div class="col-md-4   mt-2 pt-4">
 			<div class="box2">
-			<h4>Instant policy issuance</h4>
-			<p>
-				secure your fire insurance policy in
-				minutes using our advanced technology.
-				Our streamlined process eliminates unnecessary
-				paperwork, enabling you to safeguard your business
-				quickly and efficiently with just a few clicks.
-			</p>
-		</div>
+				<h4>Instant policy issuance</h4>
+				<p>
+					secure your fire insurance policy in
+					minutes using our advanced technology.
+					Our streamlined process eliminates unnecessary
+					paperwork, enabling you to safeguard your business
+					quickly and efficiently with just a few clicks.
+				</p>
+			</div>
 		</div>
 	</div>
 	<div class="row last">
@@ -216,3 +331,4 @@
 		</div>
 	</div>
 </div>
+
