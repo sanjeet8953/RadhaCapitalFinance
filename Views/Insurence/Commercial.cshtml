@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RadhaCapitalFinance.Models.CommercialModel;
+@{
 	ViewData["Title"] = "Commercial";
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
@@ -46,13 +47,42 @@
     b {
         color: #221AE8;
     }
+    .fg{
+        position:relative;
+        margin:0.9rem 0;
+    }
+    .fg-input{
+        width:100%;
+        padding:10px 12px;
+        border:2px solid #c8c8c8;
+        border-radius:8px;
+        font-size:16px;
+        outline:none;
+    }
+    .fg-label{
+        position : absolute;
+        top:10px;
+        left:10px;
+        color:#777;
+        padding:0 5px;
+        font-size:16px;
+        transition:0.2s ease all;
+        background:#fff;
+        pointer-events:none;
+    }
+    .fg-input:focus + .fg-label,
+    .fg-input:not(:placeholder-shown) + .fg- label{
+        top:-10px;
+        font-size:12px;
+        color: #0d6efd;
+    }
 </style>
 <div class="container-fluid">
     <h4 class="heading ps-5 ps-md-5  ps-lg-5">
         Commercial Insurance in India: Benefits, Claim Settlement & Restrictions
     </h4>
-    <div class="row px-4">
-        <div class="col-12 col-md-7 mx-md-auto mt-3">
+    <div class="row px-4 mt-4">
+        <div class="col-12 col-md-5 mx-md-auto mt-3">
             <p>
                 Business or commercial insurance is a form of protection that
                 safeguards companies against potential risks and losses. Different
@@ -72,7 +102,90 @@
             <h4 class="heading1 mt-3">Types off Commercial Insurance</h4>
             <img src="~/Images/came1.jpg" class="image" />
         </div>
-       
+       <div class="col-md-6">
+           <div class="align-content-container">
+               <div class="card">
+                   <div class="card-body">
+                        <h2>Commercial Insurance</h2>
+                       <form method="post">
+                           <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.BusinessName , new {@class = "fg-input", placeholder = " "})
+                                        @Html.LabelFor(m => m.BusinessName , new {@class = "fg-label"})
+                                   </div>
+                               </div>
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                    @Html.TextBoxFor(m => m.BusinessType, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.BusinessType, new { @class = "fg-label" })
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.Mobile, new { @class = "fg-input",Type="number", placeholder = " " })
+                                        @Html.LabelFor(m => m.Mobile, new { @class = "fg-label" })
+                                   </div>
+                               </div>
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "fg-input",Type="email", placeholder = " " })
+                                        @Html.LabelFor(m => m.Email, new { @class = "fg-label" })
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
+                                        @Html.LabelFor(m => m.Address, new { @class = "fg-label" })
+                                   </div>
+                               </div>
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.Pincode, new { @class = "fg-input",Type="number", placeholder = " " })
+                                        @Html.LabelFor(m => m.Pincode, new { @class = "fg-label" })
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input",Type="date", placeholder = " " })
+                                        @Html.LabelFor(m => m.PolicyStartDate, new { @class = "fg-label" })
+                                   </div>
+                               </div>
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.PolicyEndDate, new { @class = "fg-input", Type = "date", placeholder = " " })
+                                        @Html.LabelFor(m => m.PolicyEndDate, new { @class = "fg-label" })
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.SumInsured, new { @class = "fg-input", placeholder = " " })
+                                        @Html.LabelFor(m => m.SumInsured, new { @class = "fg-label" })
+                                   </div>
+                               </div>
+                               <div class="col-sm-6">
+                                   <div class="fg">
+                                        @Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", placeholder = " " })
+                                        @Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <button type="submit" class="btn btn-success w-100">Submit</button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
     </div>
     <div class="row mt-3 px-4">
         <div class="col-12 col-md-7 mx-md-auto">

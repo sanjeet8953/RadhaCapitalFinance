@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RadhaCapitalFinance.Models.CarModel;
+@{
 	ViewData["Title"] = "Car";
 	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
 }
@@ -42,6 +43,40 @@
 		height: auto;
 		border-radius: 10px;
 	}
+
+	.fg {
+		position: relative;
+		margin: 1rem 0;
+	}
+
+	.fg-input {
+		width: 100%;
+		padding:10px 12px;
+		border: 1.8px solid #c8c8c8;
+		border-radius: 8px;
+		outline: none;
+		font-size: 18px;
+		/* background:#fff; */
+	}
+
+	.fg-label {
+		position: absolute;
+		left: 12px;
+		top: 8px;
+		color: #777;
+		background-color: #fff;
+		font-size: 16px;
+		padding: 0 4px;
+		transition: 0.2s ease all;
+		pointer-events: none;
+	}
+
+	.fg-input:focus + .fg-label,
+	.fg-input:not(:placeholder-shown) + .fg-label {
+		top: -10px;
+		font-size: 12px;
+		color: #0d6efd;
+	}
 </style>
 
 <div class="container-fluid">
@@ -59,14 +94,121 @@
 		</p>
 	</div>
 	<div class="row mt-4">
-		<div class="col-12 text-center">
+		<div class="col-12 col-md-4 text-center">
 			<img src="~/Images/car.jpg"
 				 class="img-fluid rounded shadow car-img"
 				 alt="Car Insurance" />
 		</div>
+		<div class="col-12 col-md-7 mx-md-auto ms-1">
+			<div class="card">
+				<div class="card-body">
+					<div class="content-container">
+						<form method="post">
+							<h2>Car Insurence</h2>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.CarName, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.CarName, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.CarName, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.Model , new {@class = "fg-input" , placeholder= " "})
+										@Html.LabelFor(m => m.Model , new {@class = "fg-label"})
+										@Html.ValidationMessageFor(m => m.Model , "" , new { @class = "text-danger"})
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.DropDownListFor(m => m.CarType,new List<SelectListItem>
+										{
+											new SelectListItem { Text = "Select Car Type", Value = "" },
+																				new SelectListItem { Text = "Private Car", Value = "Private Car" },
+																				new SelectListItem { Text = "Commercial Car", Value = "Commercial Car" },
+																				new SelectListItem { Text = "Electric Vehicle", Value = "Electric Vehicle" },
+																				},
+																				new { @class = "fg-input" })
+										@Html.ValidationMessageFor(m => m.CarType , "", new{@class = "text-danger"})
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.RegistrationNo , new {@class="fg-input" , placeholder = " "})
+										@Html.LabelFor(m => m.RegistrationNo , new { @class = "fg-label"})
+										@Html.ValidationMessageFor(m => m.RegistrationNo ,"", new{@class = "text-danger"} )
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.ManufacturingYear , new {@class = "fg-input" , placeholder = " "})
+										@Html.LabelFor(m => m.ManufacturingYear , new {@class = "fg-label"})
+										@Html.ValidationMessageFor(m => m.ManufacturingYear , "",new {@class = "text-danger"})
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.DropDownListFor(m => m.FuelType ,new List<SelectListItem>
+											{
+											new SelectListItem {Text = "Select FuelType" , Value = ""},
+																				new SelectListItem { Text = "Petrol", Value = "Petrol" },
+																				new SelectListItem { Text = "Diesel", Value = "Diesel" },
+																				new SelectListItem { Text = "CNG", Value = "CNG" },
+																				new SelectListItem { Text = "LPG", Value = "LPG" },
+																				new SelectListItem { Text = "Electric", Value = "Electric" },
+											                                     },
+																				new { @class = "fg-input" })
+										@Html.ValidationMessageFor(m => m.FuelType, "", new { @class = "text-danger" })
+									</div> 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.SeatingCapacity ,new {@class = "fg-input",Type="number", placeholder = " "})
+										@Html.LabelFor(m => m.SeatingCapacity,new{ @class = "fg-label"})
+										@Html.ValidationMessageFor(m =>m.SeatingCapacity , "" , new{@class = "text-danger"})
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.Color ,new {@class ="fg-input", placeholder = " "})
+										@Html.LabelFor(m => m.Color ,new {@class ="fg-label"})
+										@Html.ValidationMessageFor(m => m.Color,"" ,new {@class ="text-danger"})
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+									@Html.DropDownListFor(m => m.InsurenceType, new List<SelectListItem>{
+																		new SelectListItem{Text = "Select Insurence Type", Value=" "},
+																		new SelectListItem { Text = "Third-Party  Insurance", Value = "Third-Party  Insurance" },
+																		new SelectListItem { Text = "Comprehensive Car Insurance", Value = "Comprehensive Car Insurance" },
+																		new SelectListItem { Text = "Standalone Owm Damage Insurence", Value = "Standalone Owm Damage Insurence" },
+									},
+									new {@class="fg-input"})
+									@Html.ValidationMessageFor(m => m.InsurenceType, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="col-sm-6 mt-4">
+									<button type="submit" class="btn btn-success w-100">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="col-12">
+<div class="col-12 mt-4">
 	<h3>Different types of car insurance policies </h3>
 </div>
 <div class="row mt-3">
@@ -212,15 +354,18 @@
 		<p><b>No Claim Bonus in Car Insurance</b></p>
 		<p>If you made no claims in the past years, you get up to 50% NCB.</p>
 		<p><b>Security measures</b></p>
-		<p>If you’ve taken special measures to keep your car from getting stolen, you are eligible
-			for a discount on your car insurance premium. Typically, you would receive a 2.5% 
-			discount for fitting an anti-theft device (approved by ARAI) on your car.</p>
-		<p>It is unwise to reduce IDV to save on premium. In case of an accident, you would 
-			find yourself at a disadvantage. Instead, ride safe and take security measures 
-			to get discounts on car insurance.</p>
+		<p>
+			If you’ve taken special measures to keep your car from getting stolen, you are eligible
+			for a discount on your car insurance premium. Typically, you would receive a 2.5%
+			discount for fitting an anti-theft device (approved by ARAI) on your car.
+		</p>
+		<p>
+			It is unwise to reduce IDV to save on premium. In case of an accident, you would
+			find yourself at a disadvantage. Instead, ride safe and take security measures
+			to get discounts on car insurance.
+		</p>
 	</div>
 	<div class="col-md-4">
-		
 	</div>
 </div>
 

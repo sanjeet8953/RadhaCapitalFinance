@@ -1,4 +1,4 @@
-﻿
+﻿@model RadhaCapitalFinance.Models.MarineInsuranceModel;
 @{
     ViewData["Title"] = "Marine";
     Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
@@ -16,6 +16,35 @@
         justify-content:center;
         display:flex;
         align-items:center;
+    }
+    .fg{
+        position:relative;
+        margin:0.9rem 0;
+    }
+    .fg-input{
+        width:100%;
+        padding:10px 12px;
+        border:1.8px solid #c8c8c8;
+        border-radius:8px;
+        outline:none;
+        font-size:16px;
+    }
+    .fg-label{
+        position:absolute;
+        top:10px;
+        left:12px;
+        background:#FFF;
+        color:#777;
+        font-size:16px;
+        transition:0.3s ease all;
+        padding: 0 4px;
+        pointer-events:none;
+    }
+    .fg-input:focus + .fg-label,
+    .fg-input:not(:placeholder-shown) + .fg-label{
+    top:-10px;
+        font-size: 12px;
+        color: #0d6efd;
     }
 </style>
 <div class="row">
@@ -39,12 +68,109 @@
             The coverage can be customized to suit your business needs</p>
 		
     </div>
-    <div class="col-md-4 me-auto">
-        <img src="\Images\marin.png" class="Image" />
+    <div class="col-12 col-md-4 mx-md-auto ps-1">
+        <div class="containt-container">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Marine Insurance</h2>
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.PolicyHolderName , new{@class = "fg-input",placeholder = " "})
+                                    @Html.LabelFor(m => m.PolicyHolderName , new{@class = "fg-label"})
+                                    @Html.ValidationMessageFor(m => m.PolicyHolderName,"",new{@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.CargoDescription ,new {@class = "fg-input" , placeholder = " "})
+                                    @Html.LabelFor(m => m.CargoDescription ,new {@class = "fg-label" , placeholder = " "})
+                                    @Html.ValidationMessageFor(m => m.CargoDescription,"" ,new {@class = "text-danger" , placeholder = " "})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.DeparturePort, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.DeparturePort, new { @class = "fg-label" })
+                                    @Html.ValidationMessageFor(m => m.DeparturePort, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.DestinationPort, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.DestinationPort, new { @class = "fg-label", placeholder = " " })
+                                    @Html.ValidationMessageFor(m => m.DestinationPort, "", new { @class = "text-danger", placeholder = " " })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.DepartureDate, new { @class = "fg-input",Type="date", placeholder = " " })
+                                    @Html.LabelFor(m => m.DepartureDate, new { @class = "fg-label" })
+                                    @Html.ValidationMessageFor(m => m.DepartureDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.ArrivalDate, new { @class = "fg-input", Type = "date", placeholder = " " })
+                                    @Html.LabelFor(m => m.ArrivalDate, new { @class = "fg-label", placeholder = " " })
+                                    @Html.ValidationMessageFor(m => m.ArrivalDate, "", new { @class = "text-danger", placeholder = " " })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.TransportMode, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.TransportMode, new { @class = "fg-label" })
+                                    @Html.ValidationMessageFor(m => m.TransportMode, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.SumInsured, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.SumInsured, new { @class = "fg-label", placeholder = " " })
+                                    @Html.ValidationMessageFor(m => m.SumInsured, "", new { @class = "text-danger", placeholder = " " })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
+                                    @Html.ValidationMessageFor(m => m.Premium, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fg">
+                                    @Html.TextBoxFor(m => m.RiskCoverage, new { @class = "fg-input", placeholder = " " })
+                                    @Html.LabelFor(m => m.RiskCoverage, new { @class = "fg-label", placeholder = " " })
+                                    @Html.ValidationMessageFor(m => m.RiskCoverage, "", new { @class = "text-danger", placeholder = " " })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mx-md-auto">
+                                <button type="submit" class="btn btn-success w-100">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
     </div>
 </div>
 <div class="row mt-5">
-    <div class="col-12 col-md-8 mx-md-auto">
+    <div class="col-12 col-md-4 me-auto">
+        <img src="\Images\marin.png" class="Image" />
+    </div>
+    <div class="col-12 col-md-6 mx-md-auto">
         <h4>How does marine transit insurance work?</h4>
         <p style="justify-content:center; display:flex; text-align:center;"><b>Here’s the working of a marine insurance policy</b></p>
         <p>The functioning of a marine transit insurance policy is straightforward.
@@ -84,5 +210,6 @@
         recover more quickly by reducing downtime and compensating for
         the losses.</p>
     </div>
+   
 </div>
 

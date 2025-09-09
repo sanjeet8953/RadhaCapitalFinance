@@ -17,9 +17,12 @@ namespace RadhaCapitalFinance.Models
         public DateTime PolicyStartDate { get; set; }
         [Required (ErrorMessage = "Fill Expected Money")]
         public decimal SumInsured { get; set; } // BemmaRashi
-        [Required (ErrorMessage = "Fill Your affordable premium")]
+        [Required (ErrorMessage = "Enter Your affordable Premium")]
         public decimal Premium { get; set; }
+        [Required(ErrorMessage = "Enter Your Property Type")]
         public string? PropertyType { get; set; }
+        [Required(ErrorMessage = "Enter Your Pincode")]
+        public string? Pincode { get; set; }
        
     }
 }

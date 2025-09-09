@@ -30,8 +30,8 @@ namespace RadhaCapitalFinance.Models
 
             [Required(ErrorMessage = "Enter Seating Capacity")]
             public int SeatingCapacity { get; set; }  // e.g. 5
-
-            public string? Color { get; set; }       // Optional field
+        [Required(ErrorMessage = "Enter Vehicle Color")]
+        public string? Color { get; set; }       // Optional field
 
             public decimal InsurenceType{ get; set; } // Insurance purpose (car value)
         
