@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RadhaCapitalFinance.Models
+namespace RadhaCapitalFinance.Core.Entities
 {
     public class CarModel
     {
