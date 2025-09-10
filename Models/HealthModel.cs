@@ -17,9 +17,9 @@ namespace RadhaCapitalFinance.Models
         public string? InsurenceType { get; set; }
       
         [Required(ErrorMessage = "Enter Your DOB")]
-        public string? DOB { get; set; }
+        public DateTime DOB { get; set; }
         [Required(ErrorMessage = "Enter Your Pincode")]
-        public string? Pincode { get; set; }
+        public int Pincode { get; set; }
         [Required(ErrorMessage = "Enter Your Gender")]
         public string? Gender { get; set; }
         [Required(ErrorMessage = "Enter Your NoOffPeople")]
