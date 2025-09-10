@@ -63,7 +63,6 @@
 	.img3 p {
 		font-size: 13px;
 	}
-
 	.fg {
 		position: relative;
 		margin: 1.5rem 0;
@@ -82,7 +81,7 @@
 	.fg-label {
 		position: absolute;
 		left: 12px;
-		top: 14px;
+		top: 11px;
 		color: #777;
 		font-size: 16px;
 		background: #fff;
@@ -98,11 +97,11 @@
 		color: #0d6efd;
 	}
 
-	.fg {
+	/* .fg {
 		display: flex;
 		align-items: center;
 		margin: 1rem 0;
-	}
+	} */
 </style>
 <div class="row mt-3">
 	<div class="col-12 box2">
@@ -280,40 +279,47 @@
 		</div>
 		
 	</div>
-	<div class="col-12 col-md-5 px-3">
+	<div class="col-12 col-md-4 mx-md-auto">
 		<div class="content-container">
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
 						<h3>Travel Insurance</h3>
 						<div class="fg">
-							@Html.TextBoxFor(m => m.Name, new { @class = "fg-input", placeholder = " " })
-							@Html.LabelFor(m => m.Name, new { @class = "fg-label" })
-						</div>
+									@Html.TextBoxFor(m => m.Name, new { @class = "fg-input", placeholder = " " })
+									@Html.LabelFor(m => m.Name, new { @class = "fg-label" })
+									@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+								</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.MobailNo, new { @class = "fg-input", @type = "number", placeholder = " " })
 							@Html.LabelFor(m => m.MobailNo, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.MobailNo, "", new { @class = "text-danger " })
 						</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.Email, new { @class = "fg-input", @type = "email", placeholder = " " })
 							@Html.LabelFor(m => m.Email, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 						</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.Adderess, new { @class = "fg-input", placeholder = " " })
 							@Html.LabelFor(m => m.Adderess, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.Adderess, "", new { @class = "text-danger" })
 						</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.TotalMembers, new { @class = "fg-input", @type = "number", placeholder = " " })
 							@Html.LabelFor(m => m.TotalMembers, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.TotalMembers, "", new { @class = "text-danger" })
 						</div>
 
 						<div class="fg">
-							@Html.TextBoxFor(m => m.DateofDeparture, new { @class = "fg-input", Type = "date", placeholder = " " })
+							@Html.TextBoxFor(m => m.DateofDeparture, new { @class = "fg-input", type = "date", placeholder = " " })
 							@Html.LabelFor(m => m.DateofDeparture, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.DateofDeparture, "", new { @class = "text-danger" })
 						</div>
 						<div class="fg">
 							@Html.TextBoxFor(m => m.DateofArrival, new { @class = "fg-input", type = "date",placeholder = " " })
 							@Html.LabelFor(m => m.DateofArrival, new { @class = "fg-label" })
+							@Html.ValidationMessageFor(m => m.DateofArrival, "", new { @class = "text-danger" })
 						</div>
 						<div class="fg" style="display: inline-block; margin-right: 10px;">
 							<label>
@@ -327,6 +333,7 @@
 								@Html.RadioButtonFor(m => m.Gender, "Female", new { @class = "fg-input-radio" })
 								<span class="fg-label-radio">Female</span>
 							</label>
+							@Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
 						</div>
 						<!-- Aap yahan aur inputs bhi add kar sakte hain isi tarah -->
 						<div class="row">

@@ -47,27 +47,58 @@
 					<div class="col-sm-6">
 						@Html.LabelFor(m => m.FullName)
 						@Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter your Name" })
+						@Html.ValidationMessageFor(m => m.FullName , "",new{@class = "text-danger"})
+					</div>
+					<div class="col-sm-6">
+						@Html.LabelFor(m => m.DOB)
+						@Html.TextBoxFor(m => m.DOB, new { @class = "form-control", type = "date", placeholder = "Enter your Age" })
+						@Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
 					</div>
 					<div class="col-sm-6">
 						@Html.LabelFor(m => m.Mobile)
-						@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control",Type="number", placeholder = "Enter your Mobile" })
+						@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control",type="number", placeholder = "Enter your Mobile" })
+						@Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
 					</div>
-					<div class="col-sm-12 mt-2">
+					<div class="col-sm-6 mt-2">
 						@Html.LabelFor(m => m.Email)
 						@Html.TextBoxFor(m => m.Email, new { @class = "form-control",Type="Email" ,placeholder = "Enter your Email" })
+						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 					</div>
-					<div class="col-sm-4 mt-2">
+					<div class="col-sm-6 mt-2">
+						@Html.LabelFor(m => m.Pincode)
+						@Html.TextBoxFor(m => m.Pincode, new { @class = "form-control", Type = "Email", placeholder = "Enter your Pincode" })
+						@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "text-danger" })
+					</div>
+					<div class="col-sm-6 mt-2">
 						@Html.LabelFor(m => m.Gender)
 						@Html.DropDownListFor(m => m.Gender,
 						new SelectList(new[] {
-												new { Value = "", Text = "Select Gender" },
+												new { Value = "", Text = "--Select Gender--" },
 												new { Value = "Male", Text = "Male" },
 												new { Value = "Female", Text = "Female" },
 												new { Value = "Other", Text = "Other" }
 												}, "Value", "Text"),
 												new { @class = "form-control" })
 					</div>
-					<div class="col-sm-3 ">
+					<div class="col-sm-6 mt-2">
+						@Html.LabelFor(m => m.InsurenceType)
+						@Html.DropDownListFor(m => m.InsurenceType,
+						new SelectList(new[] {
+												new { Value = "", Text = "--Select Insurence Type--" },
+												new { Value = "Individual", Text = "Individual" },
+												new { Value = "Floater", Text = "Floater" },
+											
+												}, "Value", "Text"),
+												new { @class = "form-control" })
+
+						@Html.ValidationMessageFor(m => m.InsurenceType, "", new { @class = "text-danger" })
+					</div>
+					<div class="col-sm-6">
+						@Html.LabelFor(m => m.NoOffPeople)
+						@Html.TextBoxFor(m => m.NoOffPeople, new { @class = "form-control", type = "number", placeholder = "Enter your No Off People" })
+						@Html.ValidationMessageFor(m => m.NoOffPeople, "", new { @class = "text-danger" })
+					</div>
+					<div class="col-sm-6 w-100 ">
 						<button type="submit" class="btn btn-primary " style="margin-top:27px;">Submit</button>
 					</div>
 				</div>

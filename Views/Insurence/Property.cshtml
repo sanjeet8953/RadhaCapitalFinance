@@ -81,18 +81,18 @@
 				<form method="post">
 					<h3>Property Insurence</h3>
 					<div class="form-floating mt-4">
-						@Html.TextBoxFor(m => m.MobailNo, new { @class = "form-control", placeholder = "Enter Mobile No" })
-						@Html.LabelFor(m => m.MobailNo)
-					</div>
-					<div class="form-floating mt-4">
 						@Html.TextBoxFor(m => m.PropertyHolderName, new { @class = "form-control", placeholder = "Enter Mobile No" })
 						@Html.LabelFor(m => m.PropertyHolderName)
 					</div>
-					
 					<div class="form-floating mt-4">
 						@Html.TextBoxFor(m => m.PropertyName, new { @class = "form-control", placeholder = "Enter Shop Name" })
 						@Html.LabelFor(m => m.PropertyName)
 					</div>
+					<div class="form-floating mt-4">
+						@Html.TextBoxFor(m => m.MobailNo, new { @class = "form-control",type="number", placeholder = "Enter Mobile No" })
+						@Html.LabelFor(m => m.MobailNo)
+					</div>
+					
 					<div class="form-floating mt-4">
 						@Html.TextBoxFor(m => m.PropertyAdderess, new { @class = "form-control", placeholder = "Enter Mobile No" })
 						@Html.LabelFor(m => m.PropertyAdderess)
