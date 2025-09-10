@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RadhaCapitalFinance.Models
+namespace RadhaCapitalFinance.Core.Entities
 {
     public class RetirementModel
     {
+        [Key]
+        public int Id { get; set; }
         [Required(ErrorMessage = "Full Name is required.")]
         public string? FullName { get; set; }
 

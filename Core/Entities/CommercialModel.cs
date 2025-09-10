@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RadhaCapitalFinance.Models
+namespace RadhaCapitalFinance.Core.Entities
 {
     public class CommercialModel
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace RadhaCapitalFinance.Models
+namespace RadhaCapitalFinance.Core.Entities
 {
     public class FinanceDBContext:DbContext
     {

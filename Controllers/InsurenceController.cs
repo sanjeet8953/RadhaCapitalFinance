@@ -1,17 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RadhaCapitalFinance.Models;
+using RadhaCapitalFinance.Core.Entities;
+using RadhaCapitalFinance.Core.Interfaces;
 
 namespace RadhaCapitalFinance.Controllers
 {
     public class InsurenceController : Controller
     {
-        private readonly FinanceDBContext financeDB;
+        private readonly IInsuranceService _insuranceService;
 
-        public InsurenceController(FinanceDBContext financeDB)
+        public InsurenceController(IInsuranceService insuranceService)
         {
-            this.financeDB = financeDB;
+            this._insuranceService = insuranceService;
         }
 
         public IActionResult Index()
@@ -25,29 +26,27 @@ namespace RadhaCapitalFinance.Controllers
             return View(obj);
         }
         [HttpPost]
-        public async Task <IActionResult> Finence(FinanceModel obj)
+        public async Task<IActionResult> Finence(FinanceModel obj)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    await financeDB.Insurance.AddAsync(obj);
-                  await financeDB.SaveChangesAsync();
-                    return RedirectToAction("List", "Insurence");
-                }
-            }
-            catch (Exception)
-            {
-
+                await _insuranceService.AddAsync(obj);
+                return RedirectToAction("List");
             }
             ViewBag.Products = InsurenceType();
             return View(obj);
         }
 
-        public async Task <IActionResult> List()
+        public async Task<IActionResult> List()
         {
-            var CustData = await financeDB.Insurance.ToListAsync();
-            return View(CustData);
+            var data = await _insuranceService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _insuranceService.DeleteAsync(id);  // ✅ yahi call
+            return RedirectToAction("List");
         }
         public IActionResult SIP()
         {

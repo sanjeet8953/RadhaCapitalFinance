@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RadhaCapitalFinance.Models
+namespace RadhaCapitalFinance.Core.Entities
 {
     public class HealthModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Enter Your Name.")]
         public string? FullName { get; set; }
-
+       
         [Required(ErrorMessage = "Enter Your Mobail Number")]
         public string? Mobile { get; set; }
 

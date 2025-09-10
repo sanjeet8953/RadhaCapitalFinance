@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using RadhaCapitalFinance.Models;
+using RadhaCapitalFinance.Core.Entities;
+using RadhaCapitalFinance.Core.Interfaces;
+using RadhaCapitalFinance.Services;
 
 namespace RadhaCapitalFinance
 {
@@ -14,9 +16,8 @@ namespace RadhaCapitalFinance
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<FinanceDBContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+            builder.Services.AddScoped<IInsuranceService, InsuranceService>();
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");

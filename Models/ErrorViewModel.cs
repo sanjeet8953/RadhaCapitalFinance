@@ -1,4 +1,5 @@
 namespace RadhaCapitalFinance.Models
+
 {
     public class ErrorViewModel
     {
