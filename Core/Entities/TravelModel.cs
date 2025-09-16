@@ -10,14 +10,14 @@ namespace RadhaCapitalFinance.Core.Entities
         [Column(TypeName = "varchar(100)")]
         [Required(ErrorMessage = "Enter your Name")]
         public string? Name { get; set; }
-        [Required(ErrorMessage ="Enter your Mobail Number")]
-        public string? MobailNo { get; set; }
+        [Required(ErrorMessage = "Enter your Mobile Number")]
+        public string? MobileNo { get; set; }
         [Column(TypeName ="varchar(60)")]
         [Required(ErrorMessage = "Enter your Email ")]
         public string? Email { get; set; }
         [Column(TypeName = "varchar(100)")]
-        [Required(ErrorMessage = "Enter your Adderess ")]
-        public string? Adderess { get; set; }
+        [Required(ErrorMessage = "Enter your Address ")]
+        public string? Address { get; set; }
         [Required(ErrorMessage ="Enter No Off Member")]
         [Display (Name = "Total Member")]
         public int TotalMembers { get; set; }

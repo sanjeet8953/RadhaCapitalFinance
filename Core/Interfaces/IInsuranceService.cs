@@ -2,11 +2,11 @@
 
 namespace RadhaCapitalFinance.Core.Interfaces
 {
-    public interface IInsuranceService
+    public interface IGenericService<T> where T : class
     {
-        Task<IEnumerable<FinanceModel>> GetAllDataAsync();
-        Task AddAsync(FinanceModel model);
+        Task<IEnumerable<T>> GetAllDataAsync();
+        Task AddAsync(T model);
         Task DeleteAsync(int id);
-
     }
+
 }
