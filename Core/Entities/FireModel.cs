@@ -11,7 +11,7 @@ namespace RadhaCapitalFinance.Core.Entities
         [Column (TypeName ="varchar(100)")]
         public string? InsuredName { get; set; }
         [Required(ErrorMessage ="Enter Property Address")]
-        [Column (TypeName ="varvhar(250)")]
+        [Column (TypeName ="varchar(250)")]
         public string? PropertyAdderess { get; set; }
         [Required(ErrorMessage ="Enter Policy Issue Date")]
         public DateTime PolicyStartDate { get; set; }

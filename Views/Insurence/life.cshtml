@@ -178,9 +178,9 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
-										@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
-										@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+										@Html.TextBoxFor(m => m.NomineeRelation, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.NomineeRelation, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.NomineeRelation, "", new { @class = "text-danger" })
 									</div>
 								</div>
 							</div>
@@ -220,6 +220,15 @@
 																				},
 																				new { @class = "fg-input" })
 										@Html.ValidationMessageFor(m => m.PremiumMode, "", new { @class = "text-danger" })
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="fg">
+											@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
+											@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
+											@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+										</div>
 									</div>
 								</div>
 

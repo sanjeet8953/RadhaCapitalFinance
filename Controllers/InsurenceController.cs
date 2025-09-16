@@ -8,13 +8,48 @@ namespace RadhaCapitalFinance.Controllers
 {
     public class InsurenceController : Controller
     {
-        private readonly IInsuranceService _insuranceService;
+        private readonly IGenericService<FinanceModel> _financeService;
+        private readonly IGenericService<HealthModel> _healthService;
+        private readonly IGenericService<CarModel> _carService;
+        private readonly IGenericService<CommercialModel> _commercialService;
+        private readonly IGenericService<FireModel> _fireService;
+        private readonly IGenericService<LifeInsurenceModel> _lifeService;
+        private readonly IGenericService<MarineInsuranceModel> _marineService;
+        private readonly IGenericService<PropertyModel> _propertyService;
+        private readonly IGenericService<RetirementModel> _retirementService;
+        private readonly IGenericService<SIPModel> _SIPService;
+        private readonly IGenericService<TravelModel> _travelService;
 
-        public InsurenceController(IInsuranceService insuranceService)
+        public InsurenceController(
+            IGenericService<FinanceModel> financeService,
+            IGenericService<HealthModel> helthService,
+            IGenericService<CarModel> carService,
+            IGenericService<CommercialModel> commercialService,
+            IGenericService<LifeInsurenceModel> lifeService,
+            IGenericService<MarineInsuranceModel> marineService,
+            IGenericService<PropertyModel> propertyService,
+            IGenericService<RetirementModel> retirementService,
+            IGenericService<SIPModel> sipService,
+            IGenericService<TravelModel> travelService,
+            IGenericService<FireModel> fireService
+            )
         {
-            this._insuranceService = insuranceService;
-        }
+            _financeService = financeService;
+            _healthService = helthService;
+            _carService = carService;
+            _commercialService = commercialService;
+            _fireService = fireService;
+            _lifeService = lifeService;
+            _marineService = marineService;
+            _propertyService = propertyService;
+            _retirementService = retirementService;
+            _SIPService = sipService;
+            _travelService = travelService;
 
+
+
+
+        }
         public IActionResult Index()
         {
             return View();
@@ -30,7 +65,7 @@ namespace RadhaCapitalFinance.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _insuranceService.AddAsync(obj);
+                await _financeService.AddAsync(obj);
                 return RedirectToAction("List");
             }
             ViewBag.Products = InsurenceType();
@@ -39,13 +74,13 @@ namespace RadhaCapitalFinance.Controllers
 
         public async Task<IActionResult> List()
         {
-            var data = await _insuranceService.GetAllDataAsync();
+            var data = await _financeService.GetAllDataAsync();
             return View(data);
         }
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            await _insuranceService.DeleteAsync(id);  // ✅ yahi call
+            await _financeService.DeleteAsync(id);
             return RedirectToAction("List");
         }
         public IActionResult SIP()
@@ -66,7 +101,19 @@ namespace RadhaCapitalFinance.Controllers
         }
         public IActionResult life()
         {
+            //LifeInsurenceModel obj = new LifeInsurenceModel();
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Life(LifeInsurenceModel obj)
+        {
+            if (ModelState.IsValid)
+            {
+                await _lifeService.AddAsync(obj);
+                return RedirectToAction("LifeList");
+            }
+
+            return View(obj);
         }
         public IActionResult Car()
         {

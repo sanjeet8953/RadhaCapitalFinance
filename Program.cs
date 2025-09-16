@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using RadhaCapitalFinance.Core.Entities;
 using RadhaCapitalFinance.Core.Interfaces;
 using RadhaCapitalFinance.Services;
+using Npgsql.EntityFrameworkCore;
 
 namespace RadhaCapitalFinance
 {
@@ -15,8 +16,10 @@ namespace RadhaCapitalFinance
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<FinanceDBContext>(options =>
-               options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
-            builder.Services.AddScoped<IInsuranceService, InsuranceService>();
+        options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
+
+
+            builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             var app = builder.Build();
             if (!app.Environment.IsDevelopment())
             {
