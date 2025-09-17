@@ -76,7 +76,6 @@ namespace RadhaCapitalFinance.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-
             await _financeService.DeleteAsync(id);
             return RedirectToAction("List");
         }
