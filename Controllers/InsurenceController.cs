@@ -45,10 +45,6 @@ namespace RadhaCapitalFinance.Controllers
             _retirementService = retirementService;
             _SIPService = sipService;
             _travelService = travelService;
-
-
-
-
         }
         public IActionResult Index()
         {
