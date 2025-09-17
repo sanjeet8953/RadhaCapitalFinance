@@ -101,7 +101,7 @@ namespace RadhaCapitalFinance.Controllers
         }
         public IActionResult life()
         {
-            //LifeInsurenceModel obj = new LifeInsurenceModel();
+            LifeInsurenceModel obj = new LifeInsurenceModel();
             return View();
         }
         [HttpPost]
@@ -114,6 +114,18 @@ namespace RadhaCapitalFinance.Controllers
             }
 
             return View(obj);
+        }
+        public async Task<IActionResult>LifeList()
+        {
+            var data = await _lifeService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> LifeDataDelete(int PolicyId)
+        {
+            await _lifeService.DeleteAsync(PolicyId);
+            return RedirectToAction("LifeList");
+
         }
         public IActionResult Car()
         {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace RadhaCapitalFinance.Core.Entities
 {
@@ -19,6 +20,24 @@ namespace RadhaCapitalFinance.Core.Entities
         public DbSet<RetirementModel> Retirement { get; set; }
         public DbSet<SIPModel> SIP { get; set; }
         public DbSet<TravelModel> Travel { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var property in entityType.GetProperties())
+                {
+                    if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
+                    {
+                        property.SetValueConverter(new ValueConverter<DateTime, DateTime>(
+                            v => v.Kind == DateTimeKind.Utc ? v : v.ToUniversalTime(),
+                            v => DateTime.SpecifyKind(v, DateTimeKind.Utc)
+                        ));
+                    }
+                }
+            }
+
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }
