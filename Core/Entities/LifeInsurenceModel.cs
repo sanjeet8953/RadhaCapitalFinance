@@ -13,6 +13,7 @@ namespace RadhaCapitalFinance.Core.Entities
         public string? PolicyHolderName { get; set; }
         [Required (ErrorMessage ="Enter Your DOB")]
         [Display (Name = "Date Of Birth")]
+        [Column(TypeName = "date")]
         public DateTime DateOfBirth { get; set; }
         [Required (ErrorMessage ="Click Male Or Female")]
         public string? Gender { get; set; }
@@ -36,6 +37,7 @@ namespace RadhaCapitalFinance.Core.Entities
         public string? NomineeRelation { get; set; }
         [Required(ErrorMessage = "Fill Policy Start Date")]
         [Display(Name = "Policy Start Date ")]
+        [Column(TypeName = "date")]
         public DateTime PolicyStartDate { get; set; }
         [Required(ErrorMessage = "Fill SumAssured")]
         public decimal SumAssured { get; set; }

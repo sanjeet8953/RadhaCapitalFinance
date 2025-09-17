@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.LifeInsurenceModel>
+@{
+	ViewData["Title"] = "LifeList";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+	int Sr_No = 1;
+}
+<style>
+	.table-responsive th {
+		background-color: #5DE2E7 ;
+		color: #2208E6
+	}
+</style>
+
+<h2>Life Insurance List</h2>
+@if (Model != null && Model.Any())
+{
+	<div class="table-responsive">
+		<table class="table table-responsive table-bordered px-5" style="min-width:800px;">
+			<thead>
+				<tr>
+					<th>SrNo</th>
+					<th>Name</th>
+					<th>DateOfBirth</th>
+					<th>Gender</th>
+					<th>MobailNo</th>
+					<th>Email</th>
+					<th>Pincode</th>
+					<th>NomineeName</th>
+					<th>NomineeRelation</th>
+					<th>PolicyStartDate</th>
+					<th>SumAssured</th>
+					<th>Premium</th>
+					<th>PremiumMode</th>
+					<th>Address</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@Sr_No</td>
+						<td>@item.PolicyHolderName</td>
+						<td>@item.DateOfBirth.ToString("dd-MM-yyyy")</td>
+						<td>@item.Gender</td>
+						<td>@item.MobailNo</td>
+						<td>@item.Email</td>
+						<td>@item.Pincode</td>
+						<td>@item.NomineeName</td>
+						<td>@item.NomineeRelation</td>
+						<td>@item.PolicyStartDate.ToString("dd-MM-yyyy")</td>
+						<td>@item.SumAssured</td>
+						<td>@item.Premium</td>
+						<td>@item.PremiumMode</td>
+						<td>@item.Address</td>
+						<td>
+							<form asp-action="LifeDataDelete" method="post" asp-route-PolicyId="@item.PolicyId" onsubmit="return confirm('Are you sure you want to delete this record?');">
+								<button type="submit" class="btn btn-danger">Delete</button>
+							</form>
+						</td>
+					</tr>
+					Sr_No++;
+				}
+			</tbody>
+
+		</table>
+	</div>
+}
+
