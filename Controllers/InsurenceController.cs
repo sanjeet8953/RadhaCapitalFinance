@@ -45,10 +45,6 @@ namespace RadhaCapitalFinance.Controllers
             _retirementService = retirementService;
             _SIPService = sipService;
             _travelService = travelService;
-
-
-
-
         }
         public IActionResult Index()
         {
@@ -87,13 +83,69 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult>SIP(SIPModel obj)
+        {
+            if (ModelState.IsValid) { 
+            await _SIPService .AddAsync(obj);
+            return RedirectToAction("SIPList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> SIPList()
+        {
+            var data = await _SIPService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task <IActionResult> SIPDataDelete(int Id)
+        {
+            await _SIPService.DeleteAsync(Id);
+            return RedirectToAction("SIPlist");
+        }
         public IActionResult Health()
         {
             return View();
         }
+        [HttpPost]
+        public async Task <IActionResult> Health(HealthModel obj)
+        {
+            if (ModelState.IsValid)
+            {
+                await _healthService.AddAsync(obj);
+                return RedirectToAction("HelthList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> HelthList()
+        {
+            var data = await _healthService.GetAllDataAsync();
+            return View(data);
+        }
+        public async Task <IActionResult> HelthDataDelete(int id)
+        {
+            await _healthService.DeleteAsync(id);
+            return RedirectToAction("HelthList");
+        }
         public IActionResult Retairement()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task <IActionResult> Retairement(RetirementModel obj)
+        {
+            await _retirementService.AddAsync(obj);
+            return View("RetairementList");
+        }
+        public async Task <IActionResult> RetairementList()
+        {
+            var data = await _retirementService.GetAllDataAsync();
+            return View(data);
+        }
+        public async Task <IActionResult> RetairementDataDelete(int id)
+        {
+            await _retirementService.DeleteAsync(id);
+            return RedirectToAction("RetairementList");
         }
         public IActionResult Travel()
         {
@@ -112,7 +164,6 @@ namespace RadhaCapitalFinance.Controllers
                 await _lifeService.AddAsync(obj);
                 return RedirectToAction("LifeList");
             }
-
             return View(obj);
         }
         public async Task<IActionResult>LifeList()
@@ -125,7 +176,6 @@ namespace RadhaCapitalFinance.Controllers
         {
             await _lifeService.DeleteAsync(PolicyId);
             return RedirectToAction("LifeList");
-
         }
         public IActionResult Car()
         {
