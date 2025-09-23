@@ -1,0 +1,250 @@
+diff --git a/Controllers/InsurenceController.cs b/Controllers/InsurenceController.cs
+index 8786eab..b2a4d1e 100644
+--- a/Controllers/InsurenceController.cs
++++ b/Controllers/InsurenceController.cs
+@@ -45,10 +45,6 @@ namespace RadhaCapitalFinance.Controllers
+             _retirementService = retirementService;
+             _SIPService = sipService;
+             _travelService = travelService;
+-
+-
+-
+-
+         }
+         public IActionResult Index()
+         {
+@@ -87,14 +83,70 @@ namespace RadhaCapitalFinance.Controllers
+         {
+             return View();
+         }
++        [HttpPost]
++        public async Task<IActionResult>SIP(SIPModel obj)
++        {
++            if (ModelState.IsValid) { 
++            await _SIPService .AddAsync(obj);
++            return RedirectToAction("SIPList");
++            }
++            return View(obj);
++        }
++        public async Task <IActionResult> SIPList()
++        {
++            var data = await _SIPService.GetAllDataAsync();
++            return View(data);
++        }
++        [HttpPost]
++        public async Task <IActionResult> SIPDataDelete(int Id)
++        {
++            await _SIPService.DeleteAsync(Id);
++            return RedirectToAction("SIPlist");
++        }
+         public IActionResult Health()
+         {
+             return View();
+         }
++        [HttpPost]
++        public async Task <IActionResult> Health(HealthModel obj)
++        {
++            if (ModelState.IsValid)
++            {
++                await _healthService.AddAsync(obj);
++                return RedirectToAction("HelthList");
++            }
++            return View(obj);
++        }
++        public async Task <IActionResult> HelthList()
++        {
++            var data = await _healthService.GetAllDataAsync();
++            return View(data);
++        }
++        public async Task <IActionResult> HelthDataDelete(int id)
++        {
++            await _healthService.DeleteAsync(id);
++            return RedirectToAction("HelthList");
++        }
+         public IActionResult Retairement()
+         {
+             return View();
+         }
++        [HttpPost]
++        public async Task <IActionResult> Retairement(RetirementModel obj)
++        {
++            await _retirementService.AddAsync(obj);
++            return View("RetairementList");
++        }
++        public async Task <IActionResult> RetairementList()
++        {
++            var data = await _retirementService.GetAllDataAsync();
++            return View(data);
++        }
++        public async Task <IActionResult> RetairementDataDelete(int id)
++        {
++            await _retirementService.DeleteAsync(id);
++            return RedirectToAction("RetairementList");
++        }
+         public IActionResult Travel()
+         {
+             return View();
+@@ -112,7 +164,6 @@ namespace RadhaCapitalFinance.Controllers
+                 await _lifeService.AddAsync(obj);
+                 return RedirectToAction("LifeList");
+             }
+-
+             return View(obj);
+         }
+         public async Task<IActionResult>LifeList()
+@@ -125,7 +176,6 @@ namespace RadhaCapitalFinance.Controllers
+         {
+             await _lifeService.DeleteAsync(PolicyId);
+             return RedirectToAction("LifeList");
+-
+         }
+         public IActionResult Car()
+         {
+diff --git a/RadhaCapitalFinance.csproj b/RadhaCapitalFinance.csproj
+index 26f9bfd..f423842 100644
+--- a/RadhaCapitalFinance.csproj
++++ b/RadhaCapitalFinance.csproj
+@@ -10,9 +10,13 @@
+   </PropertyGroup>
+ 
+   <ItemGroup>
++    <Compile Remove="Data\**" />
+     <Compile Remove="Repositories\**" />
++    <Content Remove="Data\**" />
+     <Content Remove="Repositories\**" />
++    <EmbeddedResource Remove="Data\**" />
+     <EmbeddedResource Remove="Repositories\**" />
++    <None Remove="Data\**" />
+     <None Remove="Repositories\**" />
+   </ItemGroup>
+ 
+@@ -31,8 +35,4 @@
+     <PackageReference Include="Ooze.Typed.EntityFrameworkCore.Npgsql" Version="1.0.79" />
+   </ItemGroup>
+ 
+-  <ItemGroup>
+-    <Folder Include="Data\Migrations\" />
+-  </ItemGroup>
+-
+ </Project>
+diff --git a/Views/Insurence/Health.cshtml b/Views/Insurence/Health.cshtml
+index 4cbea18..5bff960 100644
+--- a/Views/Insurence/Health.cshtml
++++ b/Views/Insurence/Health.cshtml
+@@ -44,7 +44,7 @@
+ 		<div class="card h-100">
+ 			<div class="card-body">
+ 				<h3>Tell us about yourself</h3>
+-				<form>
++				<form method="post">
+ 					<div class="row">
+ 						<div class="col-sm-6">
+ 							@Html.LabelFor(m => m.FullName)
+diff --git a/Views/Insurence/LifeList.cshtml b/Views/Insurence/LifeList.cshtml
+index a7ba960..7388b4b 100644
+--- a/Views/Insurence/LifeList.cshtml
++++ b/Views/Insurence/LifeList.cshtml
+@@ -15,7 +15,7 @@
+ @if (Model != null && Model.Any())
+ {
+ 	<div class="table-responsive">
+-		<table class="table table-responsive table-bordered px-5" style="min-width:800px;">
++		<table class="table table-bordered px-5" style="min-width:800px;">
+ 			<thead>
+ 				<tr>
+ 					<th>SrNo</th>
+diff --git a/Views/Insurence/life.cshtml b/Views/Insurence/life.cshtml
+index 50aced1..8c5afa5 100644
+--- a/Views/Insurence/life.cshtml
++++ b/Views/Insurence/life.cshtml
+@@ -47,7 +47,7 @@
+ 	.Image {
+ 		width: 100%;
+ 		height: auto;
+-		margin-top:10px;
++		margin-top: 10px;
+ 	}
+ 
+ 	.fg {
+@@ -100,8 +100,8 @@
+ 		<!-- Left Side Image -->
+ 		<div class="col-12 col-md-5 mb-3">
+ 			<img src="~/Images/lifeinsu.jpg" class="Image" alt="Life Insurance" />
+-		@* 	<img src="~/Images/Life.jpg" class="Image " alt="Life Insurance" /> *@
+-			
++			@* 	<img src="~/Images/Life.jpg" class="Image " alt="Life Insurance" /> *@
++
+ 		</div>
+ 		<!-- Right Side Content -->
+ 		<div class="col-12 col-md-7 mx-md-auto">
+@@ -203,16 +203,17 @@
+ 							<div class="row">
+ 								<div class="col-sm-6">
+ 									<div class="fg">
+-										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input",type="number", placeholder = " " })
++										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", type = "number", placeholder = " " })
+ 										@Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
+ 										@Html.ValidationMessageFor(m => m.Premium, "", new { @class = "text-danger" })
+ 									</div>
+-								</div> 
++								</div>
++
+ 								<div class="col-sm-6">
+ 									<div class="fg">
+ 										@Html.DropDownListFor(m => m.PremiumMode,new List<SelectListItem>
+-																				{
+-																				new SelectListItem { Text = "Select Premium Mode", Value = "" },
++										{
++											new SelectListItem { Text = "Select Premium Mode", Value = "" },
+ 																				new SelectListItem { Text = "Monthly", Value = "Monthly" },
+ 																				new SelectListItem { Text = "Quarterly", Value = "Quarterly" },
+ 																				new SelectListItem { Text = "Half-Yearly", Value = "Half-Yearly" },
+@@ -222,17 +223,18 @@
+ 										@Html.ValidationMessageFor(m => m.PremiumMode, "", new { @class = "text-danger" })
+ 									</div>
+ 								</div>
+-								<div class="row">
+-									<div class="col-sm-6">
+-										<div class="fg">
+-											@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
+-											@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
+-											@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+-										</div>
++							</div>
++							<div class="row">
++								<div class="col-sm-6">
++									<div class="fg">
++										@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
++										@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
++										@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+ 									</div>
+ 								</div>
+-
+ 							</div>
++
++
+ 							<div class="row d-flex align-items-center">
+ 								<button type="submit" class="btn btn-primary ">Submit</button>
+ 							</div>
+@@ -255,10 +257,10 @@
+ 				standard of living, manage expenses, and achieve their future goals
+ 				without financial stress.
+ 			</p>
+-			
++
+ 		</div>
+ 	</div>
+-	
++
+ </div>
+ <div class="row">
+ 	<div class="col-12 col-md-8 mx-md-auto">
+@@ -291,7 +293,7 @@
+ 			<li><b>Guaranteed Death Benefit:</b> Assured payout to beneficiaries.</li>
+ 		</ul>
+ 	</div>
+-	</div>
++</div>
+ 
+ @section Scripts {
+ 	@{

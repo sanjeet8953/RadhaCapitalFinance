@@ -47,7 +47,7 @@
 	.Image {
 		width: 100%;
 		height: auto;
-		margin-top:10px;
+		margin-top: 10px;
 	}
 
 	.fg {
@@ -100,8 +100,8 @@
 		<!-- Left Side Image -->
 		<div class="col-12 col-md-5 mb-3">
 			<img src="~/Images/lifeinsu.jpg" class="Image" alt="Life Insurance" />
-		@* 	<img src="~/Images/Life.jpg" class="Image " alt="Life Insurance" /> *@
-			
+			@* 	<img src="~/Images/Life.jpg" class="Image " alt="Life Insurance" /> *@
+
 		</div>
 		<!-- Right Side Content -->
 		<div class="col-12 col-md-7 mx-md-auto">
@@ -203,16 +203,17 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input",type="number", placeholder = " " })
+										@Html.TextBoxFor(m => m.Premium, new { @class = "fg-input", type = "number", placeholder = " " })
 										@Html.LabelFor(m => m.Premium, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.Premium, "", new { @class = "text-danger" })
 									</div>
-								</div> 
+								</div>
+
 								<div class="col-sm-6">
 									<div class="fg">
 										@Html.DropDownListFor(m => m.PremiumMode,new List<SelectListItem>
-																				{
-																				new SelectListItem { Text = "Select Premium Mode", Value = "" },
+										{
+											new SelectListItem { Text = "Select Premium Mode", Value = "" },
 																				new SelectListItem { Text = "Monthly", Value = "Monthly" },
 																				new SelectListItem { Text = "Quarterly", Value = "Quarterly" },
 																				new SelectListItem { Text = "Half-Yearly", Value = "Half-Yearly" },
@@ -222,17 +223,18 @@
 										@Html.ValidationMessageFor(m => m.PremiumMode, "", new { @class = "text-danger" })
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="fg">
-											@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
-											@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
-											@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
-										</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="fg">
+										@Html.TextBoxFor(m => m.Address, new { @class = "fg-input", placeholder = " " })
+										@Html.LabelFor(m => m.Address, new { @class = "fg-label" })
+										@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
 									</div>
 								</div>
-
 							</div>
+
+
 							<div class="row d-flex align-items-center">
 								<button type="submit" class="btn btn-primary ">Submit</button>
 							</div>
@@ -255,10 +257,10 @@
 				standard of living, manage expenses, and achieve their future goals
 				without financial stress.
 			</p>
-			
+
 		</div>
 	</div>
-	
+
 </div>
 <div class="row">
 	<div class="col-12 col-md-8 mx-md-auto">
@@ -291,7 +293,7 @@
 			<li><b>Guaranteed Death Benefit:</b> Assured payout to beneficiaries.</li>
 		</ul>
 	</div>
-	</div>
+</div>
 
 @section Scripts {
 	@{
