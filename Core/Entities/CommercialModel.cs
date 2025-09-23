@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RadhaCapitalFinance.Core.Entities
 {
-    public class CommercialModel
+    public class  CommercialModel
     {
         [Key]
         public int PolicyId { get; set; }   
