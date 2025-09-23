@@ -10,9 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
     <Compile Remove="Repositories\**" />
+    <Content Remove="Data\**" />
     <Content Remove="Repositories\**" />
+    <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Data\**" />
     <None Remove="Repositories\**" />
   </ItemGroup>
 
@@ -29,10 +33,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="Ooze.Typed.EntityFrameworkCore.Npgsql" Version="1.0.79" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>
