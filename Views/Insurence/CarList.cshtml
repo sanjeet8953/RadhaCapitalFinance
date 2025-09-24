@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.CarModel>
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+    int SrNo = 1;
+}
+
+<h2>CarList</h2>
+@if(Model != null && Model.Any())
+{
+    <table class="table table-bordered px-5" style="min-width:800px;">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>CarName</th>
+                <th>Model</th>
+                <th>CarType</th>
+                <th>RegistrationNo</th>
+                <th>ManufacturingYear</th>
+                <th>FuelType</th>
+                <th>SeatingCapacity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@SrNo</td>
+                    <td>@item.CarName</td>
+                    <td>@item.Model</td>
+                    <td>@item.CarType</td>
+                    <td>@item.RegistrationNo</td>
+                    <td>@item.ManufacturingYear</td>
+                    <td>@item.FuelType</td>
+                    <td>@item.SeatingCapacity</td>
+                    <td>
+                        <form asp-action="CarDataDelete" method="post" asp-route-CarId="@item.CarId">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+}
+

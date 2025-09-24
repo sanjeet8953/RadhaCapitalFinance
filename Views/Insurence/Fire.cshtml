@@ -161,7 +161,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="fg">
-										@Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input", placeholder = " " })
+										@Html.TextBoxFor(m => m.PolicyStartDate, new { @class = "fg-input", type="date", placeholder = " " })
 										@Html.LabelFor(m => m.PolicyStartDate, new { @class = "fg-label" })
 										@Html.ValidationMessageFor(m => m.PolicyStartDate, "", new { @class = "text-danger" })
 									</div>

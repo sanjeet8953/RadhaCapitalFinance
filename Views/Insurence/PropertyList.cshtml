@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.PropertyModel>
+@{
+    ViewData["Title"] = "PropertyList";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+    int SrNo = 1;
+}
+
+<h2>PropertyList</h2>
+@if(Model != null && Model.Any())
+{
+    <table class="table table-bordered px-5" style="min-width:800px;">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>PropertyHolderName</th>
+                <th>MobailNo</th>
+                <th>PropertyName</th>
+                <th>PropertyAdderess</th>
+                <th>Pincode</th>
+                <th>Email</th>
+                <th>Consent</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@SrNo</td>
+                    <td>@item.PropertyHolderName</td>
+                    <td>@item.MobailNo</td>
+                    <td>@item.PropertyName</td>
+                    <td>@item.PropertyAdderess</td>
+                    <td>@item.Pincode</td>
+                    <td>@item.Email</td>
+                    <td>@item.Consent</td>
+                    <td>
+                        <form asp-action="PropertyDataDelete" method="post" asp-route-Id="@item.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
