@@ -1,0 +1,47 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.TravelModel>
+@{
+	ViewData["Title"] = "TravelList";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+	int SrNo = 1;
+}
+
+<h2>TravelList</h2>
+@if(Model != null && Model.Any()){
+<table class="table table-bordered px-5" style="min-width:800px;">
+	<thead>
+		<tr>
+			<th>Sr No</th>
+			<th>Name</th>
+			<th>MobileNo</th>
+			<th>Email</th>
+			<th>Address</th>
+			<th>TotalMembers</th>
+			<th>DateofDeparture</th>
+			<th>DateofArrival</th>
+			<th>Gender</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model)
+		{
+			<tr>
+				<td>@SrNo</td>
+				<td>@item.Name</td>
+				<td>@item.MobileNo</td>
+				<td>@item.Email</td>
+				<td>@item.Address</td>
+				<td>@item.TotalMembers</td>
+				<td>@item.DateofDeparture.ToString("dd/mm/yyyy")</td>
+					<td>@item.DateofArrival.ToString("dd/mm/yyyy")</td>
+				<td>@item.Gender</td>
+				<td>
+					<form asp-action="TravelDataDelete" method="post" asp-route-TravelId="@item.TravelId">
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+}

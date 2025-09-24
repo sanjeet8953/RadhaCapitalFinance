@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RadhaCapitalFinance.Core.Entities;
@@ -11,9 +12,11 @@ using RadhaCapitalFinance.Core.Entities;
 namespace RadhaCapitalFinance.Migrations
 {
     [DbContext(typeof(FinanceDBContext))]
-    partial class FinanceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250923113914_Arrivel")]
+    partial class Arrivel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,8 +50,8 @@ namespace RadhaCapitalFinance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("InsurenceType")
-                        .HasColumnType("text");
+                    b.Property<decimal>("InsurenceType")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("ManufacturingYear")
                         .HasColumnType("integer");

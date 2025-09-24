@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using RadhaCapitalFinance.Core.Entities;
 using RadhaCapitalFinance.Core.Interfaces;
@@ -134,14 +135,19 @@ namespace RadhaCapitalFinance.Controllers
         [HttpPost]
         public async Task <IActionResult> Retairement(RetirementModel obj)
         {
-            await _retirementService.AddAsync(obj);
-            return View("RetairementList");
+            if (ModelState.IsValid)
+            {
+                await _retirementService.AddAsync(obj);
+                return RedirectToAction("RetairementList");
+            }
+            return View(obj);
         }
         public async Task <IActionResult> RetairementList()
         {
             var data = await _retirementService.GetAllDataAsync();
             return View(data);
         }
+        [HttpPost]
         public async Task <IActionResult> RetairementDataDelete(int id)
         {
             await _retirementService.DeleteAsync(id);
@@ -149,6 +155,28 @@ namespace RadhaCapitalFinance.Controllers
         }
         public IActionResult Travel()
         {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Travel(TravelModel obj)
+        {
+            if (ModelState.IsValid) {
+                await _travelService.AddAsync(obj);
+                return RedirectToAction("TravelList");
+            }
+            return View(obj);
+        }
+        
+        public async Task<IActionResult> TravelList()
+        {
+            var data = await _travelService.GetAllDataAsync();
+            
+            return View(data);
+        }
+        [HttpPost]
+        public async Task <IActionResult> TravelDataDelete(int TravelId)
+        {
+            await _travelService.DeleteAsync(TravelId);
             return View();
         }
         public IActionResult life()
@@ -181,13 +209,75 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task <IActionResult> Car(CarModel obj)
+        {
+            if (ModelState.IsValid)
+            {
+                await _carService.AddAsync(obj);
+                return RedirectToAction("CarList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> CarList()
+        {
+            var data = await _carService.GetAllDataAsync();
+            return View(data);
+        }
+        public async Task <IActionResult> CardataDelete(int Id)
+        {
+            await _carService.DeleteAsync(Id);
+            return RedirectToAction("CarList");
+        }
         public IActionResult Fire()
         {
             return View();
         }
+        [HttpPost]
+        public async Task <IActionResult> Fire(FireModel obj)
+        {
+            if (ModelState.IsValid)
+            {
+                await _fireService.AddAsync(obj);
+                return RedirectToAction("FireList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> FireList()
+        {
+           var data= await _fireService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task <IActionResult> FireDataDelete(int PolicyId)
+        {
+            await _fireService.DeleteAsync(PolicyId);
+            return RedirectToAction("CarList");
+        }
         public IActionResult Property()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task <IActionResult> Property(PropertyModel obj)
+        {
+            if (ModelState.IsValid)
+            {
+                await _propertyService.AddAsync(obj);
+                return RedirectToAction("PropertyList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> PropertyList()
+        {
+            var data = await _propertyService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task <IActionResult> PropertyDataDelete(int id)
+        {
+            await _propertyService.DeleteAsync(id);
+            return RedirectToAction("PropertyList");
         }
         public IActionResult Commercial()
         {

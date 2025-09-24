@@ -33,7 +33,7 @@ namespace RadhaCapitalFinance.Core.Entities
         [Required(ErrorMessage = "Enter Vehicle Color")]
         public string? Color { get; set; }       // Optional field
 
-            public decimal InsurenceType{ get; set; } // Insurance purpose (car value)
+            public string? InsurenceType{ get; set; } // Insurance purpose (car value)
         
 
     }

@@ -16,7 +16,7 @@ namespace RadhaCapitalFinance.Core.Entities
         [Required(ErrorMessage ="Enter Policy Issue Date")]
         public DateTime PolicyStartDate { get; set; }
         [Required (ErrorMessage = "Fill Expected Money")]
-        public decimal SumInsured { get; set; } // BemmaRashi
+        public decimal SumInsured { get; set; } 
         [Required (ErrorMessage = "Enter Your affordable Premium")]
         public decimal Premium { get; set; }
         [Required(ErrorMessage = "Enter Your Property Type")]

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.FireModel>
+@{
+    ViewData["Title"] = "FireList";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+    int SrNo = 1;
+}
+
+<h2>FireList</h2>
+@if(Model != null && Model.Any())
+{
+    <table class="table table-bordered" style="min-width:800px;">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>InsuredName</th>
+                <th>PropertyAdderess</th>
+                <th>PolicyStartDate</th>
+                <th>SumInsured</th>
+                <th>Premium</th>
+                <th>PropertyType</th>
+                <th>Pincode</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@SrNo</td>
+                    <td>@item.InsuredName</td>
+                    <td>@item.PropertyAdderess</td>
+                    <td>@item.PolicyStartDate.ToString("dd/mm/yyyy")</td>
+                    <td>@item.SumInsured</td>
+                    <td>@item.Premium</td>
+                    <td>@item.PropertyType</td>
+                    <td>@item.Pincode</td>
+                    <td>
+                        <form asp-action="CardataDelete" method="post" asp-route-PolicyId="@item.PolicyId">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
