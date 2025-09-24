@@ -8,43 +8,46 @@
 <h2>HelthList</h2>
 @if(Model != null && Model.Any())
 {
-    <table class="table table-bordered px-5" style="min-width:800px;">
-        <thead>
-            <tr>
-                <th>Sr No</th>
-                <th>FullName</th>
-                <th>Mobile</th>
-                <th>Email</th>
-                <th>InsurenceType</th>
-                <th>DOB</th>
-                <th>Pincode</th>
-                <th>Gender</th>
-                <th>NoOffPeople</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var item in Model)
-            {
+    <div class="table-responsive">
+        <table class="table table-bordered px-5" style="min-width:800px;">
+            <thead>
                 <tr>
-                    <td>@SrNo</td>
-                    <td>@item.FullName</td>
-                    <td>@item.Mobile</td>
-                    <td>@item.Email</td>
-                    <td>@item.InsurenceType</td>
-                    <td>@item.DOB.ToString("dd/mm/yyyy")</td>
-                    <td>@item.Pincode</td>
-                    <td>@item.Gender</td>
-                    <td>@item.NoOffPeople</td>
-                    <td>
-                        <form asp-action="HelthDataDelete" method="post" asp-route-Id="@item.Id">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
+                    <th>Sr No</th>
+                    <th>FullName</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>InsurenceType</th>
+                    <th>DOB</th>
+                    <th>Pincode</th>
+                    <th>Gender</th>
+                    <th>NoOffPeople</th>
+                    <th>Action</th>
                 </tr>
-            }
-        </tbody>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@SrNo</td>
+                        <td>@item.FullName</td>
+                        <td>@item.Mobile</td>
+                        <td>@item.Email</td>
+                        <td>@item.InsurenceType</td>
+                        <td>@item.DOB.ToString("dd/mm/yyyy")</td>
+                        <td>@item.Pincode</td>
+                        <td>@item.Gender</td>
+                        <td>@item.NoOffPeople</td>
+                        <td>
+                            <form asp-action="HelthDataDelete" method="post" asp-route-Id="@item.Id">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
 
-    </table>
+        </table>
+    </div>
+    
 }
 
