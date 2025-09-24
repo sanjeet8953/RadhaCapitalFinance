@@ -35,4 +35,8 @@
     <PackageReference Include="Ooze.Typed.EntityFrameworkCore.Npgsql" Version="1.0.79" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
