@@ -2,7 +2,42 @@
 @{
     ViewData["Title"] = "RetairementList";
     Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+    int SrNo = 1;
 }
 
-<h1>RetairementList</h1>
-
+<h2>RetairementList</h2>
+@if(Model != null && Model.Any()){
+<table class="table table-bordered px-5" style="min-width:800px;">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>FullName</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Pincode</th>
+            <th>Current_Age</th>
+            <th>YearofRetirement</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+        
+    <tbody>
+        @foreach(var item in Model){ 
+        <tr>
+                <td>@SrNo</td>
+                <td>@item.FullName</td>
+                <td>@item.Mobile</td>
+                <td>@item.Email</td>
+                <td>@item.Pincode</td>
+                <td>@item.Current_Age</td>
+                <td>@item.YearofRetirement</td>
+                <td>
+                    <form asp-action="RetairementDataDelete" method="post" asp-route-Id="@item.Id">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

@@ -23,10 +23,10 @@ namespace RadhaCapitalFinance.Core.Entities
         public int TotalMembers { get; set; }
         [Required(ErrorMessage = "Enter Departure")]
         [Display(Name = "Date of Departure")]
-        public int DateofDeparture { get; set; }
+        public DateTime DateofDeparture { get; set; }
         [Required(ErrorMessage = "Enter Arrival Date")]
         [Display(Name = "Date of Arrival")]
-        public int DateofArrival { get; set; }
+        public DateTime DateofArrival { get; set; }
         public string? Gender { get; set; }
     }
 }
