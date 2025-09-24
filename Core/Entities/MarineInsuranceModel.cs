@@ -8,7 +8,7 @@ namespace RadhaCapitalFinance.Core.Entities
         [Key]
         public int PolicyId { get; set; }   
 
-        [Required(ErrorMessage = "Enter Policy Holder Name")]
+        [Required(ErrorMessage = " Enter Policy Holder Name")]
         [StringLength(150)]
         [Display(Name = "Policy Holder Name")]
         public string? PolicyHolderName { get; set; }  
