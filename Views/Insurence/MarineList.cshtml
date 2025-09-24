@@ -1,0 +1,54 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.MarineInsuranceModel>
+@{
+    ViewData["Title"] = "MarineList";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+    int SrNo = 1;
+}
+
+<h2>MarineList</h2>
+@if(Model != null && Model.Any()){
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                    <th>PolicyHolderName</th>
+                    <th>CargoDescription</th>
+                    <th>DeparturePort</th>
+                    <th>DestinationPort</th>
+                    <th>DepartureDate</th>
+                    <th>ArrivalDate</th>
+                    <th>TransportMode</th>
+                    <th>SumInsured</th>
+                    <th>Premium</th>
+                    <th>RiskCoverage</th>
+                    <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@SrNo</td>
+                        <td>@item.PolicyHolderName</td>
+                        <td>@item.CargoDescription</td>
+                        <td>@item.DeparturePort</td>
+                        <td>@item.DestinationPort</td>
+                        <td>@item.DepartureDate</td>
+                        <td>@item.ArrivalDate</td>
+                        <td>@item.TransportMode</td>
+                        <td>@item.SumInsured</td>
+                        <td>@item.Premium</td>
+                        <td>@item.RiskCoverage</td>
+                        <td>
+                            <form asp-action="MarineDataDelete" method="post" asp-route-PolicyId="@item.PolicyId">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    SrNo++;
+                }
+            </tbody>
+    </table>
+</div>
+}

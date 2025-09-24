@@ -283,6 +283,26 @@ namespace RadhaCapitalFinance.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task <IActionResult> Commercial(CommercialModel obj)
+        {
+            if (ModelState.IsValid) { 
+            await _commercialService.AddAsync(obj);
+            return RedirectToAction("CommercialList");
+            }
+            return View();
+        }
+        public async Task <IActionResult> CommercialList()
+        {
+            var data = await _commercialService.GetAllDataAsync();
+            return View(data);
+        }
+        [HttpPost]
+        public async Task <IActionResult> CommercialDataDelete(int PolicyId)
+        {
+            await _commercialService.DeleteAsync(PolicyId);
+            return RedirectToAction("CommercialList");
+        }
         public IActionResult MoneyBackPolicy()
         {
             return View();
@@ -290,6 +310,26 @@ namespace RadhaCapitalFinance.Controllers
         public IActionResult Marine()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task <IActionResult> Marine(MarineInsuranceModel obj) 
+        {
+            if (ModelState.IsValid)
+            {
+                await _marineService.AddAsync(obj);
+                return RedirectToAction("MarineList");
+            }
+            return View(obj);
+        }
+        public async Task <IActionResult> MarineList()
+        {
+            var data = await _marineService.GetAllDataAsync();
+            return View(data);
+        }
+        public async Task <IActionResult>  MarineDataDelete(int PolicyId)
+        {
+            await _marineService.DeleteAsync(PolicyId);
+            return RedirectToAction("MarineList");
         }
         public IActionResult HUF()
         {
