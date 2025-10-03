@@ -63,7 +63,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _financeService.AddAsync(obj);
-                return RedirectToAction("List");
+                return RedirectToAction("Finence");
             }
             ViewBag.Products = InsurenceType();
             return View(obj);
@@ -89,7 +89,7 @@ namespace RadhaCapitalFinance.Controllers
         {
             if (ModelState.IsValid) { 
             await _SIPService .AddAsync(obj);
-            return RedirectToAction("SIPList");
+                return RedirectToAction("SIP");
             }
             return View(obj);
         }
@@ -114,7 +114,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _healthService.AddAsync(obj);
-                return RedirectToAction("HelthList");
+                return RedirectToAction("Health");
             }
             return View(obj);
         }
@@ -138,7 +138,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _retirementService.AddAsync(obj);
-                return RedirectToAction("RetairementList");
+                return RedirectToAction("Retairement");
             }
             return View(obj);
         }
@@ -162,7 +162,7 @@ namespace RadhaCapitalFinance.Controllers
         {
             if (ModelState.IsValid) {
                 await _travelService.AddAsync(obj);
-                return RedirectToAction("TravelList");
+                return RedirectToAction("Travel");
             }
             return View(obj);
         }
@@ -190,7 +190,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _lifeService.AddAsync(obj);
-                return RedirectToAction("LifeList");
+                return RedirectToAction("Life");
             }
             return View(obj);
         }
@@ -215,7 +215,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _carService.AddAsync(obj);
-                return RedirectToAction("CarList");
+                return RedirectToAction("Car");
             }
             return View(obj);
         }
@@ -239,7 +239,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _fireService.AddAsync(obj);
-                return RedirectToAction("FireList");
+                return RedirectToAction("Fire");
             }
             return View(obj);
         }
@@ -264,7 +264,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _propertyService.AddAsync(obj);
-                return RedirectToAction("PropertyList");
+                return RedirectToAction("Property");
             }
             return View(obj);
         }
@@ -288,7 +288,7 @@ namespace RadhaCapitalFinance.Controllers
         {
             if (ModelState.IsValid) { 
             await _commercialService.AddAsync(obj);
-            return RedirectToAction("CommercialList");
+            return RedirectToAction("Commercial");
             }
             return View();
         }
@@ -317,7 +317,7 @@ namespace RadhaCapitalFinance.Controllers
             if (ModelState.IsValid)
             {
                 await _marineService.AddAsync(obj);
-                return RedirectToAction("MarineList");
+                return RedirectToAction("Marine");
             }
             return View(obj);
         }
@@ -326,6 +326,7 @@ namespace RadhaCapitalFinance.Controllers
             var data = await _marineService.GetAllDataAsync();
             return View(data);
         }
+        [HttpPost]
         public async Task <IActionResult>  MarineDataDelete(int PolicyId)
         {
             await _marineService.DeleteAsync(PolicyId);
