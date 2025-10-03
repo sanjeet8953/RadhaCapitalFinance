@@ -6,9 +6,9 @@ namespace RadhaCapitalFinance.Core.Entities
     public class MarineInsuranceModel
     {
         [Key]
-        public int PolicyId { get; set; }   
+        public int PolicyId { get;  set; }   
 
-        [Required(ErrorMessage = "Enter Policy Holder Name")]
+        [Required(ErrorMessage = " Enter Policy Holder Name")]
         [StringLength(150)]
         [Display(Name = "Policy Holder Name")]
         public string? PolicyHolderName { get; set; }  

@@ -181,7 +181,7 @@ namespace RadhaCapitalFinance.Controllers
         }
         public IActionResult life()
         {
-            LifeInsurenceModel obj = new LifeInsurenceModel();
+            LifeInsurenceModel obj = new  LifeInsurenceModel();
             return View();
         }
         [HttpPost]

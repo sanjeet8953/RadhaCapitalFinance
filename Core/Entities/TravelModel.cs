@@ -6,7 +6,7 @@ namespace RadhaCapitalFinance.Core.Entities
     public class TravelModel
     {
         [Key]
-        public int TravelId { get; set; }
+        public int TravelId  { get; set; }
         [Column(TypeName = "varchar(100)")]
         [Required(ErrorMessage = "Enter your Name")]
         public string? Name { get; set; }
