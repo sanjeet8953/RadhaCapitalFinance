@@ -99,7 +99,7 @@ namespace RadhaCapitalFinance.Controllers
                     //HttpContext.Session.SetString("UserRole", user.Role); 
                     //HttpContext.Session.SetString("UserEmail", user.Email);
 
-                    return RedirectToAction("Ragistration", "Admin");
+                    return RedirectToAction("Dashbord", "Admin");
                 }
                 else
                 {
