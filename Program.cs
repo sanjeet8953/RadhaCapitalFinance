@@ -1,45 +1,45 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 using RadhaCapitalFinance.Core.Entities;
 using RadhaCapitalFinance.Core.Interfaces;
 using RadhaCapitalFinance.Services;
-using Npgsql.EntityFrameworkCore;
 
-namespace RadhaCapitalFinance
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<FinanceDBContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
+
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+
+// 👇 Session services
+builder.Services.AddDistributedMemoryCache(); // in-memory cache
+builder.Services.AddSession(options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+    options.IdleTimeout = TimeSpan.FromMinutes(180);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<FinanceDBContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
+var app = builder.Build();
 
-
-            builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
-            var app = builder.Build();
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Insurence}/{action=Finence}/{id?}");
-
-            app.Run();
-        }
-    }
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseSession();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Insurence}/{action=Finence}/{id?}");
+
+app.Run();

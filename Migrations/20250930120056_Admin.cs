@@ -7,11 +7,30 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace RadhaCapitalFinance.Migrations
 {
     /// <inheritdoc />
-    public partial class Initilcreate : Migration
+    public partial class Admin : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AdminName = table.Column<string>(type: "text", nullable: true),
+                    DOB = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    MobailNo = table.Column<string>(type: "text", nullable: true),
+                    Email = table.Column<string>(type: "text", nullable: true),
+                    Password = table.Column<string>(type: "text", nullable: true),
+                    ConformPassword = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admin", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Car",
                 columns: table => new
@@ -26,7 +45,7 @@ namespace RadhaCapitalFinance.Migrations
                     FuelType = table.Column<string>(type: "text", nullable: false),
                     SeatingCapacity = table.Column<int>(type: "integer", nullable: false),
                     Color = table.Column<string>(type: "text", nullable: false),
-                    InsurenceType = table.Column<decimal>(type: "numeric", nullable: false)
+                    InsurenceType = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -118,7 +137,7 @@ namespace RadhaCapitalFinance.Migrations
                     PolicyId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     PolicyHolderName = table.Column<string>(type: "varchar(100)", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "date", nullable: false),
                     Gender = table.Column<string>(type: "text", nullable: false),
                     Address = table.Column<string>(type: "varchar(100)", nullable: false),
                     MobailNo = table.Column<string>(type: "varchar(20)", nullable: false),
@@ -126,7 +145,7 @@ namespace RadhaCapitalFinance.Migrations
                     Pincode = table.Column<string>(type: "text", nullable: true),
                     NomineeName = table.Column<string>(type: "varchar(50)", nullable: false),
                     NomineeRelation = table.Column<string>(type: "varchar(50)", nullable: false),
-                    PolicyStartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    PolicyStartDate = table.Column<DateTime>(type: "date", nullable: false),
                     SumAssured = table.Column<decimal>(type: "numeric", nullable: false),
                     Premium = table.Column<decimal>(type: "numeric", nullable: false),
                     PremiumMode = table.Column<string>(type: "text", nullable: false)
@@ -223,8 +242,8 @@ namespace RadhaCapitalFinance.Migrations
                     Email = table.Column<string>(type: "varchar(60)", nullable: false),
                     Address = table.Column<string>(type: "varchar(100)", nullable: false),
                     TotalMembers = table.Column<int>(type: "integer", nullable: false),
-                    DateofDeparture = table.Column<int>(type: "integer", nullable: false),
-                    DateofArrival = table.Column<int>(type: "integer", nullable: false),
+                    DateofDeparture = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DateofArrival = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Gender = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -236,6 +255,9 @@ namespace RadhaCapitalFinance.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admin");
+
             migrationBuilder.DropTable(
                 name: "Car");
 

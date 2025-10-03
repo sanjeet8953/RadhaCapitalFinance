@@ -35,5 +35,16 @@ namespace RadhaCapitalFinance.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<T?> GetByIdAsync(int id)  // <-- sirf ek baar
+        {
+            return await _dbSet.FindAsync(id);
+        }
+
+        public async Task UpdateAsync(T model)
+        {
+            _dbSet.Update(model);
+            await _context.SaveChangesAsync();
+        }
     }
 }

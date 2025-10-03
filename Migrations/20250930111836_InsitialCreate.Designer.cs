@@ -12,8 +12,8 @@ using RadhaCapitalFinance.Core.Entities;
 namespace RadhaCapitalFinance.Migrations
 {
     [DbContext(typeof(FinanceDBContext))]
-    [Migration("20250916074851_Initilcreate")]
-    partial class Initilcreate
+    [Migration("20250930111836_InsitialCreate")]
+    partial class InsitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,47 @@ namespace RadhaCapitalFinance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("RadhaCapitalFinance.Core.Entities.AdminModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConformPassword")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MobailNo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admin");
+                });
 
             modelBuilder.Entity("RadhaCapitalFinance.Core.Entities.CarModel", b =>
                 {
@@ -50,8 +91,8 @@ namespace RadhaCapitalFinance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal>("InsurenceType")
-                        .HasColumnType("numeric");
+                    b.Property<string>("InsurenceType")
+                        .HasColumnType("text");
 
                     b.Property<int>("ManufacturingYear")
                         .HasColumnType("integer");
@@ -252,7 +293,7 @@ namespace RadhaCapitalFinance.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -282,7 +323,7 @@ namespace RadhaCapitalFinance.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("PolicyStartDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("date");
 
                     b.Property<decimal>("Premium")
                         .HasColumnType("numeric");
@@ -469,11 +510,11 @@ namespace RadhaCapitalFinance.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("DateofArrival")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("DateofArrival")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("DateofDeparture")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("DateofDeparture")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()

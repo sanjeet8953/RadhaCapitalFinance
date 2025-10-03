@@ -12,8 +12,8 @@ using RadhaCapitalFinance.Core.Entities;
 namespace RadhaCapitalFinance.Migrations
 {
     [DbContext(typeof(FinanceDBContext))]
-    [Migration("20250923104816_changedate")]
-    partial class changedate
+    [Migration("20250930115309_RemoveCarTable")]
+    partial class RemoveCarTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,40 @@ namespace RadhaCapitalFinance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("RadhaCapitalFinance.Core.Entities.AdminModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConformPassword")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MobailNo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admin");
+                });
 
             modelBuilder.Entity("RadhaCapitalFinance.Core.Entities.CarModel", b =>
                 {
@@ -50,8 +84,8 @@ namespace RadhaCapitalFinance.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<decimal>("InsurenceType")
-                        .HasColumnType("numeric");
+                    b.Property<string>("InsurenceType")
+                        .HasColumnType("text");
 
                     b.Property<int>("ManufacturingYear")
                         .HasColumnType("integer");
