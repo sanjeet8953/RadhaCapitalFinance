@@ -33,8 +33,8 @@
 				<td>@item.Email</td>
 				<td>@item.Address</td>
 				<td>@item.TotalMembers</td>
-				<td>@item.DateofDeparture.ToString("dd/mm/yyyy")</td>
-					<td>@item.DateofArrival.ToString("dd/mm/yyyy")</td>
+				<td>@item.DateofDeparture.ToString("dd/MM/yyyy")</td>
+					<td>@item.DateofArrival.ToString("dd/MM/yyyy")</td>
 				<td>@item.Gender</td>
 				<td>
 					<form asp-action="TravelDataDelete" method="post" asp-route-TravelId="@item.TravelId">
