@@ -1,4 +1,5 @@
-﻿using RadhaCapitalFinance.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using RadhaCapitalFinance.Core.Entities;
 
 namespace RadhaCapitalFinance.Core.Interfaces
 {
@@ -6,7 +7,10 @@ namespace RadhaCapitalFinance.Core.Interfaces
     {
         Task<IEnumerable<T>> GetAllDataAsync();
         Task AddAsync(T model);
+        Task<T?> GetByIdAsync(int id);
+        Task UpdateAsync(T model);
         Task DeleteAsync(int id);
+        
     }
 
 }

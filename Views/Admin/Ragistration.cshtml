@@ -1,0 +1,60 @@
+﻿@model RadhaCapitalFinance.Core.Entities.AdminModel
+@{
+    ViewData["Title"] = "Ragistration";
+    Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+}
+<style>
+    body{
+        background-color: #E2EAF4;
+    }
+</style>
+<div class="row">
+    <div class="col-12 col-md-5 mx-md-auto">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="color:darkred;">Ragistration</h4>
+
+                <form asp-action="Ragistration" method="post">
+                    @Html.HiddenFor(m => m.Id)
+                    @Html.LabelFor(m => m.AdminName, new { @class = "form-lable" })
+                    @Html.TextBoxFor(m => m.AdminName, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.DOB, new { @class = "form-lable" })
+                    @Html.TextBoxFor(m => m.DOB, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.MobailNo, new { @class = "form-lable " })
+                    @Html.TextBoxFor(m => m.MobailNo, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.Email, new { @class = "form-lable " })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.Password, new { @class = "form-lable " })
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.ConformPassword, new { @class = "form-lable " })
+                    @Html.TextBoxFor(m => m.ConformPassword, new { @class = "form-control" })
+                    <div  style="display: inline-block; margin: 20px 15px 0 0;">
+                        <label class="form-label">Gender</label><br />
+                        <label>
+                            @Html.RadioButtonFor(m => m.Gender, "Male", new { @class = "fg-input-radio" })
+                            <span class="fg-label-radio">Male</span>
+                        </label>
+                    </div>
+
+                    <div class="fg" style="display: inline-block;">
+                        <label>
+                            @Html.RadioButtonFor(m => m.Gender, "Female", new { @class = "fg-input-radio" })
+                            <span class="fg-label-radio">Female</span>
+                        </label>
+                        </div>
+                    <button type="submit" class="btn btn-success w-100 mt-4">
+                        @(Model != null && Model.Id > 0 ? "Update" : "Submit")
+
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>

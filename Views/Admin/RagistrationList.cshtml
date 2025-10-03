@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RadhaCapitalFinance.Core.Entities.AdminModel>
+@{
+	ViewData["Title"] = "RagistrationList";
+	Layout = "~/Views/Shared/_InsurenceLayout.cshtml";
+	int SrNo = 1;
+}
+
+<h3>RagistrationList</h3>
+@if (Model != null && Model.Any())
+{
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Sr No</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@SrNo</td>
+						<td>@item.Email</td>
+						<td>@item.Password</td>
+						<td>
+							<a asp-action="AdminEdit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+							<form asp-action="AdminDataDelete" asp-route-id="@item.Id" method="post" style="display:inline">
+								<button type="submit" class="btn btn-sm btn-danger"
+										onclick="return confirm('Are you sure you want to delete this record?');">
+									Delete
+								</button>
+							</form>
+						</td>
+					</tr>
+					SrNo++;
+				}
+			</tbody>
+		</table>
+	</div>
+}
