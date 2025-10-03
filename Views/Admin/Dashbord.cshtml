@@ -2,12 +2,33 @@
 @{
     ViewData["Title"] = "Dashbord";
 }
+<style>
+    .list-group-item a{
+        text-decoration:none;
+        color:black;
+       
+    }
+
+    .list-group{
+        border-radius: 20px;
+      
+      
+    }
+
+    .list-group-item:nth-child(odd) {
+        background-color: #B1EFF1;
+    }
+
+    .list-group-item:nth-child(even) {
+        background-color: #e9ecef;
+    }
+</style>
 <h2>Welcome, Admin!</h2>
 
 <div class="row">
     <div class="col-md-3">
         <!-- Sidebar -->
-        <ul class="list-group">
+        <ul class="list-group fw-bold">
             <li class="list-group-item"><a href="/Insurence/List">Finance Insurance</a></li>
             <li class="list-group-item"><a href="/Insurence/HelthList">Health Insurance</a></li>
             <li class="list-group-item"><a href="/Insurence/CarList">Car Insurance</a></li>
@@ -20,9 +41,5 @@
             <li class="list-group-item"><a href="/Insurence/RetairementList">Retirement Insurance</a></li>
             <li class="list-group-item"><a href="/Insurence/SIPList">SIP Plan</a></li>
         </ul>
-    </div>
-    <div class="col-md-9">
-        <!-- Main Content -->
-        <h4>Select any Insurance from the left menu</h4>
     </div>
 </div>
